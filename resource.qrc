@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="NewFile">images/NewFile.png</file>
+        <file alias="OpenFile">images/OpenFile.png</file>
+        <file alias="schema.xsd">xml/schema.xsd</file>
+    </qresource>
+</RCC>

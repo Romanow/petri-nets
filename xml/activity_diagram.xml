@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<activity_diagram>
+	<states>
+		<state name = "begin" id = "1" type = "init">
+			<outgoing>
+				<transition idref = "trans1"/>
+			</outgoing>
+		</state>
+		<state name = "action1" id = "2" type = "action">
+			<incoming>
+				<transition idref = "trans1"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans2"/>
+			</outgoing>
+			<expression>a = a + 1</expression>
+		</state>
+		<state name = "action2" id = "3" type = "condition">
+			<expression>a = 2 * a</expression>
+			<outgoing>
+				<transition idref = "trans3"/>
+			</outgoing>
+			<incoming>
+				<transition idref = "trans2"/>
+			</incoming>
+		</state>
+		<state name = "final" id = "4" type = "final">
+			<incoming>
+				<transition idref = "trans3"/>
+			</incoming>
+		</state>
+	</states>
+	<transitions>
+		<transition id = "trans1">
+			<guard>a == 5</guard>
+			<source>
+				<state idref = "1"/>
+			</source>
+			<target>
+				<state idref = "2"/>
+			</target>
+		</transition>
+		<transition id = "trans2">
+			<source>
+				<state idref = "2"/>
+			</source>
+			<target>
+				<state idref = "3"/>
+			</target>
+		</transition>
+		<transition id = "trans3">
+			<target>
+				<state idref = "4"/>
+			</target>
+			<source>
+				<state idref = "3"/>
+			</source>
+			<guard>a == 5</guard>
+		</transition>
+	</transitions>
+</activity_diagram>
