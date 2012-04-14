@@ -21,6 +21,8 @@ public:
 private:
     QGraphicsScene * scene;
     QGraphicsView * view;
+	DiagramItemList * itemList;
+	DiagramTransitionList * transitionList;
 };
 
 #endif // GRAPHICVIEW_H

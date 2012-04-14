@@ -119,7 +119,7 @@ bool XMLEngine::parseStates(QXmlStreamReader * reader, StateList &states, Transi
 
 			parseState(reader, state, transitions);
 
-			states.addState(state);
+			states.append(state);
 		}
 	}
 
@@ -152,13 +152,16 @@ bool XMLEngine::parseIncomingTransitions(QXmlStreamReader * reader, State * stat
 {
 	while (reader->readNextStartElement())
 	{
-		QString name = reader->attributes().value("idref").toString();
+		QString id = reader->attributes().value("idref").toString();
 		reader->readNextStartElement();
 
-		Transition * transition = new Transition(name);
+		Transition * transition = transitions.find(id);
+		if (!transition)
+		{
+			transition = new Transition(id);
+			transitions.append(transition);
+		}
 		state->addIncomingTransition(transition);
-
-		transitions.addTransition(transition);
 	}
 
 	return !reader->hasError();
@@ -168,13 +171,16 @@ bool XMLEngine::parseOutgoingTransitions(QXmlStreamReader * reader, State * stat
 {
 	while (reader->readNextStartElement())
 	{
-		QString name = reader->attributes().value("idref").toString();
+		QString id = reader->attributes().value("idref").toString();
 		reader->readNextStartElement();
 
-		Transition * transition = new Transition(name);
+		Transition * transition = transitions.find(id);
+		if (!transition)
+		{
+			transition = new Transition(id);
+			transitions.append(transition);
+		}
 		state->addOutgoingTransition(transition);
-
-		transitions.addTransition(transition);
 	}
 
 	return !reader->hasError();
@@ -214,11 +220,11 @@ bool XMLEngine::parseTransition(QXmlStreamReader * reader, Transition * transiti
 	{
 		if (compare(reader->name(), "source"))
 		{
-			result &= parseSourceStates(reader, transition, states);
+			result &= parseSourceState(reader, transition, states);
 		}
 		else if (compare(reader->name(), "target"))
 		{
-			result &= parseTargetStates(reader, transition, states);
+			result &= parseTargetState(reader, transition, states);
 		}
 		else if (compare(reader->name(), "guard"))
 		{
@@ -228,7 +234,7 @@ bool XMLEngine::parseTransition(QXmlStreamReader * reader, Transition * transiti
 	return result & !reader->hasError();
 }
 
-bool XMLEngine::parseSourceStates(QXmlStreamReader * reader, Transition * transition, StateList &states)
+bool XMLEngine::parseSourceState(QXmlStreamReader * reader, Transition * transition, StateList &states)
 {
 	bool result = true;
 	while (reader->readNextStartElement())
@@ -246,9 +252,9 @@ bool XMLEngine::parseSourceStates(QXmlStreamReader * reader, Transition * transi
 	return result & !reader->hasError();
 }
 
-bool XMLEngine::parseTargetStates(QXmlStreamReader * reader, Transition * transition, StateList &states)
+bool XMLEngine::parseTargetState(QXmlStreamReader * reader, Transition * transition, StateList &states)
 {
-	bool result;
+	bool result = true;
 	while (reader->readNextStartElement())
 	{
 		QString stateId = reader->attributes().value("idref").toString();

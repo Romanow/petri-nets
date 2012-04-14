@@ -17,25 +17,22 @@ public:
 	static State * create(const QString &name, const QString &id, const QString &type);
 };
 
-class StateList
+class StateList : public QList<State *>
 {
 public:
-	void addState(State * state);
+	void append(State * state);
+
 	State * find(const QString &id);
 	QList<State *> find(const Type type);
 
-private:
-	QList<State *> states;
 };
 
-class TransitionList
+class TransitionList : public QList<Transition *>
 {
 public:
-	void addTransition(Transition * transition);
+	void append(Transition * transition);
 	Transition * find(const QString &id);
 
-private:
-	QList<Transition *> transitions;
 };
 
 class Transition
@@ -65,6 +62,7 @@ public:
 	Type type() { return m_type; }
 	QString name() { return m_name; }
 	QString id() { return m_id; }
+
 	QList<Transition *> &outgoing() { return m_outgoing; }
 	QList<Transition *> &incoming() { return m_incoming; }
 

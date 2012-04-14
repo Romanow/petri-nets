@@ -2,16 +2,37 @@
 #define DIAGRAMITEM_H
 
 #include <QGraphicsItem>
+#include <QGraphicsSceneMouseEvent>
 
 class State;
+class DiagramItem;
+
+class DiagramTransition : public QGraphicsItem
+{
+public:
+	DiagramTransition(DiagramItem * source, DiagramItem * target);
+
+	QRectF boundingRect() const;
+	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
+
+	bool compareState(State * state1, State * state2);
+
+private:
+	DiagramItem * source, * target;
+};
 
 class DiagramItem : public QGraphicsItem
 {
 public:
 	DiagramItem(State * state = 0);
+	void addIncoming(DiagramTransition * transition);
+	void addOutgoing(DiagramTransition * transition);
+	bool compareState(State * another);
 
 private:
 	State * state;
+	QList<DiagramTransition *> incoming;
+	QList<DiagramTransition *> outgoing;
 };
 
 class DiagramBeginItem : public DiagramItem
@@ -71,18 +92,16 @@ public:
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 };
 
-class DiagramTransition : public QGraphicsItem
+class DiagramItemList : public QList<DiagramItem *>
 {
 public:
-	DiagramTransition(DiagramItem * sorce);
+	DiagramItem * find(State * state);
+};
 
-	QRectF boundingRect() const;
-	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
-
-private:
-	DiagramItem * source;
-	QList<DiagramItem *> incoming;
-	QList<DiagramItem *> outgoing;
+class DiagramTransitionList : public QList<DiagramTransition *>
+{
+public:
+	DiagramTransition * find(State * state1, State * state2);
 };
 
 #endif // DIAGRAMITEM_H

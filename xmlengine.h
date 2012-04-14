@@ -91,8 +91,8 @@ private:
 
 	bool parseTransitions(QXmlStreamReader * reader, StateList &states, TransitionList &transitions);
 	bool parseTransition(QXmlStreamReader * reader, Transition * transition, StateList &states);
-	bool parseSourceStates(QXmlStreamReader * reader, Transition * transition, StateList &states);
-	bool parseTargetStates(QXmlStreamReader * reader, Transition * transition, StateList &states);
+	bool parseSourceState(QXmlStreamReader * reader, Transition * transition, StateList &states);
+	bool parseTargetState(QXmlStreamReader * reader, Transition * transition, StateList &states);
 	bool parseGuardExpression(QXmlStreamReader * reader, Transition * transition);
 
 	XMLValidator * validator;

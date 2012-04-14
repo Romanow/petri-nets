@@ -1,23 +1,21 @@
 #include "state.h"
 
-#include <QDebug>
-
 bool compare(const QString &a, const QString &b)
 {
 	return !a.compare(b, Qt::CaseInsensitive);
 }
 
-void StateList::addState(State * state)
+void StateList::append(State * state)
 {
 	if (!find(state->id()))
-		states.append(state);
+		push_back(state);
 }
 
 State * StateList::find(const QString &id)
 {
-	foreach (State * state, states)
-		if (state->id() == id)
-			return state;
+	for (QList<State *>::iterator iter = begin(); iter != end(); iter++)
+		if ((* iter)->id() == id)
+			return (* iter);
 
 	return 0;
 }
@@ -26,24 +24,24 @@ State * StateList::find(const QString &id)
 QList<State *> StateList::find(const Type type)
 {
 	QList<State *> list;
-	foreach (State * state, states)
-		if (state->type() == type)
-			list.append(state);
+	for (QList<State *>::iterator iter = begin(); iter != end(); iter++)
+		if ((* iter)->type() == type)
+			list.append((* iter));
 
 	return list;
 }
 
-void TransitionList::addTransition(Transition * transition)
+void TransitionList::append(Transition * transition)
 {
 	if (!find(transition->id()))
-		transitions.append(transition);
+		push_back(transition);
 }
 
 Transition * TransitionList::find(const QString &id)
 {
-	foreach (Transition * transition, transitions)
-		if (transition->id() == id)
-			return transition;
+	for (QList<Transition *>::iterator iter = begin(); iter != end(); iter++)
+		if ((* iter)->id() == id)
+			return (* iter);
 
 	return 0;
 }

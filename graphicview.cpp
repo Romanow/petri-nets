@@ -1,9 +1,13 @@
 #include "graphicview.h"
 
+#include <QDebug>
 #include <QVBoxLayout>
 
 GraphicView::GraphicView(QWidget * parent) : QWidget(parent)
 {
+	itemList = new DiagramItemList;
+	transitionList = new DiagramTransitionList;
+
     scene = new QGraphicsScene;
     view = new QGraphicsView(scene, this);
 	view->setRenderHint(QPainter::Antialiasing, true);
@@ -18,56 +22,75 @@ GraphicView::GraphicView(QWidget * parent) : QWidget(parent)
 
 GraphicView::~GraphicView()
 {
-    delete scene;
-    delete view;
+	while (!itemList->isEmpty())
+	{
+		DiagramItem * item = itemList->takeFirst();
+		delete item;
+	}
+	delete itemList;
+	delete transitionList;
+
+	delete scene;
+	delete view;
 }
 
 void GraphicView::drawDiagram(StateList &states)
 {
-	QList<int> levelList;
 	QList<State *> queue;
-	queue.append(states.find(begin_state));
-	levelList.append(1);
+	State * state = states.find(begin_state).first();
+	queue.append(state);
 
 	int level = 0;
-	int counter = 0;
-	int middle = 100;
 	while (!queue.isEmpty())
 	{
 		State * state = queue.takeFirst();
+		DiagramItem * item = itemList->find(state);
+		if (!item)
+			item = state->diagramItem();
 
-		levelList.append(state->outgoing().count());
+		foreach (Transition * transition, state->incoming())
+		{
+			State * sourceState = transition->source();
+
+			DiagramItem * sourceItem = itemList->find(sourceState);
+			if (!sourceItem)
+			{
+				sourceItem = sourceState->diagramItem();
+				itemList->append(sourceItem);
+				queue.append(sourceState);
+			}
+
+			if (!transitionList->find(sourceState, state))
+			{
+				DiagramTransition * diagramTransition = new DiagramTransition(sourceItem, item);
+				transitionList->append(diagramTransition);
+				scene->addItem(diagramTransition);
+			}
+		}
+
 		foreach (Transition * transition, state->outgoing())
-			queue.append(transition->target());
-
-		QGraphicsItem * item;
-		switch (state->type())
 		{
-		case begin_state:
-			item = new DiagramBeginItem;
-			break;
+			State * targetState = transition->target();
 
-		case action_state:
-			item = new DiagramActionItem(state);
-			break;
+			DiagramItem * targetItem = itemList->find(targetState);
+			if (!targetItem)
+			{
+				targetItem = targetState->diagramItem();
+				itemList->append(targetItem);
+				queue.append(targetState);
+			}
 
-		case condition_state:
-			item = new DiagramConditionItem;
-			break;
-
-		case final_state:
-			item = new DiagramFinalItem;
-			break;
+			if (!transitionList->find(state, targetState))
+			{
+				DiagramTransition * diagramTransition = new DiagramTransition(item, targetItem);
+				transitionList->append(diagramTransition);
+				scene->addItem(diagramTransition);
+			}
 		}
-
-		item->setPos(middle - (counter / 2) * 40, level * 70);
+		item->setPos(100, level * 50);
 		scene->addItem(item);
+		itemList->append(item);
 
-		if (levelList.first() == ++counter)
-		{
-			levelList.takeFirst();
-			counter = 0;
-			level++;
-		}
+		level++;
 	}
 }

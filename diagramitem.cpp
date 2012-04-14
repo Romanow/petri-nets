@@ -1,11 +1,46 @@
 #include "diagramitem.h"
+#include "state.h"
 
+#include <QDebug>
 #include <QPainter>
+
+DiagramItem * DiagramItemList::find(State * state)
+{
+	for (QList<DiagramItem *>::iterator iter = begin(); iter != end(); iter++)
+		if ((* iter)->compareState(state))
+			return (* iter);
+
+	return 0;
+}
+
+DiagramTransition * DiagramTransitionList::find(State * source, State * target)
+{
+	for (QList<DiagramTransition *>::iterator iter = begin(); iter != end(); iter++)
+		if ((* iter)->compareState(source, target))
+			return (* iter);
+
+	return 0;
+}
 
 DiagramItem::DiagramItem(State * state) : state(state)
 {
 	setFlags(ItemIsSelectable | ItemIsMovable);
 	setAcceptsHoverEvents(true);
+}
+
+bool DiagramItem::compareState(State * another)
+{
+	return state->id() == another->id();
+}
+
+void DiagramItem::addIncoming(DiagramTransition * transition)
+{
+	incoming.append(transition);
+}
+
+void DiagramItem::addOutgoing(DiagramTransition * transition)
+{
+	outgoing.append(transition);
 }
 
 // Diagram begin item
@@ -95,11 +130,25 @@ void DiagramForkItem::paint(QPainter * painter, const QStyleOptionGraphicsItem *
 
 // Diagram transition
 
-DiagramTransition::DiagramTransition(DiagramItem * sorce) : source(source) {}
+DiagramTransition::DiagramTransition(DiagramItem * source, DiagramItem * target) : source(source), target(target) {}
 
-QRectF DiagramTransition::boundingRect() const {}
+QRectF DiagramTransition::boundingRect() const
+{
+	int penWidth = 1;
+	QPointF p1 = source->pos();
+	QPointF p2 = target->pos();
+
+	return QRectF(0, 0, abs(p1.x() + p2.x()) + penWidth, abs(p1.y() + p2.y()) + penWidth);
+}
 
 void DiagramTransition::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
+	QPointF p1 = source->pos();
+	QPointF p2 = target->pos();
+	painter->drawLine(p1, p2);
+}
 
+bool DiagramTransition::compareState(State * s, State * t)
+{
+	return (source->compareState(s) && target->compareState(t));
 }
