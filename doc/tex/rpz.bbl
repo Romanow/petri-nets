@@ -1,0 +1,78 @@
+\begin{thebibliography}{1}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{Parondjanov1}
+\selectlanguageifdefined{english}
+\BibEmph{Д.,~Паронджанов~В.} Теоретические
+  основы языка ДРАКОН~/ Паронджанов~В.~Д. ---
+\newblock М.: Новая книга, 1995.
+
+\bibitem{Ermakov}
+\selectlanguageifdefined{english}
+\BibEmph{Ермаков И.~Е.,~Жигуненко Н.~А.} Двумерное
+  структурное программирование; класс
+  устремлённых графов. (Теоретические
+  изыскания из опыта языка «ДРАКОН»~/
+  Жигуненко Н.~А.~Ермаков И.~Е.~// Сборник
+  трудов V Международной конференции
+  «Инновационные
+  информационно-педагогические технологии
+  в системе ИТ-образования». ---
+\newblock М.: МГУ, 2010. ---
+\newblock Pp.~452--461.
+
+\bibitem{Tugashev}
+\selectlanguageifdefined{english}
+\BibEmph{Тюгашев,~А.~А.} Графические языки
+  программирования и их применение в
+  системах управления реального времени~/
+  А.~А.~Тюгашев. ---
+\newblock Самара: Научный центр РАН, 2009.
+
+\bibitem{Kotov}
+\selectlanguageifdefined{english}
+\BibEmph{В.Е.,~Котов}. Сети Петри~/ Котов~В.Е. ---
+\newblock М.: Наука, 1984.
+
+\bibitem{Piterson}
+\selectlanguageifdefined{english}
+\BibEmph{Дж.,~Питерсон}. Теория сетей Петри и
+  моделирование систем~/ Питерсон~Дж. ---
+\newblock М.: Мир, 1984.
+
+\bibitem{Jensen}
+\selectlanguageifdefined{english}
+\BibEmph{Jensen~K.,~Kristensen~L.M.} Coloured Petri nets. Modelling and
+  validation of concurrent systems~/ Kristensen~L.M.~Jensen~K. ---
+\newblock N.Y.: Springer Dordrecht Heidelberg, 1998.
+
+\bibitem{Shahov}
+\selectlanguageifdefined{english}
+\BibEmph{В.,~Шахов}. Моделирование
+  программно-аппаратных «реактивных»
+  систем раскрашенными сетями Петри~/
+  Шахов~В.~// \BibEmph{RSDN Magazine}. ---
+\newblock 2006. ---
+\newblock no.~3.
+
+\bibitem{Kristensen}
+\selectlanguageifdefined{english}
+\BibEmph{Kristensen~L.M.~Christensen~S.,~Jensen~K.} The practitioner's guide to
+  Coloured Petri Nets~/ Jensen~K.~Kristensen~L.M., Christensen~S. ---
+\newblock N.Y.: Springer, 1998.
+
+\bibitem{Korotkov}
+\selectlanguageifdefined{english}
+\BibEmph{С.В.,~Коротиков}. Применение сетей
+  Петри в разработке программного
+  обеспечения центров дистанционного
+  контроля и управления: Ph.D. thesis~/ НГТУ. ---
+\newblock 2007.
+
+\end{thebibliography}

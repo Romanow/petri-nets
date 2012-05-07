@@ -1,0 +1,37 @@
+% 1. Стиль и язык
+\documentclass[utf8x, 12pt]{G7-32} % Стиль (по умолчанию будет 14pt)
+
+% Остальные стандартные настройки убраны в preamble-std.tex
+\include{preamble-std}
+
+\begin{document}
+
+\frontmatter % выключает нумерацию ВСЕГО; здесь начинаются ненумерованные главы: реферат, введение, глоссарий, сокращения и прочее
+
+% Команды \breakingbeforechapters и \nonbreakingbeforechapters
+% управляют разрывом страницы перед главами.
+% По-умолчанию страница разрывается.
+
+% \nobreakingbeforechapters
+% \breakingbeforechapters
+
+\tableofcontents
+
+% \include{10-defines}
+% \include{11-abbrev}
+
+\include{12-intro}
+
+\mainmatter % это включает нумерацию глав и секций в документе ниже
+
+\include{20-analysis}
+\include{30-design}
+% \include{40-implementation}
+% \include{50-research}
+
+\backmatter
+
+% \include{80-conclusion}
+\include{81-biblio}
+
+\end{document}

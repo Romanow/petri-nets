@@ -1,0 +1,225 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<activity_diagram>
+	<states>
+		<state name = "" id = "begin" type = "init">
+			<outgoing>
+				<transition idref = "trans1"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "condition1" type = "condition">
+			<incoming>
+				<transition idref = "trans1"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans2"/>
+				<transition idref = "trans3"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "condition2" type = "condition">
+			<incoming>
+				<transition idref = "trans2"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans4"/>
+				<transition idref = "trans5"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "condition3" type = "condition">
+			<incoming>
+				<transition idref = "trans3"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans6"/>
+				<transition idref = "trans7"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "action1" type = "action">
+			<incoming>
+				<transition idref = "trans4"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans8"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "action2" type = "action">
+			<incoming>
+				<transition idref = "trans7"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans9"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "action3" type = "action">
+			<incoming>
+				<transition idref = "trans5"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans10"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "action4" type = "action">
+			<incoming>
+				<transition idref = "trans6"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans11"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "fork" type = "fork">
+			<incoming>
+				<transition idref = "trans7"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans12"/>
+				<transition idref = "trans13"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "action5" type = "action">
+			<incoming>
+				<transition idref = "trans13"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans14"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "merge" type = "merge">
+			<incoming>
+				<transition idref = "trans12"/>
+				<transition idref = "trans14"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans15"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "final" type = "final">
+			<incoming>
+				<transition idref = "trans9"/>
+				<transition idref = "trans10"/>
+				<transition idref = "trans11"/>
+				<transition idref = "trans15"/>
+			</incoming>
+		</state>
+	</states>
+	<transitions>
+		<transition id = "trans1">
+			<source>
+				<state idref = "begin"/>
+			</source>
+			<target>
+				<state idref = "condition1"/>
+			</target>
+		</transition>
+		<transition id = "trans2">
+			<source>
+				<state idref = "condition1"/>
+			</source>
+			<target>
+				<state idref = "condition2"/>
+			</target>
+		</transition>
+		<transition id = "trans3">
+			<source>
+				<state idref = "condition1"/>
+			</source>
+			<target>
+				<state idref = "condition3"/>
+			</target>
+		</transition>
+		<transition id = "trans4">
+			<source>
+				<state idref = "condition2"/>
+			</source>
+			<target>
+				<state idref = "action1"/>
+			</target>
+		</transition>
+		<transition id = "trans5">
+			<source>
+				<state idref = "condition2"/>
+			</source>
+			<target>
+				<state idref = "action3"/>
+			</target>
+		</transition>
+		<transition id = "trans6">
+			<source>
+				<state idref = "condition3"/>
+			</source>
+			<target>
+				<state idref = "action4"/>
+			</target>
+		</transition>
+		<transition id = "trans7">
+			<source>
+				<state idref = "condition3"/>
+			</source>
+			<target>
+				<state idref = "fork"/>
+			</target>
+		</transition>
+		<transition id = "trans8">
+			<source>
+				<state idref = "action1"/>
+			</source>
+			<target>
+				<state idref = "action2"/>
+			</target>
+		</transition>
+		<transition id = "trans9">
+			<source>
+				<state idref = "action2"/>
+			</source>
+			<target>
+				<state idref = "final"/>
+			</target>
+		</transition>
+		<transition id = "trans10">
+			<source>
+				<state idref = "action3"/>
+			</source>
+			<target>
+				<state idref = "final"/>
+			</target>
+		</transition>
+		<transition id = "trans11">
+			<source>
+				<state idref = "action4"/>
+			</source>
+			<target>
+				<state idref = "final"/>
+			</target>
+		</transition>
+		<transition id = "trans12">
+			<source>
+				<state idref = "fork"/>
+			</source>
+			<target>
+				<state idref = "merge"/>
+			</target>
+		</transition>
+		<transition id = "trans13">
+			<source>
+				<state idref = "fork"/>
+			</source>
+			<target>
+				<state idref = "action5"/>
+			</target>
+		</transition>
+		<transition id = "trans14">
+			<source>
+				<state idref = "action5"/>
+			</source>
+			<target>
+				<state idref = "merge"/>
+			</target>
+		</transition>
+		<transition id = "trans15">
+			<source>
+				<state idref = "merge"/>
+			</source>
+			<target>
+				<state idref = "final"/>
+			</target>
+		</transition>
+	</transitions>
+</activity_diagram>

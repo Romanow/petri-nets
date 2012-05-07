@@ -13,10 +13,10 @@ DiagramItem * DiagramItemList::find(State * state)
 	return 0;
 }
 
-DiagramTransition * DiagramTransitionList::find(State * source, State * target)
+DiagramTransition * DiagramTransitionList::find(const QString &id)
 {
 	for (QList<DiagramTransition *>::iterator iter = begin(); iter != end(); iter++)
-		if ((* iter)->compareState(source, target))
+		if ((* iter)->id() == id)
 			return (* iter);
 
 	return 0;
@@ -31,16 +31,6 @@ DiagramItem::DiagramItem(State * state) : state(state)
 bool DiagramItem::compareState(State * another)
 {
 	return state->id() == another->id();
-}
-
-void DiagramItem::addIncoming(DiagramTransition * transition)
-{
-	incoming.append(transition);
-}
-
-void DiagramItem::addOutgoing(DiagramTransition * transition)
-{
-	outgoing.append(transition);
 }
 
 // Diagram begin item
@@ -116,39 +106,50 @@ void DiagramConditionItem::paint(QPainter * painter, const QStyleOptionGraphicsI
 
 DiagramMergeItem::DiagramMergeItem(State * state) : DiagramItem(state) {}
 
-QRectF DiagramMergeItem::boundingRect() const {}
+QRectF DiagramMergeItem::boundingRect() const
+{
+	int penWidth = 1;
+	return QRectF(- 40 - penWidth / 2, - 2 - penWidth / 2, 80 + penWidth, 4 + penWidth);
+}
 
-void DiagramMergeItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget) {}
+void DiagramMergeItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
+{
+	painter->setBrush(Qt::SolidPattern);
+	painter->drawRect(- 40, - 2, 80, 4);
+}
 
 // Diagram fork item
 
 DiagramForkItem::DiagramForkItem(State * state) : DiagramItem(state) {}
 
-QRectF DiagramForkItem::boundingRect() const {}
+QRectF DiagramForkItem::boundingRect() const
+{
+	int penWidth = 1;
+	return QRectF(- 40 - penWidth / 2, - 2 - penWidth / 2, 80 + penWidth, 4 + penWidth);
+}
 
-void DiagramForkItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget) {}
+void DiagramForkItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
+{
+	painter->setBrush(Qt::SolidPattern);
+	painter->drawRect(- 40, - 2, 80, 4);
+}
 
 // Diagram transition
 
-DiagramTransition::DiagramTransition(DiagramItem * source, DiagramItem * target) : source(source), target(target) {}
+DiagramTransition::DiagramTransition(const QString &id, DiagramItem * source, DiagramItem * target) : m_id(id), m_source(source), m_target(target) {}
 
 QRectF DiagramTransition::boundingRect() const
 {
 	int penWidth = 1;
-	QPointF p1 = source->pos();
-	QPointF p2 = target->pos();
+	QPointF p1 = m_source->pos();
+	QPointF p2 = m_target->pos();
 
 	return QRectF(0, 0, abs(p1.x() + p2.x()) + penWidth, abs(p1.y() + p2.y()) + penWidth);
 }
 
 void DiagramTransition::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
-	QPointF p1 = source->pos();
-	QPointF p2 = target->pos();
+	QPointF p1 = m_source->pos();
+	QPointF p2 = m_target->pos();
 	painter->drawLine(p1, p2);
-}
-
-bool DiagramTransition::compareState(State * s, State * t)
-{
-	return (source->compareState(s) && target->compareState(t));
 }

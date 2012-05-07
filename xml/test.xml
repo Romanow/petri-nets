@@ -1,0 +1,132 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<activity_diagram>
+	<states>
+		<state name = "" id = "init" type = "init">
+			<outgoing>
+				<transition idref = "trans1"/>
+			</outgoing>
+		</state>
+		<state name = "Cell select" id = "action1" type = "action">
+			<incoming>
+				<transition idref = "trans1"/>
+				<transition idref = "trans7"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans2"/>
+			</outgoing>
+			<expression>player.cell = field.cell</expression>
+		</state>
+		<state name = "" id = "condition1" type = "condition">
+			<incoming>
+				<transition idref = "trans2"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans3"/>
+				<transition idref = "trans4"/>
+			</outgoing>
+		</state>
+		<state name = "Transition to cell" id = "action2" type = "action">
+			<incoming>
+				<transition idref = "trans3"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans5"/>
+			</outgoing>
+			<expression>player.resource = player.resoure + field.resource</expression>
+		</state>
+		<state name = "Take resource for transition" id = "action3" type = "action">
+			<incoming>
+				<transition idref = "trans5"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans6"/>
+			</outgoing>
+			<expression>player.resource = player.resoure - resource</expression>
+		</state>
+		<state name = "" id = "condition2" type = "condition">
+			<incoming>
+				<transition idref = "trans6"/>
+			</incoming>
+			<outgoing>
+				<transition idref = "trans7"/>
+				<transition idref = "trans8"/>
+			</outgoing>
+		</state>
+		<state name = "" id = "final" type = "final">
+			<incoming>
+				<transition idref = "trans4"/>
+				<transition idref = "trans8"/>
+			</incoming>
+		</state>
+	</states>
+	<transitions>
+		<transition id = "trans1">
+			<source>
+				<state idref = "init"/>
+			</source>
+			<target>
+				<state idref = "action1"/>
+			</target>
+		</transition>
+		<transition id = "trans2">
+			<source>
+				<state idref = "action1"/>
+			</source>
+			<target>
+				<state idref = "condition1"/>
+			</target>
+		</transition>
+		<transition id = "trans3">
+			<source>
+				<state idref = "condition1"/>
+			</source>
+			<target>
+				<state idref = "action2"/>
+			</target>
+			<guard>field != 0</guard>
+		</transition>
+		<transition id = "trans4">
+			<source>
+				<state idref = "condition1"/>
+			</source>
+			<target>
+				<state idref = "final"/>
+			</target>
+			<guard>alternative</guard>
+		</transition>
+		<transition id = "trans5">
+			<source>
+				<state idref = "action2"/>
+			</source>
+			<target>
+				<state idref = "action3"/>
+			</target>
+		</transition>
+		<transition id = "trans6">
+			<source>
+				<state idref = "action3"/>
+			</source>
+			<target>
+				<state idref = "condition2"/>
+			</target>
+		</transition>
+		<transition id = "trans7">
+			<source>
+				<state idref = "condition2"/>
+			</source>
+			<target>
+				<state idref = "action1"/>
+			</target>
+			<guard>player.resource >= 0</guard>
+		</transition>
+		<transition id = "trans8">
+			<source>
+				<state idref = "condition2"/>
+			</source>
+			<target>
+				<state idref = "final"/>
+			</target>
+			<guard>alternative</guard>
+		</transition>
+	</transitions>
+</activity_diagram>

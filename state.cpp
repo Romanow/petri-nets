@@ -20,7 +20,6 @@ State * StateList::find(const QString &id)
 	return 0;
 }
 
-
 QList<State *> StateList::find(const Type type)
 {
 	QList<State *> list;

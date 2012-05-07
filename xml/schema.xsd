@@ -29,24 +29,24 @@
         <xs:element ref="incoming"/>
         <xs:element ref="outgoing"/>
       </xs:choice>
-      <xs:attribute name="id" type="xs:integer"/>
-      <xs:attribute name="idref" type="xs:integer"/>
-      <xs:attribute name="name" type="xs:NCName"/>
-      <xs:attribute name="type" type="xs:NCName"/>
+      <xs:attribute name="id" type="xs:string"/>
+      <xs:attribute name="idref" type="xs:string"/>
+      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="type" type="xs:string"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="expression" type="xs:string"/>
   <xs:element name="incoming">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="transition"/>
+        <xs:element maxOccurs="unbounded" ref="transition"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="outgoing">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="transition"/>
+        <xs:element maxOccurs="unbounded" ref="transition"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -57,21 +57,21 @@
         <xs:element ref="source"/>
         <xs:element ref="target"/>
       </xs:choice>
-      <xs:attribute name="id" type="xs:NCName"/>
-      <xs:attribute name="idref" type="xs:NCName"/>
+      <xs:attribute name="id" type="xs:string"/>
+      <xs:attribute name="idref" type="xs:string"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="guard" type="xs:string"/>
   <xs:element name="source">
     <xs:complexType>
-      <xs:sequence>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
         <xs:element ref="state"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="target">
     <xs:complexType>
-      <xs:sequence>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
         <xs:element ref="state"/>
       </xs:sequence>
     </xs:complexType>

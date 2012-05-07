@@ -10,29 +10,26 @@ class DiagramItem;
 class DiagramTransition : public QGraphicsItem
 {
 public:
-	DiagramTransition(DiagramItem * source, DiagramItem * target);
+	DiagramTransition(const QString &id, DiagramItem * source, DiagramItem * target);
 
 	QRectF boundingRect() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 
-	bool compareState(State * state1, State * state2);
+	QString &id() { return m_id; }
 
 private:
-	DiagramItem * source, * target;
+	QString m_id;
+	DiagramItem * m_source, * m_target;
 };
 
 class DiagramItem : public QGraphicsItem
 {
 public:
-	DiagramItem(State * state = 0);
-	void addIncoming(DiagramTransition * transition);
-	void addOutgoing(DiagramTransition * transition);
+	DiagramItem(State * state);
 	bool compareState(State * another);
 
 private:
 	State * state;
-	QList<DiagramTransition *> incoming;
-	QList<DiagramTransition *> outgoing;
 };
 
 class DiagramBeginItem : public DiagramItem
@@ -101,7 +98,7 @@ public:
 class DiagramTransitionList : public QList<DiagramTransition *>
 {
 public:
-	DiagramTransition * find(State * state1, State * state2);
+	DiagramTransition * find(const QString &id);
 };
 
 #endif // DIAGRAMITEM_H

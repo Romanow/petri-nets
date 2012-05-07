@@ -17,7 +17,7 @@ public:
 	static State * create(const QString &name, const QString &id, const QString &type);
 };
 
-class StateList : public QList<State *>
+class StateList : protected QList<State *>
 {
 public:
 	void append(State * state);
@@ -27,7 +27,7 @@ public:
 
 };
 
-class TransitionList : public QList<Transition *>
+class TransitionList : protected QList<Transition *>
 {
 public:
 	void append(Transition * transition);

@@ -15,7 +15,7 @@ MainWindow::MainWindow() : QMainWindow(0)
 	initInterface();
 	initConnections();
 
-	resize(600, 400);
+	resize(1200, 1000);
 	setDesktopCenter();
 }
 

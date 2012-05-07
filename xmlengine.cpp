@@ -21,7 +21,6 @@ XMLValidator::XMLValidator(const QString &fileName)
 	setSchemaFile(fileName);
 }
 
-
 XMLValidator::~XMLValidator()
 {
 	delete schema;
@@ -56,6 +55,9 @@ bool XMLValidator::validate(const QByteArray &data)
 	}
 	else
 		result = false;
+
+	if (!result)
+		qDebug() << line() << column() << message();
 
 	qDebug() << "Validation result" << result;
 
@@ -102,6 +104,8 @@ StateList XMLEngine::parse(const QString &data)
 		}
 		result &= !reader.hasError();
 	}
+
+	qDebug() << "Parse result" << result;
 
 	return states;
 }
