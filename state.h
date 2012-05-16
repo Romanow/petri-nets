@@ -9,7 +9,7 @@
 enum Type { unknown_state, begin_state, action_state, condition_state, fork_state, merge_state, final_state };
 
 class State;
-class Transition;
+class DiagramTransition;
 
 class Factory
 {
@@ -17,9 +17,11 @@ public:
 	static State * create(const QString &name, const QString &id, const QString &type);
 };
 
-class StateList : protected QList<State *>
+class StateList : public QList<State *>
 {
 public:
+	virtual ~StateList();
+
 	void append(State * state);
 
 	State * find(const QString &id);
@@ -27,18 +29,21 @@ public:
 
 };
 
-class TransitionList : protected QList<Transition *>
+class TransitionList : public QList<DiagramTransition *>
 {
 public:
-	void append(Transition * transition);
-	Transition * find(const QString &id);
+	virtual ~TransitionList();
+
+	void append(DiagramTransition * transition);
+	DiagramTransition * find(const QString &id);
 
 };
 
-class Transition
+class DiagramTransition
 {
 public:
-	Transition(const QString &id);
+	DiagramTransition(const QString &id);
+	virtual ~DiagramTransition();
 
 	QString id() { return m_id; }
 	QString guard() { return m_guard; }
@@ -59,17 +64,19 @@ private:
 class State
 {
 public:
+	virtual ~State();
+
 	Type type() { return m_type; }
 	QString name() { return m_name; }
 	QString id() { return m_id; }
 
-	QList<Transition *> &outgoing() { return m_outgoing; }
-	QList<Transition *> &incoming() { return m_incoming; }
+	QList<DiagramTransition *> &outgoing() { return m_outgoing; }
+	QList<DiagramTransition *> &incoming() { return m_incoming; }
 
 	virtual DiagramItem * diagramItem() = 0;
 
-	virtual void addIncomingTransition(Transition * transition);
-	virtual void addOutgoingTransition(Transition * transition);
+	virtual void addIncomingTransition(DiagramTransition * transition);
+	virtual void addOutgoingTransition(DiagramTransition * transition);
 	virtual void setExpression(const QString &expression);
 
 protected:
@@ -78,21 +85,21 @@ protected:
 	Type m_type;
 	QString m_name, m_id;
 
-	QList<Transition *> m_incoming;
-	QList<Transition *> m_outgoing;
+	QList<DiagramTransition *> m_incoming;
+	QList<DiagramTransition *> m_outgoing;
 };
 
-class Begin : public State
+class DiagramBegin : public State
 {
 public:
-	Begin(const QString &name, const QString &id);
+	DiagramBegin(const QString &name, const QString &id);
 	DiagramItem * diagramItem();
 };
 
-class Action : public State
+class DiagramAction : public State
 {
 public:
-	Action(const QString &name, const QString &id);
+	DiagramAction(const QString &name, const QString &id);
 	DiagramItem * diagramItem();
 
 	void setExpression(const QString &expression);
@@ -102,10 +109,10 @@ private:
 	QString m_expression;
 };
 
-class Condition: public State
+class DiagramCondition: public State
 {
 public:
-	Condition(const QString &name, const QString &id);
+	DiagramCondition(const QString &name, const QString &id);
 	DiagramItem * diagramItem();
 };
 
@@ -116,17 +123,17 @@ public:
 	DiagramItem * diagramItem();
 };
 
-class Merge : public State
+class DiagramMerge : public State
 {
 public:
-	Merge(const QString &name, const QString &id);
+	DiagramMerge(const QString &name, const QString &id);
 	DiagramItem * diagramItem();
 };
 
-class Final: public State
+class DiagramFinal: public State
 {
 public:
-	Final(const QString &name, const QString &id);
+	DiagramFinal(const QString &name, const QString &id);
 	DiagramItem * diagramItem();
 };
 

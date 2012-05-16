@@ -80,20 +80,20 @@ public:
 	XMLEngine(const QString &schema);
 	~XMLEngine();
 
-	StateList parse(const QString &data);
+	bool parse(const QString &data, StateList * states, TransitionList * transitions);
 
 private:
-	bool parseStates(QXmlStreamReader * reader, StateList &states, TransitionList &transitions);
-	bool parseState(QXmlStreamReader * reader, State * state, TransitionList &transitions);
-	bool parseIncomingTransitions(QXmlStreamReader * reader, State * state, TransitionList &transitions);
-	bool parseOutgoingTransitions(QXmlStreamReader * reader, State * state, TransitionList &transitions);
+	bool parseStates(QXmlStreamReader * reader, StateList * states, TransitionList * transitions);
+	bool parseState(QXmlStreamReader * reader, State * state, TransitionList * transitions);
+	bool parseIncomingTransitions(QXmlStreamReader * reader, State * state, TransitionList * transitions);
+	bool parseOutgoingTransitions(QXmlStreamReader * reader, State * state, TransitionList * transitions);
 	bool parseExpression(QXmlStreamReader * reader, State * state);
 
-	bool parseTransitions(QXmlStreamReader * reader, StateList &states, TransitionList &transitions);
-	bool parseTransition(QXmlStreamReader * reader, Transition * transition, StateList &states);
-	bool parseSourceState(QXmlStreamReader * reader, Transition * transition, StateList &states);
-	bool parseTargetState(QXmlStreamReader * reader, Transition * transition, StateList &states);
-	bool parseGuardExpression(QXmlStreamReader * reader, Transition * transition);
+	bool parseTransitions(QXmlStreamReader * reader, StateList * states, TransitionList * transitions);
+	bool parseTransition(QXmlStreamReader * reader, DiagramTransition * transition, StateList * states);
+	bool parseSourceState(QXmlStreamReader * reader, DiagramTransition * transition, StateList * states);
+	bool parseTargetState(QXmlStreamReader * reader, DiagramTransition * transition, StateList * states);
+	bool parseGuardExpression(QXmlStreamReader * reader, DiagramTransition * transition);
 
 	XMLValidator * validator;
 };

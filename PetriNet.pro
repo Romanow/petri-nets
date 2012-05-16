@@ -7,7 +7,6 @@ OBJECTS_DIR = obj
 
 SOURCES += \
     main.cpp \
-    manager.cpp \
     mainwindow.cpp \
     textbrowser.cpp \
     syntaxhighlighter.cpp \
@@ -15,10 +14,10 @@ SOURCES += \
     xmlengine.cpp \
     state.cpp \
     graphicview.cpp \
-    diagramitem.cpp
+	diagramitem.cpp \
+    drawer.cpp
 
 HEADERS += \
-    manager.h \
     mainwindow.h \
     textbrowser.h \
     syntaxhighlighter.h \
@@ -26,10 +25,17 @@ HEADERS += \
     xmlengine.h \
     state.h \
     graphicview.h \
-    diagramitem.h
+	diagramitem.h \
+    drawer.h
 
 RESOURCES += \
     resource.qrc
+
+
+
+
+
+
 
 
 

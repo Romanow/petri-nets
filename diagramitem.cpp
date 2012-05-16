@@ -1,26 +1,8 @@
 #include "diagramitem.h"
 #include "state.h"
 
-#include <QDebug>
 #include <QPainter>
-
-DiagramItem * DiagramItemList::find(State * state)
-{
-	for (QList<DiagramItem *>::iterator iter = begin(); iter != end(); iter++)
-		if ((* iter)->compareState(state))
-			return (* iter);
-
-	return 0;
-}
-
-DiagramTransition * DiagramTransitionList::find(const QString &id)
-{
-	for (QList<DiagramTransition *>::iterator iter = begin(); iter != end(); iter++)
-		if ((* iter)->id() == id)
-			return (* iter);
-
-	return 0;
-}
+#include <QGraphicsScene>
 
 DiagramItem::DiagramItem(State * state) : state(state)
 {
@@ -28,9 +10,16 @@ DiagramItem::DiagramItem(State * state) : state(state)
 	setAcceptsHoverEvents(true);
 }
 
-bool DiagramItem::compareState(State * another)
+void DiagramItem::updateTransitions() const {}
+
+void DiagramItem::addIncomingTransition(DiagramTransitionItem * transition)
 {
-	return state->id() == another->id();
+	incoming.append(transition);
+}
+
+void DiagramItem::addOutgoingTransition(DiagramTransitionItem * transition)
+{
+	outgoing.append(transition);
 }
 
 // Diagram begin item
@@ -39,14 +28,21 @@ DiagramBeginItem::DiagramBeginItem(State * state) : DiagramItem(state) {}
 
 QRectF DiagramBeginItem::boundingRect() const
 {
-	double penWidth = 1;
-	return QRectF(- 10 - penWidth / 2, - 10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
+	return QRectF(- 6, - 6, 12, 12);
 }
+
+void DiagramBeginItem::updateTransitions() const {}
 
 void DiagramBeginItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
-	painter->setBrush(Qt::SolidPattern);
+	painter->setBrush(Qt::black);
 	painter->drawEllipse(- 10, - 10, 20, 20);
+}
+
+void DiagramBeginItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
+{
+	QGraphicsItem::mouseMoveEvent(event);
+	scene()->update();
 }
 
 // Diagram final item
@@ -55,15 +51,23 @@ DiagramFinalItem::DiagramFinalItem(State * state) : DiagramItem(state) {}
 
 QRectF DiagramFinalItem::boundingRect() const
 {
-	double penWidth = 1;
-	return QRectF(- 10 - penWidth / 2, - 10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
+	return QRectF(- 6, - 6, 12, 12);
 }
+
+void DiagramFinalItem::updateTransitions() const {}
 
 void DiagramFinalItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
+	painter->setBrush(Qt::white);
 	painter->drawEllipse(- 10, - 10, 20, 20);
-	painter->setBrush(Qt::SolidPattern);
+	painter->setBrush(Qt::black);
 	painter->drawEllipse(- 7, - 7, 14, 14);
+}
+
+void DiagramFinalItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
+{
+	QGraphicsItem::mouseMoveEvent(event);
+	scene()->update();
 }
 
 // Diagram action item
@@ -72,13 +76,26 @@ DiagramActionItem::DiagramActionItem(State * state) : DiagramItem(state) {}
 
 QRectF DiagramActionItem::boundingRect() const
 {
-	double penWidth = 1;
-	return QRectF(- 50 - penWidth / 2, - 15 - penWidth / 2, 100 + penWidth, 30 + penWidth);
+	return QRectF(- 48, - 15, 96, 30);
+}
+
+void DiagramActionItem::updateTransitions() const
+{
+	foreach (DiagramTransitionItem * transition, outgoing)
+		transition->setStartPoint(QPoint(0, - 15));
 }
 
 void DiagramActionItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
+	painter->setBrush(Qt::white);
 	painter->drawRoundedRect(- 50, - 15, 100, 30, 15, 15);
+}
+
+void DiagramActionItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
+{
+	updateTransitions();
+	QGraphicsItem::mouseMoveEvent(event);
+	scene()->update();
 }
 
 // Diagram condition item
@@ -87,19 +104,23 @@ DiagramConditionItem::DiagramConditionItem(State * state) : DiagramItem(state) {
 
 QRectF DiagramConditionItem::boundingRect() const
 {
-	double penWidth = 1;
-	return QRectF(- 15 - penWidth / 2, - 15 - penWidth / 2, 30 + penWidth, 30 + penWidth);
+	return QRectF(- 10, - 10, 20, 20);
 }
+
+void DiagramConditionItem::updateTransitions() const {}
 
 void DiagramConditionItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
 	QPolygon polygon;
-	polygon.setPoints(4,
-					  0, - 15,
-					  15, 0,
-					  0, 15,
-					  - 15, 0);
+	polygon.setPoints(4, 0, - 15, 15, 0, 0, 15, - 15, 0);
+	painter->setBrush(Qt::white);
 	painter->drawPolygon(polygon);
+}
+
+void DiagramConditionItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
+{
+	QGraphicsItem::mouseMoveEvent(event);
+	scene()->update();
 }
 
 // Diagram merge item
@@ -108,14 +129,21 @@ DiagramMergeItem::DiagramMergeItem(State * state) : DiagramItem(state) {}
 
 QRectF DiagramMergeItem::boundingRect() const
 {
-	int penWidth = 1;
-	return QRectF(- 40 - penWidth / 2, - 2 - penWidth / 2, 80 + penWidth, 4 + penWidth);
+	return QRectF(- 40, - 2, 80, 4);
 }
+
+void DiagramMergeItem::updateTransitions() const {}
 
 void DiagramMergeItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
 	painter->setBrush(Qt::SolidPattern);
 	painter->drawRect(- 40, - 2, 80, 4);
+}
+
+void DiagramMergeItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
+{
+	QGraphicsItem::mouseMoveEvent(event);
+	scene()->update();
 }
 
 // Diagram fork item
@@ -124,9 +152,10 @@ DiagramForkItem::DiagramForkItem(State * state) : DiagramItem(state) {}
 
 QRectF DiagramForkItem::boundingRect() const
 {
-	int penWidth = 1;
-	return QRectF(- 40 - penWidth / 2, - 2 - penWidth / 2, 80 + penWidth, 4 + penWidth);
+	return QRectF(- 40, - 2, 80, 4);
 }
+
+void DiagramForkItem::updateTransitions() const {}
 
 void DiagramForkItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
@@ -134,22 +163,50 @@ void DiagramForkItem::paint(QPainter * painter, const QStyleOptionGraphicsItem *
 	painter->drawRect(- 40, - 2, 80, 4);
 }
 
-// Diagram transition
-
-DiagramTransition::DiagramTransition(const QString &id, DiagramItem * source, DiagramItem * target) : m_id(id), m_source(source), m_target(target) {}
-
-QRectF DiagramTransition::boundingRect() const
+void DiagramForkItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
 {
-	int penWidth = 1;
-	QPointF p1 = m_source->pos();
-	QPointF p2 = m_target->pos();
-
-	return QRectF(0, 0, abs(p1.x() + p2.x()) + penWidth, abs(p1.y() + p2.y()) + penWidth);
+	QGraphicsItem::mouseMoveEvent(event);
+	scene()->update();
 }
 
-void DiagramTransition::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
+// Diagram transition
+
+DiagramTransitionItem::DiagramTransitionItem(DiagramItem * source, DiagramItem * target) :
+	source(source), target(target)
 {
-	QPointF p1 = m_source->pos();
-	QPointF p2 = m_target->pos();
-	painter->drawLine(p1, p2);
+	source->addOutgoingTransition(this);
+	source->updateTransitions();
+	target->addIncomingTransition(this);
+	target->updateTransitions();
+}
+
+void DiagramTransitionItem::setStartPoint(const QPoint &point)
+{
+	startPoint = point;
+}
+
+void DiagramTransitionItem::setDestinationPoint(const QPoint &point)
+{
+	destPoint = point;
+}
+
+QRectF DiagramTransitionItem::boundingRect() const {}
+
+void DiagramTransitionItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
+{
+	painter->drawLine(source->pos() - startPoint, target->pos() - destPoint);
+}
+
+DiagramGridItem::DiagramGridItem(QList<QLine> horizontal, QList<QLine> vertical) :
+	horizontal(horizontal), vertical(vertical) {}
+
+QRectF DiagramGridItem::boundingRect() const {}
+
+void DiagramGridItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
+{
+	foreach (QLine line, horizontal)
+		painter->drawLine(120 * line.x1(), 100 * line.y1(), 120 * line.x2(), 100 * line.y2());
+
+	foreach (QLine line, vertical)
+		painter->drawLine(120 * line.x1(), 100 * line.y1(), 120 * line.x2(), 100 * line.y2());
 }

@@ -1,13 +1,13 @@
 #include <QApplication>
 
-#include "manager.h"
+#include "mainwindow.h"
 
 int main(int argc, char ** argv)
 {
 	QApplication app(argc, argv);
 
-	Manager manager;
-	manager.manage();
+	MainWindow window;
+	window.show();
 
 	return app.exec();
 }

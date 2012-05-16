@@ -12,6 +12,9 @@
 
 MainWindow::MainWindow() : QMainWindow(0)
 {
+	states = new StateList;
+	transitions = new TransitionList;
+
 	initInterface();
 	initConnections();
 
@@ -19,16 +22,22 @@ MainWindow::MainWindow() : QMainWindow(0)
 	setDesktopCenter();
 }
 
-MainWindow::~MainWindow() {}
+MainWindow::~MainWindow()
+{
+	delete transitions;
+	delete states;
+}
 
 void MainWindow::initInterface()
 {
-	QSplitter * splitter = new QSplitter(this);
-	browser = new TextBrowser(splitter);
-	graphicView = new GraphicView(splitter);
-	splitter->addWidget(browser);
-	splitter->addWidget(graphicView);
-	setCentralWidget(splitter);
+	tabScroller = new QTabWidget(this);
+	browser = new TextBrowser(tabScroller);
+	tabScroller->addTab(browser, conv("XMI"));
+	diagramView = new GraphicView(tabScroller);
+	tabScroller->addTab(diagramView, conv("Диаграмма"));
+	netView = new GraphicView(tabScroller);
+	tabScroller->addTab(netView, conv("Сеть Петри"));
+	setCentralWidget(tabScroller);
 
 	// Actions
 	// Create new file
@@ -105,19 +114,19 @@ void MainWindow::openFile()
 	}
 }
 
-void MainWindow::openFile(const QString &file)
+void MainWindow::openFile(const QString &fileName)
 {
-	setCurrentFile(file);
-	browser->openFile(file);
+	setCurrentFile(fileName);
 
-	QFile f(file);
-	if (f.open(QIODevice::ReadOnly | QIODevice::Text))
+	QFile file(fileName);
+	if (file.open(QIODevice::ReadOnly | QIODevice::Text))
 	{
-		XMLEngine engine;
-		StateList states = engine.parse(f.readAll());
-		graphicView->drawDiagram(states);
+		QString data = file.readAll();
+		browser->setPlainText(data);
+
+		processData(data);
 	}
-	f.close();
+	file.close();
 }
 
 void MainWindow::openRecentFile()
@@ -139,4 +148,15 @@ void MainWindow::setCurrentFile(const QString &file)
 	settings.setValue("Recent file list", files);
 	bool enabled = updateRecentFileList(recentFileMenu);
 	recentFileMenu->setEnabled(enabled);
+}
+
+void MainWindow::processData(const QString &data)
+{
+	XMLEngine engine;
+	if (engine.parse(data, states, transitions))
+	{
+		PlanarDrawer * planarDrawer = new PlanarDrawer(states);
+		diagramView->drawDiagram(planarDrawer, states);
+		delete planarDrawer;
+	}
 }

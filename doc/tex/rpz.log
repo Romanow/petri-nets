@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.17)  3 MAY 2012 01:04
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.17)  14 MAY 2012 10:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -747,7 +747,11 @@ Package: listings 2007/02/22 1.4 (Carsten Heinz)
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks36
 ) (./rpz.aux
-(./12-intro.aux) (./20-analysis.aux) (./30-design.aux) (./81-biblio.aux))
+(./12-intro.aux) (./20-analysis.aux) (./30-design.aux
+
+LaTeX Warning: Label `F:F1' multiply defined.
+
+) (./81-biblio.aux))
 \openout1 = `rpz.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1071,10 +1075,10 @@ Overfull \hbox (13.23637pt too wide) in alignment at lines 173--183
 \openout2 = `30-design.aux'.
 
  (./30-design.tex
-<include/IDEF0.png, id=294, 774.64406pt x 527.72156pt>
+<include/IDEF0.png, id=305, 774.64406pt x 527.72156pt>
 File: include/IDEF0.png Graphic file (type png)
  <use include/IDEF0.png>
-<include/IDEF0ColouredPetri.png, id=296, 774.64406pt x 527.72156pt>
+<include/IDEF0ColouredPetri.png, id=307, 774.64406pt x 527.72156pt>
 File: include/IDEF0ColouredPetri.png Graphic file (type png)
 
 <use include/IDEF0ColouredPetri.png> [20
@@ -1083,19 +1087,44 @@ File: include/IDEF0ColouredPetri.png Graphic file (type png)
 
  <./include/IDEF0.png (PNG copy)>]
 [21 <./include/IDEF0ColouredPetri.png (PNG copy)>]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 39.
 
-(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
+LaTeX Warning: Command \cyri invalid in math mode on input line 41.
+
+Missing character: There is no и in font cmr12!
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 49.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
+File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+Overfull \hbox (1.59433pt too wide) in paragraph at lines 76--76
+[]            \T2A/cmtt/m/n/12 // Если вершина еще содержится в списке, то удал
+яем ее оттуда,[] 
+ []
+
+[22]
+Overfull \hbox (1.59433pt too wide) in paragraph at lines 76--76
+[]            \T2A/cmtt/m/n/12 // Удаляем первую дугу цикла из графа, тем самым
+ нарушая цикл,[] 
+ []
+
+[23] [24]
+
+LaTeX Warning: Command \CYRG invalid in math mode on input line 145.
+
+Missing character: There is no Г in font cmr12!
+[25]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 159.
+ (/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
 File: koi8-r.def 1999/11/16 v1.0d Input encoding file
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 40.
- [22]
-<include/CompositeActivity.png, id=333, 457.71pt x 174.6525pt>
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 160.
+
+[26] <include/CompositeActivity.png, id=368, 457.71pt x 174.6525pt>
 File: include/CompositeActivity.png Graphic file (type png)
 
-<use include/CompositeActivity.png> [23 <./include/CompositeActivity.png (PNG c
+<use include/CompositeActivity.png> [27 <./include/CompositeActivity.png (PNG c
 opy)>] (/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
 File: koi8-r.def 1999/11/16 v1.0d Input encoding file
 )
@@ -1106,97 +1135,97 @@ File: koi8-r.def 1999/11/16 v1.0d Input encoding file
 File: koi8-r.def 1999/11/16 v1.0d Input encoding file
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 117.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 237.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 117.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 237.
 
-<include/Activity.png, id=342, 54.9553pt x 67.75313pt>
+<include/Activity.png, id=377, 54.9553pt x 67.75313pt>
 File: include/Activity.png Graphic file (type png)
 
 <use include/Activity.png>
-<include/ActivityPetri.png, id=343, 67.75313pt x 80.55093pt>
+<include/ActivityPetri.png, id=378, 67.75313pt x 80.55093pt>
 File: include/ActivityPetri.png Graphic file (type png)
 
 <use include/ActivityPetri.png>
-Overfull \hbox (24.0pt too wide) in paragraph at lines 136--139
+Overfull \hbox (24.0pt too wide) in paragraph at lines 256--259
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--141
+Underfull \hbox (badness 10000) in paragraph at lines 247--261
 
  []
 
-<include/Condition.png, id=344, 66.2475pt x 66.2475pt>
+<include/Condition.png, id=379, 66.2475pt x 66.2475pt>
 File: include/Condition.png Graphic file (type png)
 
 <use include/Condition.png>
-<include/ConditionPetri.png, id=345, 106.89937pt x 82.05656pt>
+<include/ConditionPetri.png, id=380, 106.89937pt x 82.05656pt>
 File: include/ConditionPetri.png Graphic file (type png)
 
 <use include/ConditionPetri.png>
-Overfull \hbox (24.0pt too wide) in paragraph at lines 151--154
+Overfull \hbox (24.0pt too wide) in paragraph at lines 271--274
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--156
+Underfull \hbox (badness 10000) in paragraph at lines 262--276
 
  []
 
-<include/Fork.png, id=346, 42.91031pt x 57.96657pt>
+<include/Fork.png, id=381, 42.91031pt x 57.96657pt>
 File: include/Fork.png Graphic file (type png)
  <use include/Fork.png>
-<include/ForkPetri.png, id=347, 64.74188pt x 77.53969pt>
+<include/ForkPetri.png, id=382, 64.74188pt x 77.53969pt>
 File: include/ForkPetri.png Graphic file (type png)
 
 <use include/ForkPetri.png>
-Overfull \hbox (24.0pt too wide) in paragraph at lines 166--169
+Overfull \hbox (24.0pt too wide) in paragraph at lines 286--289
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--171
+Underfull \hbox (badness 10000) in paragraph at lines 277--291
 
  []
 
-<include/Merge.png, id=348, 42.1575pt x 57.96657pt>
+<include/Merge.png, id=383, 42.1575pt x 57.96657pt>
 File: include/Merge.png Graphic file (type png)
  <use include/Merge.png>
-<include/MergePetri.png, id=349, 62.48344pt x 76.78688pt>
+<include/MergePetri.png, id=384, 62.48344pt x 76.78688pt>
 File: include/MergePetri.png Graphic file (type png)
 
 <use include/MergePetri.png>
-Overfull \hbox (24.0pt too wide) in paragraph at lines 180--183
+Overfull \hbox (24.0pt too wide) in paragraph at lines 300--303
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--185
+Underfull \hbox (badness 10000) in paragraph at lines 292--305
 
  []
 
-[24] [25 <./include/Activity.png (PNG copy)> <./include/ActivityPetri.png (PNG 
+[28] [29 <./include/Activity.png (PNG copy)> <./include/ActivityPetri.png (PNG 
 copy)> <./include/Condition.png (PNG copy)> <./include/ConditionPetri.png (PNG 
 copy)> <./include/Fork.png (PNG copy)> <./include/ForkPetri.png (PNG copy)> <./
 include/Merge.png (PNG copy)> <./include/MergePetri.png (PNG copy)>]
 
-LaTeX Warning: Command \cyrt invalid in math mode on input line 214.
+LaTeX Warning: Command \cyrt invalid in math mode on input line 334.
 
 
-LaTeX Warning: Command \cyro invalid in math mode on input line 214.
+LaTeX Warning: Command \cyro invalid in math mode on input line 334.
 
 Missing character: There is no т in font cmr12!
 Missing character: There is no о in font cmr12!
 
-LaTeX Warning: Command \cyri invalid in math mode on input line 215.
+LaTeX Warning: Command \cyri invalid in math mode on input line 335.
 
 Missing character: There is no и in font cmr12!
-[26]) [27]
+[30]) [31]
 \openout2 = `81-biblio.aux'.
 
  (./81-biblio.tex (./rpz.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 12--15
+Underfull \hbox (badness 7064) in paragraph at lines 12--15
 []\T2A/cmr/m/it/12 Д., Паронджанов В. \T2A/cmr/m/n/12 Теоретические основы язык
 а ДРАКОН /
  []
@@ -1208,12 +1237,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--29
  []
 
 
-Underfull \hbox (badness 3849) in paragraph at lines 45--48
+Underfull \hbox (badness 2698) in paragraph at lines 45--48
 []\T2A/cmr/m/it/12 Дж., Питерсон\T2A/cmr/m/n/12 . Теория сетей Петри и моделиро
 вание систем /
  []
 
-)) [28
+
+Underfull \hbox (badness 4819) in paragraph at lines 57--63
+[]\T2A/cmr/m/it/12 В., Шахов\T2A/cmr/m/n/12 . Моделирование программно-аппаратн
+ых ѕреактивныхї
+ []
+
+)) [32
 
 
 
@@ -1224,40 +1259,45 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 37.
 (./81-biblio.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 37.
 Package rerunfilecheck Info: File `rpz.out' has not changed.
-(rerunfilecheck)             Checksum: 5644659ECDB985CC6C42178690E8A7E7;6793.
+(rerunfilecheck)             Checksum: A4DCA76CE448063089B0562A7EE346A8;7543.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 20102 strings out of 493747
- 323227 string characters out of 3143546
- 439225 words of memory out of 3000000
- 22760 multiletter control sequences out of 15000+200000
- 18143 words of font info for 50 fonts, out of 3000000 for 9000
+ 20136 strings out of 493747
+ 324030 string characters out of 3143546
+ 439403 words of memory out of 3000000
+ 22779 multiletter control sequences out of 15000+200000
+ 18453 words of font info for 51 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  51i,12n,75p,1796b,1559s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc
-}</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
-sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
-ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
-/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/t
-exlive/2010/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loc
-al/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local
-/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/t
-exlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/tex
-live/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texli
-ve/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive
-/2010/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on rpz.pdf (28 pages, 408938 bytes).
+}</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
+cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
+/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
+xlive/2010/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
+l/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/
+texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/te
+xlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texl
+ive/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texliv
+e/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/
+2010/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/20
+10/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on rpz.pdf (32 pages, 475225 bytes).
 PDF statistics:
- 469 PDF objects out of 1000 (max. 8388607)
- 387 compressed objects within 4 object streams
- 122 named destinations out of 1000 (max. 500000)
- 392 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 512 PDF objects out of 1000 (max. 8388607)
+ 423 compressed objects within 5 object streams
+ 131 named destinations out of 1000 (max. 500000)
+ 408 words of extra memory for PDF output out of 10000 (max. 10000000)
 

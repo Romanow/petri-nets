@@ -5,6 +5,7 @@
 #include <QAction>
 #include <QMainWindow>
 
+#include "drawer.h"
 #include "textbrowser.h"
 #include "graphicview.h"
 
@@ -28,9 +29,15 @@ private:
 	bool updateRecentFileList(QMenu * recentFileMenu);
 	void setCurrentFile(const QString &file);
 	void openFile(const QString &file);
+	void processData(const QString &data);
 
+	StateList * states;
+	TransitionList * transitions;
+
+	QTabWidget * tabScroller;
 	TextBrowser * browser;
-	GraphicView * graphicView;
+	GraphicView * diagramView;
+	GraphicView * netView;
 	QMenu * fileMenu;
 	QMenu * recentFileMenu;
 	QAction * actionNewFile;

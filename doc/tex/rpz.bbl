@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \def\selectlanguageifdefined#1{
 \expandafter\ifx\csname date#1\endcsname\relax
 \else\language\csname l@#1\endcsname\fi}
@@ -66,6 +66,14 @@
 \BibEmph{Kristensen~L.M.~Christensen~S.,~Jensen~K.} The practitioner's guide to
   Coloured Petri Nets~/ Jensen~K.~Kristensen~L.M., Christensen~S. ---
 \newblock N.Y.: Springer, 1998.
+
+\bibitem{Battista}
+\selectlanguageifdefined{english}
+\BibEmph{Battista~G.~Garg~A.,~Liotta G. Tamassia R. Tassinari E. Vargiu~F.} An
+  experimental comparison of four graph drawing algorithms~/ Liotta G. Tamassia
+  R. Tassinari E. Vargiu~F.~Battista~G., Garg~A. ---
+\newblock Computational Geometry, 1997. ---
+\newblock Pp.~303--325.
 
 \bibitem{Korotkov}
 \selectlanguageifdefined{english}

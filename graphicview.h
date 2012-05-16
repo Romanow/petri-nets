@@ -6,6 +6,7 @@
 #include <QGraphicsItem>
 
 #include "state.h"
+#include "drawer.h"
 #include "diagramitem.h"
 
 class GraphicView : public QWidget
@@ -13,16 +14,17 @@ class GraphicView : public QWidget
     Q_OBJECT
 
 public:
-    GraphicView(QWidget * parent = 0);
+	GraphicView(QWidget * parent = 0);
     ~GraphicView();
 
-	void drawDiagram(StateList &states);
+	void drawDiagram(PlanarDrawer * drawer, StateList * states);
 
 private:
+	Drawer * drawer;
     QGraphicsScene * scene;
     QGraphicsView * view;
-	DiagramItemList * itemList;
-	DiagramTransitionList * transitionList;
+    QList<DiagramItem *> itemList;
+	QList<DiagramTransitionItem *> transitionList;
 };
 
 #endif // GRAPHICVIEW_H

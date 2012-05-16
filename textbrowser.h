@@ -13,8 +13,6 @@ public:
 	TextBrowser(QWidget * parent = 0);
 	~TextBrowser();
 
-	bool openFile(const QString &fileName);
-
 private:
 	SyntaxHighlighter * syntaxHighlighter;
 };

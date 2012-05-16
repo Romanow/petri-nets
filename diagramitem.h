@@ -7,29 +7,47 @@
 class State;
 class DiagramItem;
 
-class DiagramTransition : public QGraphicsItem
+class DiagramGridItem : public QGraphicsItem
 {
 public:
-	DiagramTransition(const QString &id, DiagramItem * source, DiagramItem * target);
+	DiagramGridItem(QList<QLine> horizontal, QList<QLine> vertical);
 
 	QRectF boundingRect() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 
-	QString &id() { return m_id; }
+private:
+	QList<QLine> horizontal, vertical;
+};
+
+class DiagramTransitionItem : public QGraphicsItem
+{
+public:
+	DiagramTransitionItem(DiagramItem * source, DiagramItem * target);
+
+	void setStartPoint(const QPoint &point);
+	void setDestinationPoint(const QPoint &point);
+
+	QRectF boundingRect() const;
+	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 
 private:
-	QString m_id;
-	DiagramItem * m_source, * m_target;
+	QPoint startPoint, destPoint;
+	DiagramItem * source, * target;
 };
 
 class DiagramItem : public QGraphicsItem
 {
 public:
 	DiagramItem(State * state);
-	bool compareState(State * another);
+	void updateTransitions() const;
+	void addIncomingTransition(DiagramTransitionItem * transition);
+	void addOutgoingTransition(DiagramTransitionItem * transition);
 
-private:
+protected:
+	QList<DiagramTransitionItem *> incoming;
+	QList<DiagramTransitionItem *> outgoing;
 	State * state;
+
 };
 
 class DiagramBeginItem : public DiagramItem
@@ -38,7 +56,11 @@ public:
 	DiagramBeginItem(State * state = 0);
 
 	QRectF boundingRect() const;
+	virtual void updateTransitions() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
+
+protected:
+	virtual void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
 };
 
 class DiagramFinalItem : public DiagramItem
@@ -47,7 +69,11 @@ public:
 	DiagramFinalItem(State * state = 0);
 
 	QRectF boundingRect() const;
+	virtual void updateTransitions() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
+
+protected:
+	virtual void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
 };
 
 class DiagramActionItem : public DiagramItem
@@ -56,10 +82,11 @@ public:
 	DiagramActionItem(State * state = 0);
 
 	QRectF boundingRect() const;
+	virtual void updateTransitions() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 
-private:
-	State * state;
+protected:
+	virtual void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
 };
 
 class DiagramConditionItem : public DiagramItem
@@ -68,7 +95,11 @@ public:
 	DiagramConditionItem(State * state = 0);
 
 	QRectF boundingRect() const;
+	virtual void updateTransitions() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
+
+protected:
+	virtual void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
 };
 
 class DiagramMergeItem : public DiagramItem
@@ -77,7 +108,11 @@ public:
 	DiagramMergeItem(State * state = 0);
 
 	QRectF boundingRect() const;
+	virtual void updateTransitions() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
+
+protected:
+	virtual void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
 };
 
 class DiagramForkItem : public DiagramItem
@@ -86,19 +121,11 @@ public:
 	DiagramForkItem(State * state = 0);
 
 	QRectF boundingRect() const;
+	virtual void updateTransitions() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
-};
 
-class DiagramItemList : public QList<DiagramItem *>
-{
-public:
-	DiagramItem * find(State * state);
-};
-
-class DiagramTransitionList : public QList<DiagramTransition *>
-{
-public:
-	DiagramTransition * find(const QString &id);
+protected:
+	virtual void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
 };
 
 #endif // DIAGRAMITEM_H
