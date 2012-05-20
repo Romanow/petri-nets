@@ -3,5 +3,8 @@
         <file alias="NewFile">images/NewFile.png</file>
         <file alias="OpenFile">images/OpenFile.png</file>
         <file alias="schema.xsd">xml/schema.xsd</file>
+        <file alias="Pause">images/Pause.png</file>
+        <file alias="Play">images/Play.png</file>
+        <file alias="Stop">images/Stop.png</file>
     </qresource>
 </RCC>

@@ -1,6 +1,7 @@
 #ifndef DRAWER_H
 #define DRAWER_H
 
+#include <QMenu>
 #include <QGraphicsScene>
 
 #include "state.h"
@@ -20,14 +21,17 @@ public:
 class PlanarDrawer : public Drawer
 {
 public:
-	PlanarDrawer(StateList * states);
+	PlanarDrawer(StateList * states, QMenu * menu);
 	~PlanarDrawer();
 
 	QGraphicsScene * draw();
 
 private:
+	QMenu * menu;
 	StateList * states;
 
+	int ** removeCycles(int ** matrix, int length);
+	QList<Edge> edgesTrack(int ** matrix, int length, int index, bool used[]);
 	QList<Path> findBaseFaces(int ** matrix, int length, int index, bool used[], QList<int> &track);
 	QList<int> incomingRang(int ** matrix, int length);
 	int * topologicalSort(int ** matrix, int length);

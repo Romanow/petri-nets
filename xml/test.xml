@@ -32,7 +32,7 @@
 			<outgoing>
 				<transition idref = "trans5"/>
 			</outgoing>
-			<expression>player.resource = player.resoure + field.resource</expression>
+			<expression>player.resource = player.resource + field.resource</expression>
 		</state>
 		<state name = "Take resource for transition" id = "action3" type = "action">
 			<incoming>
@@ -41,7 +41,7 @@
 			<outgoing>
 				<transition idref = "trans6"/>
 			</outgoing>
-			<expression>player.resource = player.resoure - resource</expression>
+			<expression>player.resource = player.resource - resource</expression>
 		</state>
 		<state name = "" id = "condition2" type = "condition">
 			<incoming>

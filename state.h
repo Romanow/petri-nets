@@ -6,10 +6,19 @@
 
 #include "diagramitem.h"
 
-enum Type { unknown_state, begin_state, action_state, condition_state, fork_state, merge_state, final_state };
+typedef enum { unknown_state,
+			   begin_state,
+			   action_state,
+			   condition_state,
+			   fork_state,
+			   merge_state,
+			   final_state,
+			   place_node,
+			   transition_node
+			 } StateType;
 
 class State;
-class DiagramTransition;
+class Transition;
 
 class Factory
 {
@@ -22,28 +31,23 @@ class StateList : public QList<State *>
 public:
 	virtual ~StateList();
 
-	void append(State * state);
-
-	State * find(const QString &id);
-	QList<State *> find(const Type type);
-
+	QList<State *> find(const QString &id);
+	QList<State *> find(const StateType type);
 };
 
-class TransitionList : public QList<DiagramTransition *>
+class TransitionList : public QList<Transition *>
 {
 public:
 	virtual ~TransitionList();
 
-	void append(DiagramTransition * transition);
-	DiagramTransition * find(const QString &id);
-
+	QList<Transition *> find(const QString &id);
 };
 
-class DiagramTransition
+class Transition
 {
 public:
-	DiagramTransition(const QString &id);
-	virtual ~DiagramTransition();
+	Transition(const QString &id);
+	virtual ~Transition();
 
 	QString id() { return m_id; }
 	QString guard() { return m_guard; }
@@ -66,27 +70,54 @@ class State
 public:
 	virtual ~State();
 
-	Type type() { return m_type; }
+	StateType type() { return m_type; }
 	QString name() { return m_name; }
 	QString id() { return m_id; }
+	virtual QString expression() {}
 
-	QList<DiagramTransition *> &outgoing() { return m_outgoing; }
-	QList<DiagramTransition *> &incoming() { return m_incoming; }
+	QList<Transition *> &outgoing() { return m_outgoing; }
+	QList<Transition *> &incoming() { return m_incoming; }
 
 	virtual DiagramItem * diagramItem() = 0;
 
-	virtual void addIncomingTransition(DiagramTransition * transition);
-	virtual void addOutgoingTransition(DiagramTransition * transition);
+	virtual void addIncomingTransition(Transition * transition);
+	virtual void addOutgoingTransition(Transition * transition);
 	virtual void setExpression(const QString &expression);
 
 protected:
-	State(const QString &name, const QString &id, Type type);
+	State(const QString &name, const QString &id, StateType type);
 
-	Type m_type;
+	StateType m_type;
 	QString m_name, m_id;
 
-	QList<DiagramTransition *> m_incoming;
-	QList<DiagramTransition *> m_outgoing;
+	QList<Transition *> m_incoming;
+	QList<Transition *> m_outgoing;
+};
+
+class NetPlace : public State
+{
+public:
+	NetPlace(const QString &name, const QString &id);
+	DiagramItem * diagramItem();
+
+	void setMarking(int marking) { m_marking = marking; }
+	int marking() { return m_marking; }
+
+private:
+	int m_marking;
+};
+
+class NetTransition : public State
+{
+public:
+	NetTransition(const QString &name, const QString &id);
+	DiagramItem * diagramItem();
+
+	void setExpression(const QString &expression);
+	QString expression() { return m_expression; }
+
+private:
+	QString m_expression;
 };
 
 class DiagramBegin : public State

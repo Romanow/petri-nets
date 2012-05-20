@@ -15,7 +15,9 @@ SOURCES += \
     state.cpp \
     graphicview.cpp \
 	diagramitem.cpp \
-    drawer.cpp
+    drawer.cpp \
+    petrinet.cpp \
+    initialmarkingdialog.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -26,10 +28,16 @@ HEADERS += \
     state.h \
     graphicview.h \
 	diagramitem.h \
-    drawer.h
+    drawer.h \
+    petrinet.h \
+    initialmarkingdialog.h
 
 RESOURCES += \
     resource.qrc
+
+
+
+
 
 
 

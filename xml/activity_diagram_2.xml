@@ -43,7 +43,7 @@
 		</state>
 		<state name = "" id = "action2" type = "action">
 			<incoming>
-				<transition idref = "trans7"/>
+				<transition idref = "trans8"/>
 			</incoming>
 			<outgoing>
 				<transition idref = "trans9"/>

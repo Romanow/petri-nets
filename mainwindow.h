@@ -6,8 +6,10 @@
 #include <QMainWindow>
 
 #include "drawer.h"
+#include "petrinet.h"
 #include "textbrowser.h"
 #include "graphicview.h"
+#include "initialmarkingdialog.h"
 
 class MainWindow : public QMainWindow
 {
@@ -21,6 +23,10 @@ private slots:
 	void newFile();
 	void openFile();
 	void openRecentFile();
+	void convertToSimpleNet();
+	void convertToColouredNet();
+	void initialMarking();
+	void inputData();
 
 private:
 	void initInterface();
@@ -31,13 +37,18 @@ private:
 	void openFile(const QString &file);
 	void processData(const QString &data);
 
-	StateList * states;
-	TransitionList * transitions;
+	PetriNet * net;
+	StateList * states, * netStates;
+	TransitionList * transitions, * netTransitions;
 
-	QTabWidget * tabScroller;
+	InitialMarkingDialog * markingDialog;
+
+	QTabWidget * tabWidget;
 	TextBrowser * browser;
-	GraphicView * diagramView;
-	GraphicView * netView;
+	DiagramView * diagramView;
+	NetworkView * networkView;
+	QMenu * netMenu;
+	QMenu * diagramMenu;
 	QMenu * fileMenu;
 	QMenu * recentFileMenu;
 	QAction * actionNewFile;

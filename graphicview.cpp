@@ -1,34 +1,183 @@
 #include "graphicview.h"
+#include "translate.h"
 
 #include <QDebug>
-
-#include <QPair>
-#include <QStack>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 
-GraphicView::GraphicView(QWidget * parent) : QWidget(parent)
+View::View(QWidget * parent) : QWidget(parent) {}
+
+DiagramView::DiagramView(QWidget * parent) : View(parent)
 {
-	scene = new QGraphicsScene(QRect(- 100, - 100, 1000, 1000));
-	view = new QGraphicsView(scene, this);
-	view->setRenderHint(QPainter::Antialiasing, true);
-    view->setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
-	view->setDragMode(QGraphicsView::ScrollHandDrag);
-
-    QVBoxLayout * vLayout = new QVBoxLayout;
-    vLayout->addWidget(view);
-	vLayout->setMargin(0);
-    setLayout(vLayout);
+	initInterface();
+	initConnections();
 }
 
-GraphicView::~GraphicView()
+DiagramView::~DiagramView()
 {
-	delete scene;
 	delete view;
 }
 
-void GraphicView::drawDiagram(PlanarDrawer * drawer, StateList * states)
+void DiagramView::initInterface()
+{
+	scene = new QGraphicsScene;
+	view = new QGraphicsView(scene, this);
+	view->setRenderHint(QPainter::Antialiasing, true);
+	view->setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
+	view->setDragMode(QGraphicsView::ScrollHandDrag);
+
+	QHBoxLayout * hLayout = new QHBoxLayout;
+	QVBoxLayout * vLayout = new QVBoxLayout;
+	btnConvertToColouredNet = new QPushButton(this);
+	// Fixme: libpng warning: Ignoring attempt to set cHRM RGB triangle with zero area
+	btnConvertToColouredNet->setIcon(QIcon(":Play"));
+	btnConvertToColouredNet->setToolTip(conv("Преобразование в раскрашенную сеть Петри"));
+	btnConvertToColouredNet->setIconSize(QSize(48, 48));
+	btnConvertToColouredNet->setFixedSize(QSize(48, 48));
+	btnConvertToSimpleNet = new QPushButton(this);
+	btnConvertToSimpleNet->setIcon(QIcon(":Play"));
+	btnConvertToSimpleNet->setToolTip(conv("Преобразование в сеть Петри"));
+	btnConvertToSimpleNet->setIconSize(QSize(48, 48));
+	btnConvertToSimpleNet->setFixedSize(QSize(48, 48));
+	vLayout->addStretch();
+	vLayout->addWidget(btnConvertToSimpleNet);
+	vLayout->addWidget(btnConvertToColouredNet);
+	vLayout->addStretch();
+
+	hLayout->addWidget(view);
+	hLayout->addLayout(vLayout);
+	setLayout(hLayout);
+}
+
+void DiagramView::initConnections()
+{
+	connect(btnConvertToSimpleNet, SIGNAL(clicked()), SIGNAL(convertToSimpleNet()));
+	connect(btnConvertToColouredNet, SIGNAL(clicked()), SIGNAL(convertToColouredNet()));
+}
+
+QList<QGraphicsItem *> DiagramView::selected()
+{
+	return scene->selectedItems();
+}
+
+void DiagramView::drawDiagram(PlanarDrawer * drawer)
 {
 	scene = drawer->draw();
 	view->setScene(scene);
 	scene->update();
+}
+
+NetworkView::NetworkView(QWidget * parent) : View(parent)
+{
+	execution = false;
+
+	initInterface();
+	initConnections();
+}
+
+NetworkView::~NetworkView()
+{
+	delete view;
+}
+
+void NetworkView::initInterface()
+{
+	timer = new QTimer;
+	timer->setInterval(2000);
+
+	view = new QGraphicsView(this);
+	view->setRenderHint(QPainter::Antialiasing, true);
+	view->setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
+	view->setDragMode(QGraphicsView::ScrollHandDrag);
+
+	QVBoxLayout * vLayout = new QVBoxLayout;
+	QHBoxLayout * hLayout = new QHBoxLayout;
+	btnPlay = new QPushButton(this);
+	btnPlay->setIcon(QIcon(":Play"));
+	btnPlay->setToolTip(conv("Моделирование работы сети"));
+	btnPlay->setIconSize(QSize(48, 48));
+	btnPlay->setFixedSize(48, 48);
+
+	btnStop = new QPushButton(this);
+	btnStop->setIcon(QIcon(":Stop"));
+	btnStop->setToolTip(conv("Сброс результатов моделирования"));
+	btnStop->setIconSize(QSize(48, 48));
+	btnStop->setFixedSize(48, 48);
+	hLayout->addStretch();
+	hLayout->addWidget(btnPlay);
+	hLayout->addWidget(btnStop);
+	hLayout->addStretch();
+
+	vLayout->addWidget(view);
+	vLayout->addLayout(hLayout);
+	setLayout(vLayout);
+}
+
+void NetworkView::initConnections()
+{
+	connect(btnPlay, SIGNAL(clicked()), SLOT(play()));
+	connect(btnStop, SIGNAL(clicked()), SLOT(stop()));
+	connect(timer, SIGNAL(timeout()), SLOT(timeout()));
+}
+
+void NetworkView::play()
+{
+	if (!execution)
+	{
+		btnPlay->setIcon(QIcon(":Pause"));
+		btnPlay->setToolTip(conv("Остановка моделирования"));
+		timer->start();
+	}
+	else
+	{
+		btnPlay->setIcon(QIcon(":Play"));
+		btnPlay->setToolTip(conv("Моделирование работы сети"));
+		timer->stop();
+	}
+	execution = !execution;
+}
+
+void NetworkView::stop()
+{
+
+}
+
+void NetworkView::timeout()
+{
+	timer->stop();
+	QList<State *> activeTransitions;
+	QList<State *> transitions = network->find(transition_node);
+	foreach (State * transition, transitions)
+	{
+		bool flag = true;
+		foreach (Transition * tr, transition->incoming())
+		{
+			NetPlace * place = dynamic_cast<NetPlace *>(tr->source());
+			if (place->marking() == 0)
+				flag = false;
+		}
+
+		if (flag)
+			activeTransitions.append(transition);
+	}
+
+	foreach (State * state, activeTransitions)
+		qDebug() << state->id();
+}
+
+QList<QGraphicsItem *> NetworkView::selected()
+{
+	return scene->selectedItems();
+}
+
+void NetworkView::drawDiagram(PlanarDrawer * drawer)
+{
+	scene = drawer->draw();
+	view->setScene(scene);
+	scene->update();
+}
+
+void NetworkView::setNetwork(StateList * states)
+{
+	network = states;
 }

@@ -1,8 +1,9 @@
 #include "drawer.h"
 
 #include <QDebug>
+#include <QStack>
 
-PlanarDrawer::PlanarDrawer(StateList * states) : states(states) {}
+PlanarDrawer::PlanarDrawer(StateList * states, QMenu * menu) : states(states), menu(menu) {}
 
 PlanarDrawer::~PlanarDrawer() {}
 
@@ -31,13 +32,14 @@ QGraphicsScene * PlanarDrawer::draw()
 	int length = states->count();
 	int ** matrix = initMatrix(length);
 	for (int i = 0; i < states->count(); ++i)
-		foreach (DiagramTransition * transition, states->at(i)->outgoing())
+		foreach (Transition * transition, states->at(i)->outgoing())
 		{
 			int j = states->indexOf(transition->target());
 			matrix[i][j] = 1;
 		}
 
 	QList<int> track;
+	track.append(0);
 	bool used[length];
 	for (int i = 0; i < length; ++i)
 		used[i] = false;
@@ -65,17 +67,8 @@ QGraphicsScene * PlanarDrawer::draw()
 	foreach (Edge pair, edgeLocation)
 		edgeMatrix[pair.first][pair.second] = 1;
 
-	int ** m = initMatrix(length);
-	for (int i = 0; i < length; ++i)
-		for (int j = 0; j < length; ++j)
-			if (matrix[i][j] > 0)
-			{
-				if (i > j)
-					m[j][i] = 1;
-				else
-					m[i][j] = 1;
-			}
-
+	// Удаляем циклы в графе
+	int ** m = removeCycles(matrix, length);
 	// Топологические уровни исходной матрицы G
 	int * level = topologicalSort(m, length);
 	// Топологические уровни присоединенной матрицы G*
@@ -126,18 +119,19 @@ QGraphicsScene * PlanarDrawer::draw()
 		vertical.append(QLine(x, y1, x, y2));
 	}
 
-	QGraphicsScene * scene = new QGraphicsScene(QRectF(0, 0, 120 * maxEdgeLevel, 100 * maxLevel));
-	DiagramGridItem * item = new DiagramGridItem(vertical, horizontal);
-	scene->addItem(item);
+	QGraphicsScene * scene = new QGraphicsScene(QRectF(0, 0, 120 * maxEdgeLevel, 60 * maxLevel));
+//	DiagramGridItem * item = new DiagramGridItem(vertical, horizontal);
+//	scene->addItem(item);
 
 	QList<DiagramItem *> itemList;
 	for (int i = 0; i < length; ++i)
 	{
 		DiagramItem * item = states->at(i)->diagramItem();
 		int x = 120 * horizontal[i].x1() + 60 * horizontal[i].dx();
-		int y = 100 * horizontal[i].y1();
+		int y = 60 * horizontal[i].y1();
 
 		item->setPos(x, y);
+		item->setMenu(menu);
 		itemList.append(item);
 	}
 
@@ -167,12 +161,43 @@ QGraphicsScene * PlanarDrawer::draw()
 	return scene;
 }
 
+int ** PlanarDrawer::removeCycles(int ** matrix, int length)
+{
+	int ** m = initMatrix(length);
+	bool used[length];
+	for (int i = 0; i < length; ++i)
+		used[i] = false;
+
+	QList<Edge> track = edgesTrack(matrix, length, 0, used);
+	foreach (Edge edge, track)
+		m[edge.first][edge.second] = 1;
+
+	return m;
+}
+
+QList<Edge> PlanarDrawer::edgesTrack(int ** matrix, int length, int index, bool used[])
+{
+	QList<Edge> track;
+
+	used[index] = true;
+	for (int i = 0; i < length; ++i)
+		if (matrix[index][i] > 0 && !used[i])
+		{
+			track.append(qMakePair(index, i));
+			track += edgesTrack(matrix, length, i, used);
+		}
+	used[index] = false;
+
+	return track;
+}
+
 QList<Path> PlanarDrawer::findBaseFaces(int ** matrix, int length, int index, bool used[], QList<int> &track)
 {
 	used[index] = true;
 	QList<Path> faces;
+
 	for (int i = 0; i < length; ++i)
-		if (matrix[index][i])
+		if (matrix[index][i] > 0)
 		{
 			if (!used[i])
 			{

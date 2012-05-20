@@ -19,27 +19,22 @@ StateList::~StateList()
 	qDebug() << "Delete states list";
 }
 
-void StateList::append(State * state)
+QList<State *> StateList::find(const QString &id)
 {
-	if (!find(state->id()))
-		push_back(state);
-}
-
-State * StateList::find(const QString &id)
-{
+	QList<State *> list;
 	for (QList<State *>::iterator iter = begin(); iter != end(); iter++)
-		if ((* iter)->id() == id)
-			return (* iter);
+		if ((* iter)->id().startsWith(id))
+			list.append(* iter);
 
-	return 0;
+	return list;
 }
 
-QList<State *> StateList::find(const Type type)
+QList<State *> StateList::find(const StateType type)
 {
 	QList<State *> list;
 	for (QList<State *>::iterator iter = begin(); iter != end(); iter++)
 		if ((* iter)->type() == type)
-			list.append((* iter));
+			list.append(* iter);
 
 	return list;
 }
@@ -48,43 +43,38 @@ TransitionList::~TransitionList()
 {
 	while (!isEmpty())
 	{
-		DiagramTransition * transition = takeFirst();
+		Transition * transition = takeFirst();
 		delete transition;
 	}
 
 	qDebug() << "Delete transitions list";
 }
 
-void TransitionList::append(DiagramTransition * transition)
+QList<Transition *> TransitionList::find(const QString &id)
 {
-	if (!find(transition->id()))
-		push_back(transition);
+	QList<Transition *> list;
+	for (QList<Transition *>::iterator iter = begin(); iter != end(); iter++)
+		if ((* iter)->id().startsWith(id))
+			list.append(* iter);
+
+	return list;
 }
 
-DiagramTransition * TransitionList::find(const QString &id)
-{
-	for (QList<DiagramTransition *>::iterator iter = begin(); iter != end(); iter++)
-		if ((* iter)->id() == id)
-			return (* iter);
+Transition::Transition(const QString &id) : m_id(id) {}
 
-	return 0;
-}
+Transition::~Transition() {}
 
-DiagramTransition::DiagramTransition(const QString &id) : m_id(id) {}
-
-DiagramTransition::~DiagramTransition() {}
-
-void DiagramTransition::setSourceState(State * state)
+void Transition::setSourceState(State * state)
 {
 	m_source = state;
 }
 
-void DiagramTransition::setTargetState(State * state)
+void Transition::setTargetState(State * state)
 {
 	m_target = state;
 }
 
-void DiagramTransition::setGuard(const QString &expression)
+void Transition::setGuard(const QString &expression)
 {
 	m_guard = expression;
 }
@@ -105,22 +95,45 @@ State * Factory::create(const QString &name, const QString &id, const QString &t
 		return new DiagramFinal(name, id);
 }
 
-State::State(const QString &name, const QString &id, Type type) :
+State::State(const QString &name, const QString &id, StateType type) :
 	m_name(name), m_id(id), m_type(type) {}
 
 State::~State() {}
 
-void State::addIncomingTransition(DiagramTransition * transition)
+void State::addIncomingTransition(Transition * transition)
 {
 	m_incoming.append(transition);
+	transition->setTargetState(this);
 }
 
-void State::addOutgoingTransition(DiagramTransition * transition)
+void State::addOutgoingTransition(Transition * transition)
 {
 	m_outgoing.append(transition);
+	transition->setSourceState(this);
 }
 
 void State::setExpression(const QString &expression) {}
+
+NetPlace::NetPlace(const QString &name, const QString &id) :
+	State(name, id, place_node), m_marking(0) {}
+
+DiagramItem * NetPlace::diagramItem()
+{
+	return new DiagramNetPlaceItem(this);
+}
+
+NetTransition::NetTransition(const QString &name, const QString &id) :
+	State(name, id, transition_node) {}
+
+DiagramItem * NetTransition::diagramItem()
+{
+	return new DiagramNetTransitionItem(this);
+}
+
+void NetTransition::setExpression(const QString &expression)
+{
+	m_expression = expression;
+}
 
 DiagramBegin::DiagramBegin(const QString &name, const QString &id) :
 	State(name, id, begin_state) {}

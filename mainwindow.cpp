@@ -10,10 +10,17 @@
 #include <QApplication>
 #include <QDesktopWidget>
 
-MainWindow::MainWindow() : QMainWindow(0)
+#include <QDebug>
+
+MainWindow::MainWindow() : QMainWindow()
 {
 	states = new StateList;
+	netStates = new StateList;
 	transitions = new TransitionList;
+	netTransitions = new TransitionList;
+	net = new PetriNet;
+
+	markingDialog = new InitialMarkingDialog;
 
 	initInterface();
 	initConnections();
@@ -25,19 +32,28 @@ MainWindow::MainWindow() : QMainWindow(0)
 MainWindow::~MainWindow()
 {
 	delete transitions;
+	delete netTransitions;
 	delete states;
+	delete netStates;
+	delete net;
 }
 
 void MainWindow::initInterface()
 {
-	tabScroller = new QTabWidget(this);
-	browser = new TextBrowser(tabScroller);
-	tabScroller->addTab(browser, conv("XMI"));
-	diagramView = new GraphicView(tabScroller);
-	tabScroller->addTab(diagramView, conv("Диаграмма"));
-	netView = new GraphicView(tabScroller);
-	tabScroller->addTab(netView, conv("Сеть Петри"));
-	setCentralWidget(tabScroller);
+	netMenu = new QMenu;
+	netMenu->addAction(conv("Начальная разметка"), this, SLOT(initialMarking()));
+	diagramMenu = new QMenu;
+	diagramMenu->addAction(conv("Входные данные"), this, SLOT(inputData()));
+
+	tabWidget = new QTabWidget(this);
+	browser = new TextBrowser(tabWidget);
+	tabWidget->addTab(browser, conv("XMI"));
+	diagramView = new DiagramView(tabWidget);
+	tabWidget->addTab(diagramView, conv("Диаграмма"));
+	networkView = new NetworkView(tabWidget);
+	tabWidget->addTab(networkView, conv("Сеть Петри"));
+	tabWidget->setTabEnabled(2, false);
+	setCentralWidget(tabWidget);
 
 	// Actions
 	// Create new file
@@ -73,6 +89,8 @@ void MainWindow::initConnections()
 	connect(actionNewFile, SIGNAL(triggered()), SLOT(newFile()));
 	connect(actionOpenFile, SIGNAL(triggered()), SLOT(openFile()));
 	connect(actionExit, SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
+	connect(diagramView, SIGNAL(convertToSimpleNet()), SLOT(convertToSimpleNet()));
+	connect(diagramView, SIGNAL(convertToColouredNet()), SLOT(convertToColouredNet()));
 }
 
 void MainWindow::setDesktopCenter()
@@ -150,13 +168,50 @@ void MainWindow::setCurrentFile(const QString &file)
 	recentFileMenu->setEnabled(enabled);
 }
 
+void MainWindow::initialMarking()
+{
+	QList<QGraphicsItem *> selected = networkView->selected();
+	if (!selected.isEmpty())
+	{
+		DiagramItem * item = dynamic_cast<DiagramItem *>(selected.first());
+		NetPlace * place = dynamic_cast<NetPlace *>(item->state());
+		markingDialog->setMarking(place->marking());
+		if (markingDialog->exec() == QDialog::Accepted)
+		{
+			int marking = markingDialog->getMarking();
+			place->setMarking(marking);
+		}
+	}
+}
+
+void MainWindow::inputData()
+{
+
+}
+
+void MainWindow::convertToSimpleNet()
+{
+	net->convert(states, netStates, netTransitions);
+
+	tabWidget->setTabEnabled(2, true);
+	tabWidget->setCurrentIndex(2);
+	PlanarDrawer netPlanarDrawer(netStates, netMenu);
+	networkView->drawDiagram(&netPlanarDrawer);
+	networkView->setNetwork(netStates);
+}
+
+void MainWindow::convertToColouredNet()
+{
+
+}
+
 void MainWindow::processData(const QString &data)
 {
 	XMLEngine engine;
 	if (engine.parse(data, states, transitions))
 	{
-		PlanarDrawer * planarDrawer = new PlanarDrawer(states);
-		diagramView->drawDiagram(planarDrawer, states);
-		delete planarDrawer;
+		PlanarDrawer diagramPlanarDrawer(states, diagramMenu);
+		diagramView->drawDiagram(&diagramPlanarDrawer);
+		net->variableList(states);
 	}
 }

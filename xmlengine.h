@@ -90,10 +90,10 @@ private:
 	bool parseExpression(QXmlStreamReader * reader, State * state);
 
 	bool parseTransitions(QXmlStreamReader * reader, StateList * states, TransitionList * transitions);
-	bool parseTransition(QXmlStreamReader * reader, DiagramTransition * transition, StateList * states);
-	bool parseSourceState(QXmlStreamReader * reader, DiagramTransition * transition, StateList * states);
-	bool parseTargetState(QXmlStreamReader * reader, DiagramTransition * transition, StateList * states);
-	bool parseGuardExpression(QXmlStreamReader * reader, DiagramTransition * transition);
+	bool parseTransition(QXmlStreamReader * reader, Transition * transition, StateList * states);
+	bool parseSourceState(QXmlStreamReader * reader, Transition * transition, StateList * states);
+	bool parseTargetState(QXmlStreamReader * reader, Transition * transition, StateList * states);
+	bool parseGuardExpression(QXmlStreamReader * reader, Transition * transition);
 
 	XMLValidator * validator;
 };
