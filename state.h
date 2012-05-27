@@ -50,17 +50,20 @@ public:
 	virtual ~Transition();
 
 	QString id() { return m_id; }
-	QString guard() { return m_guard; }
-	State * source() { return m_source; }
-	State * target() { return m_target; }
 
-	void setSourceState(State * state);
-	void setTargetState(State * state);
-	void setGuard(const QString &expression);
+	State * source() { return m_source; }
+	void setSourceState(State * state) { m_source = state; }
+
+	State * target() { return m_target; }
+	void setTargetState(State * state) { m_target = state; }
+
+	QString guard() { return m_guard; }
+	void setGuard(const QString &expression) { m_guard = expression; }
 
 private:
 	QString m_id;
 	QString m_guard;
+
 	State * m_source;
 	State * m_target;
 };
@@ -73,16 +76,14 @@ public:
 	StateType type() { return m_type; }
 	QString name() { return m_name; }
 	QString id() { return m_id; }
-	virtual QString expression() {}
-
-	QList<Transition *> &outgoing() { return m_outgoing; }
-	QList<Transition *> &incoming() { return m_incoming; }
 
 	virtual DiagramItem * diagramItem() = 0;
 
-	virtual void addIncomingTransition(Transition * transition);
-	virtual void addOutgoingTransition(Transition * transition);
-	virtual void setExpression(const QString &expression);
+	QList<Transition *> &incoming() { return m_incoming; }
+	void addIncomingTransition(Transition * transition);
+
+	QList<Transition *> &outgoing() { return m_outgoing; }
+	void addOutgoingTransition(Transition * transition);
 
 protected:
 	State(const QString &name, const QString &id, StateType type);
@@ -100,11 +101,31 @@ public:
 	NetPlace(const QString &name, const QString &id);
 	DiagramItem * diagramItem();
 
-	void setMarking(int marking) { m_marking = marking; }
+	QColor color() { return m_color; }
+	void setColor(const QColor &color) { m_color = color; }
+
 	int marking() { return m_marking; }
+	void incrementMarking() { m_marking++; }
+	void decrementMarking() { m_marking--; }
+	void setMarking(int marking) { m_marking = marking; }
+
+	QStringList variables() { return m_variables; }
+	bool addVariable(const QString &variable)
+	{
+		bool result = m_variables.contains(variable);
+		if (!result)
+			m_variables.append(variable);
+
+		return !result;
+	}
+	bool removeVariable(const QString &variable) { return m_variables.removeOne(variable); }
+	void setVariables(const QStringList &variables) { m_variables = variables; }
+
 
 private:
 	int m_marking;
+	QColor m_color;
+	QStringList m_variables;
 };
 
 class NetTransition : public State
@@ -113,11 +134,14 @@ public:
 	NetTransition(const QString &name, const QString &id);
 	DiagramItem * diagramItem();
 
-	void setExpression(const QString &expression);
 	QString expression() { return m_expression; }
+	void setExpression(const QString &expression) { m_expression = expression; }
+
+	QString result() { return m_result; }
+	void setResult(const QString &result) { m_result = result; }
 
 private:
-	QString m_expression;
+	QString m_result, m_expression;
 };
 
 class DiagramBegin : public State
@@ -133,11 +157,14 @@ public:
 	DiagramAction(const QString &name, const QString &id);
 	DiagramItem * diagramItem();
 
-	void setExpression(const QString &expression);
 	QString expression() { return m_expression; }
+	void setExpression(const QString &expression) { m_expression = expression; }
+	QStringList variables() { return m_variables; }
+	void setVariables(const QStringList &variables) { m_variables = variables; }
 
 private:
 	QString m_expression;
+	QStringList m_variables;
 };
 
 class DiagramCondition: public State

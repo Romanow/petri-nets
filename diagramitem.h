@@ -19,7 +19,7 @@ private:
 	QList<QLine> horizontal, vertical;
 };
 
-class DiagramTransitionItem : public QGraphicsItem
+class DiagramTransitionItem : public QGraphicsLineItem
 {
 public:
 	DiagramTransitionItem(DiagramItem * source, DiagramItem * target);
@@ -28,6 +28,7 @@ public:
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 
 private:
+	QColor color;
 	DiagramItem * source, * target;
 };
 
@@ -36,11 +37,12 @@ class DiagramItem : public QGraphicsItem
 public:
 	DiagramItem(State * state);
 
+	QPolygonF polygon() { return path.toFillPolygon(); }
 	State * state() { return m_state; }
-	virtual void setMenu(QMenu * menu);
 
 protected:
 	State * m_state;
+	QPainterPath path;
 };
 
 class DiagramBeginItem : public DiagramItem
@@ -48,16 +50,11 @@ class DiagramBeginItem : public DiagramItem
 public:
 	DiagramBeginItem(State * state = 0);
 
-	void setMenu(QMenu * menu);
 	QRectF boundingRect() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 
 protected:
 	void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
-	void contextMenuEvent(QGraphicsSceneContextMenuEvent * event);
-
-private:
-	QMenu * m_menu;
 };
 
 class DiagramFinalItem : public DiagramItem
@@ -77,16 +74,11 @@ class DiagramActionItem : public DiagramItem
 public:
 	DiagramActionItem(State * state = 0);
 
-	void setMenu(QMenu * menu);
 	QRectF boundingRect() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 
 protected:
 	void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
-	void contextMenuEvent(QGraphicsSceneContextMenuEvent * event);
-
-private:
-	QMenu * m_menu;
 };
 
 class DiagramConditionItem : public DiagramItem
@@ -131,7 +123,6 @@ public:
 	DiagramNetPlaceItem(State * state = 0);
 
 	void setMenu(QMenu * menu);
-	void setInitialMarking(int n);
 	QRectF boundingRect() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 

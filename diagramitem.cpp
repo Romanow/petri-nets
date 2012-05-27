@@ -1,6 +1,7 @@
 #include "diagramitem.h"
 #include "state.h"
 
+#include <math.h>
 #include <QMenu>
 #include <QPainter>
 #include <QGraphicsScene>
@@ -11,15 +12,11 @@ DiagramItem::DiagramItem(State * state) : m_state(state)
 	setAcceptsHoverEvents(true);
 }
 
-void DiagramItem::setMenu(QMenu * menu) {}
-
 // Diagram begin item
 
-DiagramBeginItem::DiagramBeginItem(State * state) : DiagramItem(state) {}
-
-void DiagramBeginItem::setMenu(QMenu * menu)
+DiagramBeginItem::DiagramBeginItem(State * state) : DiagramItem(state)
 {
-	m_menu = menu;
+	path.addEllipse(- 10, - 10, 20, 20);
 }
 
 QRectF DiagramBeginItem::boundingRect() const
@@ -30,7 +27,7 @@ QRectF DiagramBeginItem::boundingRect() const
 void DiagramBeginItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
 	painter->setBrush(Qt::black);
-	painter->drawEllipse(- 10, - 10, 20, 20);
+	painter->drawPath(path);
 }
 
 void DiagramBeginItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
@@ -39,16 +36,12 @@ void DiagramBeginItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
 	scene()->update();
 }
 
-void DiagramBeginItem::contextMenuEvent(QGraphicsSceneContextMenuEvent * event)
-{
-	scene()->clearSelection();
-	setSelected(true);
-	m_menu->exec(event->screenPos());
-}
-
 // Diagram final item
 
-DiagramFinalItem::DiagramFinalItem(State * state) : DiagramItem(state) {}
+DiagramFinalItem::DiagramFinalItem(State * state) : DiagramItem(state)
+{
+	path.addEllipse(- 10, - 10, 20, 20);
+}
 
 QRectF DiagramFinalItem::boundingRect() const
 {
@@ -58,7 +51,7 @@ QRectF DiagramFinalItem::boundingRect() const
 void DiagramFinalItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
 	painter->setBrush(Qt::white);
-	painter->drawEllipse(- 10, - 10, 20, 20);
+	painter->drawPath(path);
 	painter->setBrush(Qt::black);
 	painter->drawEllipse(- 7, - 7, 14, 14);
 }
@@ -71,22 +64,20 @@ void DiagramFinalItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
 
 // Diagram action item
 
-DiagramActionItem::DiagramActionItem(State * state) : DiagramItem(state) {}
-
-void DiagramActionItem::setMenu(QMenu * menu)
+DiagramActionItem::DiagramActionItem(State * state) : DiagramItem(state)
 {
-	m_menu = menu;
+	path.addRoundedRect(- 50, - 15, 100, 30, 15, 15);
 }
 
 QRectF DiagramActionItem::boundingRect() const
 {
-	return QRectF(- 48, - 15, 96, 30);
+	return QRectF(- 45, - 14, 90, 28);
 }
 
 void DiagramActionItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
 	painter->setBrush(Qt::white);
-	painter->drawRoundedRect(- 50, - 15, 100, 30, 15, 15);
+	painter->drawPath(path);
 }
 
 void DiagramActionItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
@@ -95,28 +86,26 @@ void DiagramActionItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
 	scene()->update();
 }
 
-void DiagramActionItem::contextMenuEvent(QGraphicsSceneContextMenuEvent * event)
-{
-	scene()->clearSelection();
-	setSelected(true);
-	m_menu->exec(event->screenPos());
-}
-
 // Diagram condition item
 
-DiagramConditionItem::DiagramConditionItem(State * state) : DiagramItem(state) {}
+DiagramConditionItem::DiagramConditionItem(State * state) : DiagramItem(state)
+{
+	QPolygon polygon;
+	polygon.setPoints(4, 0, - 15, 15, 0, 0, 15, - 15, 0);
+	path.addPolygon(polygon);
+	path.closeSubpath();
+}
 
 QRectF DiagramConditionItem::boundingRect() const
 {
-	return QRectF(- 10, - 10, 20, 20);
+	return QRectF(-10, -10, 20, 20);
 }
 
 void DiagramConditionItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
-	QPolygon polygon;
-	polygon.setPoints(4, 0, - 15, 15, 0, 0, 15, - 15, 0);
+
 	painter->setBrush(Qt::white);
-	painter->drawPolygon(polygon);
+	painter->drawPath(path);
 }
 
 void DiagramConditionItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
@@ -127,7 +116,10 @@ void DiagramConditionItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
 
 // Diagram merge item
 
-DiagramMergeItem::DiagramMergeItem(State * state) : DiagramItem(state) {}
+DiagramMergeItem::DiagramMergeItem(State * state) : DiagramItem(state)
+{
+	path.addRect(- 40, - 2, 80, 4);
+}
 
 QRectF DiagramMergeItem::boundingRect() const
 {
@@ -137,7 +129,7 @@ QRectF DiagramMergeItem::boundingRect() const
 void DiagramMergeItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
 	painter->setBrush(Qt::black);
-	painter->drawRect(- 40, - 2, 80, 4);
+	painter->drawPath(path);
 }
 
 void DiagramMergeItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
@@ -148,7 +140,10 @@ void DiagramMergeItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
 
 // Diagram fork item
 
-DiagramForkItem::DiagramForkItem(State * state) : DiagramItem(state) {}
+DiagramForkItem::DiagramForkItem(State * state) : DiagramItem(state)
+{
+	path.addRect(- 40, - 2, 80, 4);
+}
 
 QRectF DiagramForkItem::boundingRect() const
 {
@@ -158,7 +153,7 @@ QRectF DiagramForkItem::boundingRect() const
 void DiagramForkItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
 	painter->setBrush(Qt::black);
-	painter->drawRect(- 40, - 2, 80, 4);
+	painter->drawPath(path);
 }
 
 void DiagramForkItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
@@ -170,13 +165,60 @@ void DiagramForkItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
 // Diagram transition
 
 DiagramTransitionItem::DiagramTransitionItem(DiagramItem * source, DiagramItem * target) :
-	source(source), target(target) {}
+	source(source), target(target)
+{
+	if (source->state()->type() == place_node)
+	{
+		NetPlace * place = dynamic_cast<NetPlace *>(source->state());
+		color = place->color();
+	}
+	else if (target->state()->type() == place_node)
+	{
+		NetPlace * place = dynamic_cast<NetPlace *>(target->state());
+		color = place->color();
+	}
+	else
+		color = Qt::black;
+}
 
 QRectF DiagramTransitionItem::boundingRect() const {}
 
 void DiagramTransitionItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
-	painter->drawLine(source->pos(), target->pos());
+    if (!source->collidesWithItem(target))
+    {
+        QLineF centerLine(source->pos(), target->pos());
+        QPolygonF endPolygon = target->polygon();
+        QPointF p1 = endPolygon.first() + target->pos();
+        QPointF p2;
+        QLineF polyLine;
+        QPointF intersectPoint;
+        for (int i = 1; i < endPolygon.count(); ++i)
+        {
+            p2 = endPolygon.at(i) + target->pos();
+            polyLine = QLineF(p1, p2);
+            if (polyLine.intersect(centerLine, &intersectPoint) == QLineF::BoundedIntersection)
+                break;
+
+            p1 = p2;
+        }
+
+        setLine(QLineF(intersectPoint, source->pos()));
+        double angle = acos(line().dx() / line().length());
+        if (line().dy() >= 0)
+            angle = (M_PI * 2) - angle;
+
+        QPointF arrowP1 = line().p1() + QPointF(sin(angle + M_PI / 3) * 10, cos(angle + M_PI / 3) * 10);
+        QPointF arrowP2 = line().p1() + QPointF(sin(angle + 2 * M_PI / 3) * 10, cos(angle + 2 * M_PI / 3) * 10);
+
+        QPolygonF arrowHead;
+        arrowHead << line().p1() << arrowP1 << arrowP2;
+
+		painter->setPen(color);
+        painter->drawLine(line());
+		painter->setBrush(color);
+        painter->drawPolygon(arrowHead);
+    }
 }
 
 DiagramGridItem::DiagramGridItem(QList<QLine> horizontal, QList<QLine> vertical) :
@@ -195,7 +237,10 @@ void DiagramGridItem::paint(QPainter * painter, const QStyleOptionGraphicsItem *
 
 // Diagram net place item
 
-DiagramNetPlaceItem::DiagramNetPlaceItem(State * state) : DiagramItem(state) {}
+DiagramNetPlaceItem::DiagramNetPlaceItem(State * state) : DiagramItem(state)
+{
+	path.addEllipse(- 12, - 12, 24, 24);
+}
 
 void DiagramNetPlaceItem::setMenu(QMenu * menu)
 {
@@ -209,13 +254,14 @@ QRectF DiagramNetPlaceItem::boundingRect() const
 
 void DiagramNetPlaceItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
-	painter->setBrush(Qt::white);
-	painter->drawEllipse(- 12, - 12, 24, 24);
 	NetPlace * place = dynamic_cast<NetPlace *>(state());
+	painter->setBrush(Qt::white);
+	painter->setPen(QPen(place->color(), 2));
+	painter->drawPath(path);
 	if (place->marking() > 0)
 		if (place->marking() < 5)
 		{
-			painter->setBrush(Qt::black);
+			painter->setBrush(place->color());
 			switch (place->marking())
 			{
 			case 1:
@@ -243,6 +289,11 @@ void DiagramNetPlaceItem::paint(QPainter * painter, const QStyleOptionGraphicsIt
 		}
 		else
 			painter->drawText(QRectF(- 10, - 10, 20, 20), Qt::AlignHCenter | Qt::AlignVCenter, QString::number(place->marking()));
+
+	QString variableList;
+	foreach (QString variable, place->variables())
+		variableList += variable + "\n";
+	painter->drawText(QRect(15, 5, 100, 80), variableList);
 }
 
 void DiagramNetPlaceItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
@@ -260,7 +311,10 @@ void DiagramNetPlaceItem::contextMenuEvent(QGraphicsSceneContextMenuEvent * even
 
 // Diagram net transition item
 
-DiagramNetTransitionItem::DiagramNetTransitionItem(State * state) : DiagramItem(state) {}
+DiagramNetTransitionItem::DiagramNetTransitionItem(State * state) : DiagramItem(state)
+{
+	path.addRect(- 25, - 2, 50, 4);
+}
 
 QRectF DiagramNetTransitionItem::boundingRect() const
 {
@@ -270,7 +324,7 @@ QRectF DiagramNetTransitionItem::boundingRect() const
 void DiagramNetTransitionItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
 	painter->setBrush(Qt::black);
-	painter->drawRect(- 25, - 2, 50, 4);
+	painter->drawPath(path);
 }
 
 void DiagramNetTransitionItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)

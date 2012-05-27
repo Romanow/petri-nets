@@ -1,6 +1,15 @@
 #include "petrinet.h"
+#include "state.h"
+#include "rpn.h"
 
 #include <QDebug>
+
+bool isNumber(const QString &variable)
+{
+	bool flag;
+	variable.toDouble(&flag);
+	return flag;
+}
 
 void PetriNet::convertState(State * state, StateList * states, TransitionList * transitions)
 {
@@ -15,7 +24,13 @@ void PetriNet::convertState(State * state, StateList * states, TransitionList * 
 	{
 		NetPlace * p = new NetPlace(name, QString("%1_place").arg(id));
 		NetTransition * t = new NetTransition(name, QString("%1_transition").arg(id));
-		t->setExpression(state->expression());
+
+		DiagramAction * action = dynamic_cast<DiagramAction *>(state);
+		p->setVariables(action->variables());
+		QString expression = action->expression();
+		QStringList list = expression.split('=');
+		t->setResult(list.first());
+		t->setExpression(RPN::convert(list.last()));
 
 		Transition * transition = new Transition(id);
 		p->addOutgoingTransition(transition);
@@ -149,7 +164,22 @@ void PetriNet::convert(StateList * states, StateList * netStates, TransitionList
 				if (!list.isEmpty())
 				{
 					Transition * tr = list[i];
-					tr->setGuard(transition->guard());
+					QString guard = transition->guard();
+
+					QList<State *> places = netStates->find(QString("%1_place").arg(state->id()));
+					QStringList variables = guard.split(QRegExp("[^\\w.]+"));
+					foreach (State * state, places)
+					{
+						NetPlace * place = dynamic_cast<NetPlace *>(state);
+						foreach (QString var, variables)
+						{
+							QString variable = var.split('.').first();
+							if (!place->variables().contains(variable) && !isNumber(variable))
+								place->addVariable(variable);
+						}
+					}
+
+					tr->setGuard(RPN::convert(guard));
 				}
 			}
 
@@ -190,22 +220,6 @@ void PetriNet::convert(StateList * states, StateList * netStates, TransitionList
 	}
 }
 
-void print(QMap<QString, Type *> variables, int level)
-{
-	foreach (QString name, variables.keys())
-	{
-		if (variables[name]->type() == complex)
-		{
-			qDebug() << QString(level, '\t') << variables[name]->name();
-
-			ComplexType * complex = reinterpret_cast<ComplexType *>(variables[name]);
-			print(complex->variables(), level + 1);
-		}
-		else
-			qDebug() << QString(level, '\t') << variables[name]->name();
-	}
-}
-
 void PetriNet::createType(QMap<QString, Type *> &variables, QStringList &variable)
 {
 	QString name = variable.takeFirst();
@@ -238,16 +252,92 @@ QMap<QString, Type *> PetriNet::variableList(StateList * states)
 {
 	QMap<QString, Type *> types;
 	QList<State *> actions = states->find(action_state);
-	foreach (State * action, actions)
+	foreach (State * state, actions)
 	{
+		DiagramAction * action = dynamic_cast<DiagramAction *>(state);
 		QString expression = action->expression();
-		QStringList list = expression.split(QRegExp("([^\\w.]+)"));
+
+		QStringList variables;
+		QStringList list = expression.split(QRegExp("[^\\w.]+"));
 		foreach (QString expr, list)
 		{
-			QStringList variables = expr.split('.');
-			createType(types, variables);
+			QStringList vars = expr.split('.');
+
+			QString variable = vars.first();
+			if (!variable.isEmpty() && !variables.contains(variable) && !isNumber(variable))
+				variables.append(variable);
+
+			createType(types, vars);
 		}
+		action->setVariables(variables);
 	}
 
 	return types;
+}
+
+void dfs(State * state, const QString &variable, QList<State *> &track)
+{
+	foreach (Transition * transition, state->outgoing())
+	{
+		State * target = transition->target();
+		NetPlace * place = dynamic_cast<NetPlace *>(target);
+		if (place != 0 && place->variables().contains(variable) && !track.contains(target))
+		{
+			bool flag = true;
+			for (int i = 0; i < track.count() && flag; ++i)
+			{
+				NetPlace * pl = dynamic_cast<NetPlace *>(track[i]);
+				if (pl != 0 && pl->variables().contains(variable))
+				{
+					flag = false;
+					for (int k = i + 1; k < track.count(); ++k)
+						if (track[k]->type() == place_node)
+						{
+							NetPlace * p = dynamic_cast<NetPlace *>(track[k]);
+							p->addVariable(variable);
+						}
+				}
+			}
+		}
+
+		if (!track.contains(target))
+		{
+			track.append(target);
+			dfs(target, variable, track);
+			track.removeLast();
+		}
+	}
+}
+
+void PetriNet::coloring(StateList * netStates, const QMap<QString, Type *> &types)
+{
+	State * state = netStates->first();
+	foreach (QString variable, types.keys())
+	{
+		QList<State *> track;
+		track.append(state);
+		dfs(state, variable, track);
+	}
+
+	int k = 10;
+	QList<QSet<QString> > variableList;
+	QStringList colorList = QColor::colorNames();
+	QList<State *> places = netStates->find(place_node);
+	foreach (State * state, places)
+	{
+		NetPlace * place = dynamic_cast<NetPlace *>(state);
+		QSet<QString> set = place->variables().toSet();
+		if (!set.isEmpty())
+			if (!variableList.contains(set))
+			{
+				QColor color = QColor(colorList[k++]);
+				variableList.append(set);
+				place->setColor(color);
+			}
+			else
+			{
+				int index = variableList.indexOf(set);
+				place->setColor(colorList[10 + index]);
+			}
+	}
 }

@@ -15,16 +15,18 @@ typedef QPair<int, int> Location;
 class Drawer
 {
 public:
-	virtual QGraphicsScene * draw() = 0;
+	virtual QGraphicsScene * draw(QList<DiagramItem *> &items,
+								  QList<DiagramTransitionItem *> &transitions) = 0;
 };
 
 class PlanarDrawer : public Drawer
 {
 public:
-	PlanarDrawer(StateList * states, QMenu * menu);
+	PlanarDrawer(StateList * states, QMenu * menu = 0);
 	~PlanarDrawer();
 
-	QGraphicsScene * draw();
+	QGraphicsScene * draw(QList<DiagramItem *> &items,
+						  QList<DiagramTransitionItem *> &transitions);
 
 private:
 	QMenu * menu;

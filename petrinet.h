@@ -4,14 +4,8 @@
 #include "state.h"
 
 typedef enum { complex,
-			   tuple,
 			   simple
 			 } StructType;
-
-typedef enum { int_type,
-			   float_type,
-			   string_type
-			 } VariableType;
 
 class Type
 {
@@ -32,19 +26,17 @@ class SimpleType : public Type
 {
 public:
 	SimpleType(const QString &name) : Type(name, simple) {}
+	QVariantList &values() { return m_values; }
 
 private:
-	QMultiMap<VariableType, QVariant> value;
+	QVariantList m_values;
 };
 
 class ComplexType : public Type
 {
 public:
 	ComplexType(const QString &name) : Type(name, complex) {}
-	QMap<QString, Type *> &variables()
-	{
-		return m_variables;
-	}
+	QMap<QString, Type *> &variables() { return m_variables; }
 
 private:
 	QMap<QString, Type *> m_variables;
@@ -55,6 +47,7 @@ class PetriNet
 public:
 	void convert(StateList * states, StateList * netStates, TransitionList * netTransiitons);
 	QMap<QString, Type *> variableList(StateList * states);
+	void coloring(StateList * netStates, const QMap<QString, Type *> &types);
 
 private:
 	void createType(QMap<QString, Type *> &variables, QStringList &variable);

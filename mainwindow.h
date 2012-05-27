@@ -10,6 +10,7 @@
 #include "textbrowser.h"
 #include "graphicview.h"
 #include "initialmarkingdialog.h"
+#include "inputdatadialog.h"
 
 class MainWindow : public QMainWindow
 {
@@ -26,7 +27,6 @@ private slots:
 	void convertToSimpleNet();
 	void convertToColouredNet();
 	void initialMarking();
-	void inputData();
 
 private:
 	void initInterface();
@@ -38,9 +38,11 @@ private:
 	void processData(const QString &data);
 
 	PetriNet * net;
+	QMap<QString, Type *> types;
 	StateList * states, * netStates;
 	TransitionList * transitions, * netTransitions;
 
+	InputDataDialog * dataDialog;
 	InitialMarkingDialog * markingDialog;
 
 	QTabWidget * tabWidget;
@@ -48,7 +50,6 @@ private:
 	DiagramView * diagramView;
 	NetworkView * networkView;
 	QMenu * netMenu;
-	QMenu * diagramMenu;
 	QMenu * fileMenu;
 	QMenu * recentFileMenu;
 	QAction * actionNewFile;

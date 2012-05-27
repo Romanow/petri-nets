@@ -3,7 +3,8 @@
 #include <QDebug>
 #include <QStack>
 
-PlanarDrawer::PlanarDrawer(StateList * states, QMenu * menu) : states(states), menu(menu) {}
+PlanarDrawer::PlanarDrawer(StateList * states, QMenu * menu) :
+	states(states), menu(menu) {}
 
 PlanarDrawer::~PlanarDrawer() {}
 
@@ -27,7 +28,8 @@ int ** undirectedMatrix(int ** matrix, int length)
 	return undirected;
 }
 
-QGraphicsScene * PlanarDrawer::draw()
+QGraphicsScene * PlanarDrawer::draw(QList<DiagramItem *> &items,
+									QList<DiagramTransitionItem *> &transitions)
 {
 	int length = states->count();
 	int ** matrix = initMatrix(length);
@@ -123,7 +125,6 @@ QGraphicsScene * PlanarDrawer::draw()
 //	DiagramGridItem * item = new DiagramGridItem(vertical, horizontal);
 //	scene->addItem(item);
 
-	QList<DiagramItem *> itemList;
 	for (int i = 0; i < length; ++i)
 	{
 		DiagramItem * item = states->at(i)->diagramItem();
@@ -131,22 +132,27 @@ QGraphicsScene * PlanarDrawer::draw()
 		int y = 60 * horizontal[i].y1();
 
 		item->setPos(x, y);
-		item->setMenu(menu);
-		itemList.append(item);
+		if (item->state()->type() == place_node && menu != 0)
+		{
+			DiagramNetPlaceItem * place = dynamic_cast<DiagramNetPlaceItem *>(item);
+			place->setMenu(menu);
+		}
+		items.append(item);
 	}
 
 	for (int i = 0; i < edges.count(); ++i)
 	{
 		int u = edges[i].first;
 		int v = edges[i].second;
-		DiagramItem * source = itemList[u];
-		DiagramItem * target = itemList[v];
+		DiagramItem * source = items[u];
+		DiagramItem * target = items[v];
 
 		DiagramTransitionItem * transition = new DiagramTransitionItem(source, target);
+		transitions.append(transition);
 		scene->addItem(transition);
 	}
 
-	foreach (DiagramItem * item, itemList)
+	foreach (DiagramItem * item, items)
 		scene->addItem(item);
 
 	for (int i = 0; i < edgeMatrixLength; ++i)
@@ -233,7 +239,7 @@ QList<Path> PlanarDrawer::findBaseFaces(int ** matrix, int length, int index, bo
 				matrix[edge.first][edge.second] = 0;
 				matrix[edge.second][edge.first] = 0;
 
-				qDebug() << "Cycle" << path << "\nremoved edge" << edge.first << edge.second;
+//				qDebug() << "Cycle" << path << "\nremoved edge" << edge.first << edge.second;
 
 				// Запускаем обход из текущей вершины
 				index = i; i = - 1;

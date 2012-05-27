@@ -1,7 +1,5 @@
 #include "state.h"
 
-#include <QDebug>
-
 template <class A, class B>
 bool compare(const A &a, const B &b)
 {
@@ -15,8 +13,6 @@ StateList::~StateList()
 		State * state = takeFirst();
 		delete state;
 	}
-
-	qDebug() << "Delete states list";
 }
 
 QList<State *> StateList::find(const QString &id)
@@ -46,8 +42,6 @@ TransitionList::~TransitionList()
 		Transition * transition = takeFirst();
 		delete transition;
 	}
-
-	qDebug() << "Delete transitions list";
 }
 
 QList<Transition *> TransitionList::find(const QString &id)
@@ -63,21 +57,6 @@ QList<Transition *> TransitionList::find(const QString &id)
 Transition::Transition(const QString &id) : m_id(id) {}
 
 Transition::~Transition() {}
-
-void Transition::setSourceState(State * state)
-{
-	m_source = state;
-}
-
-void Transition::setTargetState(State * state)
-{
-	m_target = state;
-}
-
-void Transition::setGuard(const QString &expression)
-{
-	m_guard = expression;
-}
 
 State * Factory::create(const QString &name, const QString &id, const QString &type)
 {
@@ -112,10 +91,8 @@ void State::addOutgoingTransition(Transition * transition)
 	transition->setSourceState(this);
 }
 
-void State::setExpression(const QString &expression) {}
-
 NetPlace::NetPlace(const QString &name, const QString &id) :
-	State(name, id, place_node), m_marking(0) {}
+	State(name, id, place_node), m_marking(0), m_color(Qt::black) {}
 
 DiagramItem * NetPlace::diagramItem()
 {
@@ -128,11 +105,6 @@ NetTransition::NetTransition(const QString &name, const QString &id) :
 DiagramItem * NetTransition::diagramItem()
 {
 	return new DiagramNetTransitionItem(this);
-}
-
-void NetTransition::setExpression(const QString &expression)
-{
-	m_expression = expression;
 }
 
 DiagramBegin::DiagramBegin(const QString &name, const QString &id) :
@@ -149,11 +121,6 @@ DiagramAction::DiagramAction(const QString &name, const QString &id) :
 DiagramItem * DiagramAction::diagramItem()
 {
 	return new DiagramActionItem(this);
-}
-
-void DiagramAction::setExpression(const QString &expression)
-{
-	m_expression = expression;
 }
 
 DiagramCondition::DiagramCondition(const QString &name, const QString &id) :

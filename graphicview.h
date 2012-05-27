@@ -16,6 +16,10 @@ public:
 	View(QWidget * parent = 0);
 
 	virtual void drawDiagram(PlanarDrawer * drawer) = 0;
+
+protected:
+	QList<DiagramTransitionItem *> transitions;
+	QList<DiagramItem *> items;
 };
 
 class DiagramView : public View
@@ -26,7 +30,6 @@ class DiagramView : public View
 	 DiagramView(QWidget * parent = 0);
 	 ~DiagramView();
 
-	 QList<QGraphicsItem *> selected();
 	 void drawDiagram(PlanarDrawer * drawer);
 
 signals:
@@ -65,7 +68,7 @@ private slots:
 	 void initConnections();
 
 	 bool execution;
-	 StateList * network;
+	 StateList * states;
 
 	 QTimer * timer;
 	 QGraphicsScene * scene;

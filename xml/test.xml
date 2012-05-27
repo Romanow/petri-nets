@@ -92,7 +92,7 @@
 			<target>
 				<state idref = "final"/>
 			</target>
-			<guard>alternative</guard>
+			<guard>field == 0</guard>
 		</transition>
 		<transition id = "trans5">
 			<source>
@@ -117,7 +117,7 @@
 			<target>
 				<state idref = "action1"/>
 			</target>
-			<guard>player.resource >= 0</guard>
+			<guard>player.resource &gt;= 0</guard>
 		</transition>
 		<transition id = "trans8">
 			<source>
@@ -126,7 +126,7 @@
 			<target>
 				<state idref = "final"/>
 			</target>
-			<guard>alternative</guard>
+			<guard>player.resource &lt; 0</guard>
 		</transition>
 	</transitions>
 </activity_diagram>

@@ -95,6 +95,8 @@ private:
 	bool parseTargetState(QXmlStreamReader * reader, Transition * transition, StateList * states);
 	bool parseGuardExpression(QXmlStreamReader * reader, Transition * transition);
 
+	QString escaped(const QString &str);
+
 	XMLValidator * validator;
 };
 

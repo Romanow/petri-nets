@@ -21,6 +21,7 @@ MainWindow::MainWindow() : QMainWindow()
 	net = new PetriNet;
 
 	markingDialog = new InitialMarkingDialog;
+	dataDialog = new InputDataDialog;
 
 	initInterface();
 	initConnections();
@@ -42,8 +43,6 @@ void MainWindow::initInterface()
 {
 	netMenu = new QMenu;
 	netMenu->addAction(conv("Начальная разметка"), this, SLOT(initialMarking()));
-	diagramMenu = new QMenu;
-	diagramMenu->addAction(conv("Входные данные"), this, SLOT(inputData()));
 
 	tabWidget = new QTabWidget(this);
 	browser = new TextBrowser(tabWidget);
@@ -184,25 +183,34 @@ void MainWindow::initialMarking()
 	}
 }
 
-void MainWindow::inputData()
-{
-
-}
-
 void MainWindow::convertToSimpleNet()
 {
 	net->convert(states, netStates, netTransitions);
-
-	tabWidget->setTabEnabled(2, true);
-	tabWidget->setCurrentIndex(2);
 	PlanarDrawer netPlanarDrawer(netStates, netMenu);
 	networkView->drawDiagram(&netPlanarDrawer);
 	networkView->setNetwork(netStates);
+
+	tabWidget->setTabEnabled(2, true);
+	tabWidget->setCurrentIndex(2);
 }
 
 void MainWindow::convertToColouredNet()
 {
+	types = net->variableList(states);
+	net->convert(states, netStates, netTransitions);
+	net->coloring(netStates, types);
 
+	dataDialog->setVariableList(types);
+	if (dataDialog->exec() == QDialog::Accepted)
+	{
+		dataDialog->getVariableList(types);
+		PlanarDrawer netPlanarDrawer(netStates, netMenu);
+		networkView->drawDiagram(&netPlanarDrawer);
+		networkView->setNetwork(netStates);
+
+		tabWidget->setTabEnabled(2, true);
+		tabWidget->setCurrentIndex(2);
+	}
 }
 
 void MainWindow::processData(const QString &data)
@@ -210,8 +218,7 @@ void MainWindow::processData(const QString &data)
 	XMLEngine engine;
 	if (engine.parse(data, states, transitions))
 	{
-		PlanarDrawer diagramPlanarDrawer(states, diagramMenu);
+		PlanarDrawer diagramPlanarDrawer(states);
 		diagramView->drawDiagram(&diagramPlanarDrawer);
-		net->variableList(states);
 	}
 }

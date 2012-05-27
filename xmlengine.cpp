@@ -197,7 +197,8 @@ bool XMLEngine::parseOutgoingTransitions(QXmlStreamReader * reader, State * stat
 bool XMLEngine::parseExpression(QXmlStreamReader * reader, State * state)
 {
 	QString expression = reader->readElementText();
-	state->setExpression(expression);
+	DiagramAction * action = dynamic_cast<DiagramAction *>(state);
+	action->setExpression(expression);
 
 	return !reader->hasError();
 }
@@ -273,10 +274,23 @@ bool XMLEngine::parseTargetState(QXmlStreamReader * reader, Transition * transit
 	return result & !reader->hasError();
 }
 
+QString XMLEngine::escaped(const QString &str)
+{
+	int pos = 0;
+	QString result = str;
+	while ((pos = result.indexOf("&gt;")) != - 1)
+		result.replace(pos, 4, ">");
+
+	while ((pos = result.indexOf("&lt;")) != - 1)
+		result.replace(pos, 4, "<");
+
+	return result;
+}
+
 bool XMLEngine::parseGuardExpression(QXmlStreamReader * reader, Transition * transition)
 {
 	QString guard = reader->readElementText();
-	transition->setGuard(guard);
+	transition->setGuard(escaped(guard));
 
 	return !reader->hasError();
 }

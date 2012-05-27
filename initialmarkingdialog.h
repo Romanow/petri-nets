@@ -2,9 +2,9 @@
 #define INITIALMARKINGDIALOG_H
 
 #include <QLabel>
+#include <QDialog>
 #include <QSpinBox>
 #include <QPushButton>
-#include <QDialog>
 
 class InitialMarkingDialog : public QDialog
 {

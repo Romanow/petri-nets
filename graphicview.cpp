@@ -20,8 +20,7 @@ DiagramView::~DiagramView()
 
 void DiagramView::initInterface()
 {
-	scene = new QGraphicsScene;
-	view = new QGraphicsView(scene, this);
+	view = new QGraphicsView(this);
 	view->setRenderHint(QPainter::Antialiasing, true);
 	view->setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
 	view->setDragMode(QGraphicsView::ScrollHandDrag);
@@ -55,14 +54,9 @@ void DiagramView::initConnections()
 	connect(btnConvertToColouredNet, SIGNAL(clicked()), SIGNAL(convertToColouredNet()));
 }
 
-QList<QGraphicsItem *> DiagramView::selected()
-{
-	return scene->selectedItems();
-}
-
 void DiagramView::drawDiagram(PlanarDrawer * drawer)
 {
-	scene = drawer->draw();
+	scene = drawer->draw(items, transitions);
 	view->setScene(scene);
 	scene->update();
 }
@@ -139,30 +133,65 @@ void NetworkView::play()
 
 void NetworkView::stop()
 {
-
+	timer->stop();
 }
 
 void NetworkView::timeout()
 {
-	timer->stop();
-	QList<State *> activeTransitions;
-	QList<State *> transitions = network->find(transition_node);
-	foreach (State * transition, transitions)
-	{
-		bool flag = true;
-		foreach (Transition * tr, transition->incoming())
-		{
-			NetPlace * place = dynamic_cast<NetPlace *>(tr->source());
-			if (place->marking() == 0)
-				flag = false;
-		}
+	QList<NetPlace *> activePlaces;
+	QList<State *> places = states->find(place_node);
+	QMultiMap<NetPlace *,
+			NetTransition *> activeTransitions;
 
-		if (flag)
-			activeTransitions.append(transition);
+	foreach (State * state, places)
+	{
+		NetPlace * place = dynamic_cast<NetPlace *>(state);
+		if (place->marking() > 0)
+			activePlaces.append(place);
 	}
 
-	foreach (State * state, activeTransitions)
-		qDebug() << state->id();
+	foreach (NetPlace * place, activePlaces)
+	{
+		foreach (Transition * tr, place->outgoing())
+		{
+			bool flag = true;
+			NetTransition * transition = dynamic_cast<NetTransition *>(tr->target());
+			for (int i = 0; i < transition->incoming().count() && flag; ++i)
+			{
+				NetPlace * place = dynamic_cast<NetPlace *>(transition->incoming()[i]->source());
+				if (place->marking() == 0) // transition.guard == true;
+					flag = false;
+			}
+
+			if (flag && activeTransitions.keys(transition).isEmpty())
+				activeTransitions.insert(place, transition);
+		}
+	}
+
+	foreach (NetPlace * place, activeTransitions.uniqueKeys())
+	{
+		QList<NetTransition *> list = activeTransitions.values(place);
+		int number = rand() % list.count();
+		NetTransition * transition = list[number];
+
+		// original place
+		foreach (Transition * tr, transition->incoming())
+		{
+			NetPlace * pl = dynamic_cast<NetPlace *>(tr->source());
+			pl->decrementMarking();
+		}
+
+		// next place
+		foreach (Transition * tr, transition->outgoing())
+		{
+			NetPlace * pl = dynamic_cast<NetPlace *>(tr->target());
+			pl->incrementMarking();
+		}
+	}
+
+	scene->update();
+	if (activeTransitions.count() == 0)
+		stop();
 }
 
 QList<QGraphicsItem *> NetworkView::selected()
@@ -172,12 +201,12 @@ QList<QGraphicsItem *> NetworkView::selected()
 
 void NetworkView::drawDiagram(PlanarDrawer * drawer)
 {
-	scene = drawer->draw();
+	scene = drawer->draw(items, transitions);
 	view->setScene(scene);
 	scene->update();
 }
 
-void NetworkView::setNetwork(StateList * states)
+void NetworkView::setNetwork(StateList * list)
 {
-	network = states;
+	states = list;
 }
