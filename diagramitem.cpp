@@ -67,6 +67,9 @@ void DiagramFinalItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
 DiagramActionItem::DiagramActionItem(State * state) : DiagramItem(state)
 {
 	path.addRoundedRect(- 50, - 15, 100, 30, 15, 15);
+
+	DiagramAction * action = dynamic_cast<DiagramAction *>(state);
+	setToolTip(action->expression());
 }
 
 QRectF DiagramActionItem::boundingRect() const
@@ -240,6 +243,13 @@ void DiagramGridItem::paint(QPainter * painter, const QStyleOptionGraphicsItem *
 DiagramNetPlaceItem::DiagramNetPlaceItem(State * state) : DiagramItem(state)
 {
 	path.addEllipse(- 12, - 12, 24, 24);
+
+	QString variables;
+	NetPlace * place = dynamic_cast<NetPlace *>(state);
+	foreach (QString variable, place->variables())
+		variables += variable + "\n";
+
+	setToolTip(variables.left(variables.length() - 1));
 }
 
 QRectF DiagramNetPlaceItem::boundingRect() const
@@ -284,11 +294,6 @@ void DiagramNetPlaceItem::paint(QPainter * painter, const QStyleOptionGraphicsIt
 		}
 		else
 			painter->drawText(QRectF(- 10, - 10, 20, 20), Qt::AlignHCenter | Qt::AlignVCenter, QString::number(place->marking()));
-
-	QString variableList;
-	foreach (QString variable, place->variables())
-		variableList += variable + "\n";
-	painter->drawText(QRect(15, 5, 100, 80), variableList);
 }
 
 void DiagramNetPlaceItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)

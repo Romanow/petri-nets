@@ -9,7 +9,6 @@
 #include "petrinet.h"
 #include "textbrowser.h"
 #include "graphicview.h"
-#include "initialmarkingdialog.h"
 #include "inputdatadialog.h"
 
 class MainWindow : public QMainWindow
@@ -21,6 +20,7 @@ public:
 	~MainWindow();
 
 private slots:
+	void clear();
 	void newFile();
 	void openFile();
 	void openRecentFile();
@@ -35,6 +35,8 @@ private:
 	void setCurrentFile(const QString &file);
 	void openFile(const QString &file);
 	void processData(const QString &data);
+	void clearNetStates();
+	void clearStates();
 
 	PetriNet * net;
 	QMap<QString, Type *> variables;

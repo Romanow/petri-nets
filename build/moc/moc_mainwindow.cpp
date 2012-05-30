@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Mon May 28 00:42:01 2012
+** Created: Wed May 30 23:27:38 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,16 +32,17 @@ static const uint qt_meta_data_MainWindow[] = {
 
  // slots: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x08,
-      22,   11,   11,   11, 0x08,
-      33,   11,   11,   11, 0x08,
-      50,   11,   11,   11, 0x08,
-      71,   11,   11,   11, 0x08,
+      20,   11,   11,   11, 0x08,
+      30,   11,   11,   11, 0x08,
+      41,   11,   11,   11, 0x08,
+      58,   11,   11,   11, 0x08,
+      79,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0newFile()\0openFile()\0"
+    "MainWindow\0\0clear()\0newFile()\0openFile()\0"
     "openRecentFile()\0convertToSimpleNet()\0"
     "convertToColouredNet()\0"
 };
@@ -75,14 +76,15 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: newFile(); break;
-        case 1: openFile(); break;
-        case 2: openRecentFile(); break;
-        case 3: convertToSimpleNet(); break;
-        case 4: convertToColouredNet(); break;
+        case 0: clear(); break;
+        case 1: newFile(); break;
+        case 2: openFile(); break;
+        case 3: openRecentFile(); break;
+        case 4: convertToSimpleNet(); break;
+        case 5: convertToColouredNet(); break;
         default: ;
         }
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }

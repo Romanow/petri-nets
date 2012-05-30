@@ -1,4 +1,7 @@
 #include "state.h"
+#include "petrinet.h"
+
+#include <QDebug>
 
 template <class A, class B>
 bool compare(const A &a, const B &b)
@@ -8,11 +11,8 @@ bool compare(const A &a, const B &b)
 
 StateList::~StateList()
 {
-	while (!isEmpty())
-	{
-		State * state = takeFirst();
-		delete state;
-	}
+	qDeleteAll(begin(), end());
+	clear();
 }
 
 QList<State *> StateList::find(const QString &id)
@@ -37,11 +37,8 @@ QList<State *> StateList::find(const StateType type)
 
 TransitionList::~TransitionList()
 {
-	while (!isEmpty())
-	{
-		Transition * transition = takeFirst();
-		delete transition;
-	}
+	qDeleteAll(begin(), end());
+	clear();
 }
 
 QList<Transition *> TransitionList::find(const QString &id)
@@ -93,6 +90,94 @@ void State::addOutgoingTransition(Transition * transition)
 
 NetPlace::NetPlace(const QString &name, const QString &id) :
 	State(name, id, place_node), m_color(Qt::black) {}
+
+void NetPlace::addVariableValue(const QString &name, Type * type)
+{
+	if (type->type() == complex)
+	{
+		ComplexType * complexType = reinterpret_cast<ComplexType *>(type);
+		foreach (QString variable, complexType->variables().keys())
+			addVariableValue(name + "." + variable, complexType->variables()[variable]);
+	}
+	else
+	{
+		SimpleType * simpleType = reinterpret_cast<SimpleType *>(type);
+		m_values.insert(name, simpleType->values());
+		m_types.insert(name, simpleType->values().count() > 1 ? array : variable);
+	}
+}
+
+bool NetPlace::isArray(const QString &variable)
+{
+	foreach (QString name, m_values.keys())
+		if (variable == name.split('.').first() && m_types[name] == array)
+			return true;
+
+	return false;
+}
+
+bool NetPlace::addMarking(Marking * marking)
+{
+	bool result = true;
+
+	QMutableStringListIterator iter(marking->variables());
+	while (iter.hasNext())
+	{
+		QString variable = iter.next();
+		// Если перменная фишки не содержится в переменных позиции
+		// или в этой позиции для переменной содержится массив значений
+		if (!variables().contains(variable) ||
+				isArray(variable))
+		{
+			// Удаляем переменную
+			iter.remove();
+			// Удаляем все значения пермееной
+			QMutableMapIterator<QString, QVariant> i(marking->values());
+			while (i.hasNext())
+			{
+				i.next();
+				QString name = i.key().split('.').first();
+				if (name == variable)
+					i.remove();
+			}
+		}
+	}
+
+	foreach (QString variable, variables())
+	{
+		if (!marking->variables().contains(variable) && result)
+		{
+			foreach (QString name, m_values.keys())
+				if (variable == name.split('.').first())
+				{
+					QVariantList valueList = m_values[name];
+					if (!valueList.isEmpty())
+					{
+						QVariant value = valueList.takeFirst();
+						if (m_types[name] == array)
+							m_values[name] = valueList;
+
+						marking->values().insert(name, value);
+					}
+					else if (m_types[name] == array)
+					{
+						marking->values().insert(name, 0);
+					}
+					else
+					{
+						result = false; break;
+					}
+				}
+
+			if (result)
+				marking->addVariable(variable);
+		}
+	}
+
+	m_marking.append(marking);
+
+	return result;
+}
 
 DiagramItem * NetPlace::diagramItem()
 {
@@ -155,42 +240,17 @@ DiagramItem * DiagramFinal::diagramItem()
 	return new DiagramFinalItem(this);
 }
 
-#include "petrinet.h"
-#include <QDebug>
-
-QVariant value(const QMap<QString, Type *> &type, QStringList variable)
+QString NetPlace::substituteValues(const QString &expression)
 {
-	QVariant result;
-	QString name = variable.takeFirst();
-	if (!variable.isEmpty())
-	{
-		ComplexType * complexType = reinterpret_cast<ComplexType *>(type[name]);
-		result = value(complexType->variables(), variable);
-	}
-	else
-	{
-		SimpleType * simpleType = reinterpret_cast<SimpleType *>(type[name]);
-		result = simpleType->values();
-	}
-
-	return result;
+	Marking * marking = m_marking.first();
+	return marking->substituteValues(expression);
 }
 
-void NetPlace::addMarking(Marking * marking)
+QString Marking::substituteValues(const QString &expression)
 {
-	QMutableMapIterator<QString, Type *> iter(marking->variables);
-	while (iter.hasNext())
-	{
-		iter.next();
-		if (!variables().contains(iter.key()))
-			iter.remove();
-	}
+	QString result = expression;
+	foreach (QString variable, m_values.keys())
+		result = result.replace(variable, m_values[variable].toString());
 
-	foreach (QString variable, variables())
-		if (!marking->variables.contains(variable))
-			marking->variables.insert(variable, m_variables[variable]); // copy variable
-
-	m_marking.append(marking);
-
-	qDebug() << marking->variables;
+	return result;
 }

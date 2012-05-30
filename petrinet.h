@@ -3,6 +3,8 @@
 
 #include "state.h"
 
+#include <QDebug>
+
 typedef enum { complex,
 			   simple
 			 } StructType;
@@ -10,6 +12,8 @@ typedef enum { complex,
 class Type
 {
 public:
+	virtual ~Type() {}
+
 	StructType type() { return m_type; }
 	QString name() { return m_name; }
 
@@ -25,6 +29,8 @@ private:
 class SimpleType : public Type
 {
 public:
+	~SimpleType() {}
+
 	SimpleType(const QString &name) : Type(name, simple) {}
 	QVariantList &values() { return m_values; }
 
@@ -35,6 +41,12 @@ private:
 class ComplexType : public Type
 {
 public:
+	~ComplexType()
+	{
+		qDeleteAll(m_variables);
+		m_variables.clear();
+	}
+
 	ComplexType(const QString &name) : Type(name, complex) {}
 	QMap<QString, Type *> &variables() { return m_variables; }
 
@@ -45,7 +57,7 @@ private:
 class PetriNet
 {
 public:
-	void convert(StateList * states, StateList * netStates, TransitionList * netTransiitons);
+	void convert(StateList * states, StateList * netStates, TransitionList * netTransiitons, bool colored = false);
 	QMap<QString, Type *> variableList(StateList * states);
 	void coloring(StateList * netStates, const QMap<QString, Type *> &types);
 	void setInitialMarking(StateList * states, StateList * netStates);
@@ -53,7 +65,7 @@ public:
 
 private:
 	void createType(QMap<QString, Type *> &variables, QStringList &variable);
-	void convertState(State * state, StateList * states, TransitionList * transitions);
+	void convertState(State * state, StateList * states, TransitionList * transitions, bool colored);
 	State * findFreePlace(const QList<State *> &places, TransitionList * netTransitions);
 	State * findFreeTransition(const QList<State *> &transitions, TransitionList * netTransitions);
 	void setVariablePath(State * state, const QString &variable, QList<State *> &track);

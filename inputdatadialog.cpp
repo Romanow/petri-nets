@@ -1,7 +1,6 @@
 #include "inputdatadialog.h"
 #include "translate.h"
 
-#include <QDebug>
 #include <QPainter>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -14,6 +13,12 @@ InputDataDialog::InputDataDialog(QWidget * parent) : QDialog(parent)
 	initConnections();
 
 	setWindowTitle(conv("Начальные данные"));
+}
+
+InputDataDialog::~InputDataDialog()
+{
+	qDeleteAll(lines);
+	lines.clear();
 }
 
 void InputDataDialog::initInterface()
@@ -81,23 +86,8 @@ void InputDataDialog::addInterfaceElement(SimpleType * simple, int x, int y)
 	if (values.count() > 0)
 	{
 		foreach (QVariant value, values)
-		{
-			if (value.type() == QVariant::List)
-			{
-				QString str;
-				QVariantList list = value.toList();
-				foreach (QVariant val, value.toList())
-					str += serialize(val) + ", ";
+			valueString += serialize(value) + "; ";
 
-				str = str.left(str.length() - 2);
-				if (list.count() > 1)
-					str = "(" + str + ")";
-
-				valueString += str + "; ";
-			}
-			else
-				valueString += serialize(value) + "; ";
-		}
 		valueString = valueString.left(valueString.length() - 2);
 		if (values.count() > 1)
 			valueString = "[" + valueString + "]";
@@ -135,6 +125,7 @@ void InputDataDialog::drawInterface(QMap<QString, Type *> variables, QPainter &p
 
 void InputDataDialog::setVariableList(const QMap<QString, Type *> &types)
 {
+	qDeleteAll(lines);
 	lines.clear();
 
 	QPixmap pixmap(180, 500);
@@ -165,18 +156,9 @@ void InputDataDialog::getValues(QMap<QString, Type *> &variables, int &number)
 			QString line = lines[number]->text();
 
 			QStringList array = line.split(QRegExp("[\\[;\\]]"), QString::SkipEmptyParts);
-			foreach (QString elements, array)
-			{
-				QVariantList list;
-				QStringList values = elements.split(QRegExp("[\\(,\\) ]"), QString::SkipEmptyParts);
-				foreach (QString value, values)
-					list.append(serialize(value));
+			foreach (QString value, array)
+				simple->values().append(serialize(value));
 
-				if (list.count() > 1)
-					simple->values().append(QVariant(list));
-				else
-					simple->values().append(list);
-			}
 			number += 1;
 		}
 	}

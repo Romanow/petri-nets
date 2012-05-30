@@ -17,6 +17,10 @@ typedef enum { unknown_state,
 			   transition_node
 			 } StateType;
 
+typedef enum { array,
+			   variable
+			 } VariableType;
+
 class Type;
 class State;
 class Transition;
@@ -99,7 +103,26 @@ protected:
 class Marking
 {
 public:
-	QMap<QString, Type *> variables;
+	// Variables
+	void addVariable(const QString &variable) { m_variables.append(variable); }
+	QStringList &variables() { return m_variables; }
+
+	// Values
+	void addVariableValue(const QString &name, const QVariant &value)
+	{
+		if (!m_values.contains(name))
+			m_values.insert(name, value);
+		else
+			m_values[name] = value;
+	}
+	QMap<QString, QVariant> &values() { return m_values; }
+
+	// Substitute the values
+	QString substituteValues(const QString &expression);
+
+private:
+	QStringList m_variables;
+	QMap<QString, QVariant> m_values;
 };
 
 class NetPlace : public State
@@ -108,37 +131,42 @@ public:
 	NetPlace(const QString &name, const QString &id);
 	DiagramItem * diagramItem();
 
+	// Color
 	QColor color() { return m_color; }
 	void setColor(const QColor &color) { m_color = color; }
 
+	// Marking
 	int marking() { return m_marking.count(); }
 	Marking * takeMarking() { return m_marking.takeFirst(); }
-	void addMarking(Marking * marking);
+	bool addMarking(Marking * marking);
 
-	QStringList variables() { return m_variables.keys(); }
+	// Variables
+	QStringList variables() { return m_variables; }
 	bool addVariable(const QString &variable)
 	{
-		bool result = m_variables.contains(variable);
-		if (!result)
-			m_variables.insert(variable, 0);
+		bool result = false;
+		if (!variable.isEmpty() && !m_variables.contains(variable))
+		{
+			m_variables.append(variable);
+			result = true;
+		}
 
-		return !result;
+		return result;
 	}
-	bool removeVariable(const QString &variable) { return m_variables.remove(variable); }
-	void setVariables(const QStringList &variables)
-	{
-		foreach (QString variable, variables)
-			m_variables.insert(variable, 0);
-	}
-	void setVariableValue(const QString &variable, Type * value)
-	{
-		m_variables[variable] = value;
-	}
+	bool removeVariable(const QString &variable) { return m_variables.removeOne(variable); }
+	void addVariableValue(const QString &variable, Type * type);
+
+	// Substitute the values
+	QString substituteValues(const QString &expression);
 
 private:
-	QColor m_color;
+	bool isArray(const QString &variable);
+
+	QMap<QString, QVariantList> m_values;
+	QMap<QString, VariableType> m_types;
 	QList<Marking *> m_marking;
-	QMap<QString, Type *> m_variables;
+	QStringList m_variables;
+	QColor m_color;
 };
 
 class NetTransition : public State

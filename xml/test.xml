@@ -83,7 +83,7 @@
 			<target>
 				<state idref = "action2"/>
 			</target>
-			<guard>field != 0</guard>
+			<guard>field.cell != 0</guard>
 		</transition>
 		<transition id = "trans4">
 			<source>
@@ -92,7 +92,7 @@
 			<target>
 				<state idref = "final"/>
 			</target>
-			<guard>field == 0</guard>
+			<guard>field.cell == 0</guard>
 		</transition>
 		<transition id = "trans5">
 			<source>

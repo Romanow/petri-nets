@@ -10,8 +10,6 @@
 #include <QApplication>
 #include <QDesktopWidget>
 
-#include <QDebug>
-
 MainWindow::MainWindow() : QMainWindow()
 {
 	states = new StateList;
@@ -31,11 +29,15 @@ MainWindow::MainWindow() : QMainWindow()
 
 MainWindow::~MainWindow()
 {
+	delete net;
 	delete transitions;
 	delete netTransitions;
 	delete states;
 	delete netStates;
-	delete net;
+	delete dataDialog;
+
+	qDeleteAll(variables);
+	variables.clear();
 }
 
 void MainWindow::initInterface()
@@ -134,11 +136,14 @@ void MainWindow::openFile(const QString &fileName)
 	QFile file(fileName);
 	if (file.open(QIODevice::ReadOnly | QIODevice::Text))
 	{
+		clear();
+
 		QString data = file.readAll();
 		browser->setPlainText(data);
 
 		processData(data);
 	}
+
 	file.close();
 }
 
@@ -163,8 +168,44 @@ void MainWindow::setCurrentFile(const QString &file)
 	recentFileMenu->setEnabled(enabled);
 }
 
+void MainWindow::clear()
+{
+	browser->clear();
+
+	clearStates();
+	clearNetStates();
+
+	tabWidget->setCurrentIndex(0);
+	tabWidget->setTabEnabled(2, false);
+}
+
+void MainWindow::clearStates()
+{
+	diagramView->clear();
+
+	qDeleteAll(states->begin(), states->end());
+	states->clear();
+	qDeleteAll(netStates->begin(), netStates->end());
+	netStates->clear();
+}
+
+void MainWindow::clearNetStates()
+{
+	networkView->clear();
+
+	qDeleteAll(netStates->begin(), netStates->end());
+	netStates->clear();
+	qDeleteAll(netTransitions->begin(), netTransitions->end());
+	netTransitions->clear();
+
+	qDeleteAll(variables);
+	variables.clear();
+}
+
 void MainWindow::convertToSimpleNet()
 {
+	clearNetStates();
+
 	net->convert(states, netStates, netTransitions);
 	net->setInitialMarking(states, netStates);
 
@@ -178,31 +219,35 @@ void MainWindow::convertToSimpleNet()
 
 void MainWindow::convertToColouredNet()
 {
+	clearNetStates();
+
 	// Выделение внутренних переменных состояния и построение списка типов
 	variables = net->variableList(states);
 	// Преобразование в простую сеть Петри
-	net->convert(states, netStates, netTransitions);
-	// Основываясь на списке внутренних переменных выстраивается множество раскрасок сети
-	net->coloring(netStates, variables);
-
-	// Введение начальных значений переменных
-	dataDialog->setVariableList(variables);
-	if (dataDialog->exec() == QDialog::Accepted)
+	net->convert(states, netStates, netTransitions, true);
+	if (!variables.isEmpty())
 	{
-		dataDialog->getVariableList(variables);
-		// Задание начальных значений переменных с привязкой к состоянию сети
-		net->initVariables(netStates, variables);
-		// Установка фишки в начальную позицию
-		net->setInitialMarking(states, netStates);
-
-		// Отображение сети
-		PlanarDrawer netPlanarDrawer(netStates);
-		networkView->drawDiagram(&netPlanarDrawer);
-		networkView->setNetwork(netStates);
-
-		tabWidget->setTabEnabled(2, true);
-		tabWidget->setCurrentIndex(2);
+		// Основываясь на списке внутренних переменных выстраивается множество раскрасок сети
+		net->coloring(netStates, variables);
+		// Введение начальных значений переменных
+		dataDialog->setVariableList(variables);
+		if (dataDialog->exec() == QDialog::Accepted)
+		{
+			dataDialog->getVariableList(variables);
+			// Задание начальных значений переменных с привязкой к состоянию сети
+			net->initVariables(netStates, variables);
+		}
 	}
+	// Установка фишки в начальную позицию
+	net->setInitialMarking(states, netStates);
+
+	// Отображение сети
+	PlanarDrawer netPlanarDrawer(netStates);
+	networkView->drawDiagram(&netPlanarDrawer);
+	networkView->setNetwork(netStates);
+
+	tabWidget->setTabEnabled(2, true);
+	tabWidget->setCurrentIndex(2);
 }
 
 void MainWindow::processData(const QString &data)

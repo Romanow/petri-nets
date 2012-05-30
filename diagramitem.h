@@ -79,6 +79,9 @@ public:
 
 protected:
 	void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
+
+private:
+	QString expression;
 };
 
 class DiagramConditionItem : public DiagramItem

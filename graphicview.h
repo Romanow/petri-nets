@@ -14,12 +14,17 @@ class View : public QWidget
 {
 public:
 	View(QWidget * parent = 0);
+	virtual ~View();
 
 	virtual void drawDiagram(PlanarDrawer * drawer) = 0;
+	void clear();
 
 protected:
 	QList<DiagramTransitionItem *> transitions;
 	QList<DiagramItem *> items;
+
+	QGraphicsScene * scene;
+	QGraphicsView * view;
 };
 
 class DiagramView : public View
@@ -40,8 +45,6 @@ signals:
 	 void initInterface();
 	 void initConnections();
 
-	 QGraphicsScene * scene;
-	 QGraphicsView * view;
 	 QPushButton * btnConvertToSimpleNet;
 	 QPushButton * btnConvertToColouredNet;
 };
@@ -54,7 +57,6 @@ class NetworkView : public View
 	 NetworkView(QWidget * parent = 0);
 	 ~NetworkView();
 
-	 QList<QGraphicsItem *> selected();
 	 void drawDiagram(PlanarDrawer * drawer);
 	 void setNetwork(StateList * netStates);
 

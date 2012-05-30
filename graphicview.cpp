@@ -1,6 +1,7 @@
 #include "graphicview.h"
 #include "translate.h"
 #include "petrinet.h"
+#include "rpn.h"
 
 #include <QDebug>
 #include <QVBoxLayout>
@@ -8,16 +9,26 @@
 
 View::View(QWidget * parent) : QWidget(parent) {}
 
+View::~View()
+{
+	clear();
+}
+
+void View::clear()
+{
+	qDeleteAll(transitions);
+	transitions.clear();
+	qDeleteAll(items);
+	items.clear();
+}
+
 DiagramView::DiagramView(QWidget * parent) : View(parent)
 {
 	initInterface();
 	initConnections();
 }
 
-DiagramView::~DiagramView()
-{
-	delete view;
-}
+DiagramView::~DiagramView() {}
 
 void DiagramView::initInterface()
 {
@@ -70,15 +81,12 @@ NetworkView::NetworkView(QWidget * parent) : View(parent)
 	initConnections();
 }
 
-NetworkView::~NetworkView()
-{
-	delete view;
-}
+NetworkView::~NetworkView() {}
 
 void NetworkView::initInterface()
 {
 	timer = new QTimer;
-	timer->setInterval(2000);
+	timer->setInterval(1000);
 
 	view = new QGraphicsView(this);
 	view->setRenderHint(QPainter::Antialiasing, true);
@@ -141,8 +149,7 @@ void NetworkView::timeout()
 {
 	QList<NetPlace *> activePlaces;
 	QList<State *> places = states->find(place_node);
-	QMultiMap<NetPlace *,
-			NetTransition *> activeTransitions;
+	QMultiMap<NetPlace *, NetTransition *> activeTransitions;
 
 	foreach (State * state, places)
 	{
@@ -160,7 +167,18 @@ void NetworkView::timeout()
 			for (int i = 0; i < transition->incoming().count() && flag; ++i)
 			{
 				NetPlace * place = dynamic_cast<NetPlace *>(transition->incoming()[i]->source());
-				if (place->marking() == 0) // && transition.guard()
+
+				if (place->marking() != 0)
+				{
+					QString expression = place->substituteValues(transition->incoming()[i]->guard());
+					if (!expression.isEmpty())
+					{
+						flag = RPN::calculate(expression);
+
+						qDebug() << place->id() << "Transition" << expression << RPN::calculate(expression);
+					}
+				}
+				else
 					flag = false;
 			}
 
@@ -183,6 +201,13 @@ void NetworkView::timeout()
 			marking = pl->takeMarking();
 		}
 
+		if (!transition->expression().isEmpty())
+		{
+			double result = RPN::calculate(marking->substituteValues(transition->expression()));
+			qDebug() << transition->expression() << result;
+			marking->addVariableValue(transition->result(), result);
+		}
+
 		// next place
 		foreach (Transition * tr, transition->outgoing())
 		{
@@ -194,11 +219,6 @@ void NetworkView::timeout()
 	scene->update();
 	if (activeTransitions.count() == 0)
 		stop();
-}
-
-QList<QGraphicsItem *> NetworkView::selected()
-{
-	return scene->selectedItems();
 }
 
 void NetworkView::drawDiagram(PlanarDrawer * drawer)

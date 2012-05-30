@@ -15,6 +15,7 @@ class InputDataDialog : public QDialog
 
 public:
     InputDataDialog(QWidget * parent = 0);
+	~InputDataDialog();
 
     void setVariableList(const QMap<QString, Type *> &types);
     void getVariableList(QMap<QString, Type *> &variables);

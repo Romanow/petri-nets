@@ -135,6 +135,11 @@ double RPN::calculate(const QString &expression)
 				if (str.length() > 1 && str[1] == '=')
 					result = v1 == v2;
 				break;
+
+			case '!':
+				if (str.length() > 1 && str[1] == '=')
+					result = v1 != v2;
+				break;
 			}
 
 			stack.push(result);
