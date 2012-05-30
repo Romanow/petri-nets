@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.17)  29 MAY 2012 11:27
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.17)  31 MAY 2012 02:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -718,6 +718,19 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \f@ncyO@olf=\skip54
 \f@ncyO@orf=\skip55
 ))
+(/usr/local/texlive/2010/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2010/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2010/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks24
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+) (/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2008/02/20 v2.00 (rcs-revision 1.21)
+))
+Package: pgf 2008/01/15 v2.00 (rcs-revision 1.12)
+ (/usr/local/texlive/2010/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 (/usr/local/texlive/2010/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -735,7 +748,351 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 \Gin@req@height=\dimen124
 \Gin@req@width=\dimen125
 )
-(./title.tex) (./slides.aux
+(/usr/local/texlive/2010/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2008/02/07 v2.00 (rcs-revision 1.31)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks25
+\pgfkeys@temptoks=\toks26
+)
+\pgf@x=\dimen126
+\pgf@y=\dimen127
+\pgf@xa=\dimen128
+\pgf@ya=\dimen129
+\pgf@xb=\dimen130
+\pgf@yb=\dimen131
+\pgf@xc=\dimen132
+\pgf@yc=\dimen133
+\c@pgf@counta=\count112
+\c@pgf@countb=\count113
+\c@pgf@countc=\count114
+\c@pgf@countd=\count115
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/01/13  (rcs-revision 1.6)
+)
+Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 885.
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2007/12/20  (rcs-revision 1.20)
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2007/12/17  (rcs-revision 1.8)
+)))
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2008/01/23  (rcs-revision 1.6)
+\pgfsyssoftpath@smallbuffer@items=\count116
+\pgfsyssoftpath@bigbuffer@items=\count117
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) (/usr/local/texlive/2010/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2008/01/15 v2.00 (rcs-revision 1.6)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+\pgfmath@box=\box28
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@stack=\toks27
+\c@pgfmath@parsecounta=\count118
+\c@pgfmath@parsecountb=\count119
+\c@pgfmath@parsecountc=\count120
+\pgfmath@parsex=\dimen134
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/math/pgfmathoperations.code
+.tex
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/math/pgfmathtrig.code.tex)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/math/pgfmathrnd.code.tex))
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/math/pgfmathbase.code.tex))
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2008/02/03  (rcs-revision 1.13)
+\pgf@picminx=\dimen135
+\pgf@picmaxx=\dimen136
+\pgf@picminy=\dimen137
+\pgf@picmaxy=\dimen138
+\pgf@pathminx=\dimen139
+\pgf@pathmaxx=\dimen140
+\pgf@pathminy=\dimen141
+\pgf@pathmaxy=\dimen142
+\pgf@xx=\dimen143
+\pgf@xy=\dimen144
+\pgf@yx=\dimen145
+\pgf@yy=\dimen146
+\pgf@zx=\dimen147
+\pgf@zy=\dimen148
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2008/02/13  (rcs-revision 1.14)
+\pgf@path@lastx=\dimen149
+\pgf@path@lasty=\dimen150
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2008/01/23  (rcs-revision 1.11)
+\pgf@shorten@end@additional=\dimen151
+\pgf@shorten@start@additional=\dimen152
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2008/01/15  (rcs-revision 1.26)
+\pgfpic=\box29
+\pgf@hbox=\box30
+\pgf@layerbox@main=\box31
+\pgf@picture@serial@count=\count121
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2007/12/12  (rcs-revision 1.8)
+\pgflinewidth=\dimen153
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2008/02/04  (rcs-revision 1.10)
+\pgf@pt@x=\dimen154
+\pgf@pt@y=\dimen155
+\pgf@pt@temp=\dimen156
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2008/01/23  (rcs-revision 1.7)
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2007/06/07  (rcs-revision 1.8)
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2007/12/10  (rcs-revision 1.9)
+\pgf@max=\dimen157
+\pgf@sys@shading@range@num=\count122
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2008/01/15  (rcs-revision 1.1)
+\pgfexternal@startupbox=\box32
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2008/01/15  (rcs-revision 1.1)
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2008/01/15  (rcs-revision 1.1)
+)))
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2008/02/13  (rcs-revision 1.4)
+\pgfnodeparttextbox=\box33
+\toks@savedmacro=\toks28
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2008/01/15  (rcs-revision 1.1)
+\pgf@plotwrite=\write3
+)
+(/usr/local/texlive/2010/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v2.00 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen158
+\pgf@nodesepend=\dimen159
+)
+(/usr/local/texlive/2010/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v2.00 (rcs-revision 1.1)
+))
+(/usr/local/texlive/2010/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2007/11/07 v2.00 (rcs-revision 1.8)
+\pgffor@iter=\dimen160
+\pgffor@skip=\dimen161
+))
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2008/02/13 v2.00 (rcs-revision 1.27)
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2007/03/09 v2.00 (rcs-revision 1.9)
+\pgf@plot@mark@count=\count123
+\pgfplotmarksize=\dimen162
+)
+\tikz@lastx=\dimen163
+\tikz@lasty=\dimen164
+\tikz@lastxsaved=\dimen165
+\tikz@lastysaved=\dimen166
+\tikzleveldistance=\dimen167
+\tikzsiblingdistance=\dimen168
+\tikz@figbox=\box34
+\tikz@tempbox=\box35
+\tikztreelevel=\count124
+\tikznumberofchildren=\count125
+\tikznumberofcurrentchild=\count126
+\tikz@fig@count=\count127
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2008/01/15  (rcs-revision 1.1)
+\pgfmatrixcurrentrow=\count128
+\pgfmatrixcurrentcolumn=\count129
+\pgf@matrix@numberofcolumns=\count130
+)
+\tikz@expandcount=\count131
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/01/09 v2.00 (rcs-revision 1.1)
+)))
+(/usr/local/texlive/2010/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2010/07/14 Version 1.4 (git show version_1.4-1-g38878fa )
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks29
+\t@pgfplots@tokb=\toks30
+\t@pgfplots@tokc=\toks31
+\pgfplots@tmpa=\dimen169
+\c@pgfplots@coordindex=\count132
+\c@pgfplots@scanlineindex=\count133
+\r@pgfplots@reada=\read1
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.c
+ode.tex)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_loader.code.tex
+Package pgfplots: loading complementary code for your PGF version...
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_misc.code.tex
+\w@pgf@writea=\write4
+\r@pgf@reada=\read2
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks32
+\pgfkeys@temptoks=\toks33
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks34
+))
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count134
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2010/05/31 v2.00 (rcs-revision 1.15)
+\pgf@plot@mark@count=\count135
+\pgfplotmarksize=\dimen170
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgflibraryfpu.code.tex))
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code
+.tex
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+liststructure.code.tex)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+liststructureext.code.tex)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+array.code.tex
+\c@pgfplotsarray@tmp=\count136
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
+shared.code.tex
+\c@pgfplotstable@counta=\count137
+\t@pgfplotstable@a=\toks35
+\pgfplotstable@outfile=\write5
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+deque.code.tex)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.co
+de.tex)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
+s.surfshading.code.tex
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
+.surfshading.pgfsys-pdftex.def)))
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.
+code.tex)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.c
+ode.tex)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessin
+g.code.tex)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex
+\pgfdecoratedcompleteddistance=\dimen171
+\pgfdecoratedremainingdistance=\dimen172
+\pgfdecoratedinputsegmentcompleteddistance=\dimen173
+\pgfdecoratedinputsegmentremainingdistance=\dimen174
+\pgf@decorate@distancetomove=\dimen175
+\pgf@decorate@repeatstate=\count138
+\pgfdecorationsegmentamplitude=\dimen176
+\pgfdecorationsegmentlength=\dimen177
+))
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/libraries/pgflibrarydecorat
+ions.pathmorphing.code.tex))
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathreplacing.code.tex
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/libraries/pgflibrarydecorat
+ions.pathreplacing.code.tex))
+\pgfplots@numplots=\count139
+\pgfplots@xmin@reg=\dimen178
+\pgfplots@xmax@reg=\dimen179
+\pgfplots@ymin@reg=\dimen180
+\pgfplots@ymax@reg=\dimen181
+\pgfplots@zmin@reg=\dimen182
+\pgfplots@zmax@reg=\dimen183
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2008/01/09 v2.00 (rcs-revision 1.1)
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmar
+ks.code.tex
+File: pgflibraryplotmarks.code.tex 2007/03/09 v2.00 (rcs-revision 1.5)
+))) (./title.tex) (./slides.aux
 LaTeX Font Info:    Try loading font information for T2A+cmr on input line 18.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/t2acmr.fd
@@ -743,32 +1100,32 @@ File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
 \openout1 = `slides.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <28> not available
-(Font)              size <24.88> substituted on input line 29.
+(Font)              size <24.88> substituted on input line 31.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <28> not available
-(Font)              size <29.86> substituted on input line 29.
+(Font)              size <29.86> substituted on input line 31.
 
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -807,19 +1164,19 @@ LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <28> not available
 
 (/usr/local/texlive/2010/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
-\scratchdimen=\dimen126
-\scratchbox=\box28
-\nofMPsegments=\count113
-\nofMParguments=\count114
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count115
-\MPscratchDim=\dimen127
-\MPnumerator=\count116
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count140
+\scratchdimen=\dimen184
+\scratchbox=\box36
+\nofMPsegments=\count141
+\nofMParguments=\count142
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count143
+\MPscratchDim=\dimen185
+\MPnumerator=\count144
+\everyMPtoPDFconversion=\toks37
 )
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring ON on input line 29.
+\AtBeginShipoutBox=\box37
+Package hyperref Info: Link coloring ON on input line 31.
  (/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
@@ -829,15 +1186,15 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 (/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2009/12/18 v1.3 Cleanup title references (HO)
 )
-\c@section@level=\count117
+\c@section@level=\count145
 )
-LaTeX Info: Redefining \ref on input line 29.
-LaTeX Info: Redefining \pageref on input line 29.
-LaTeX Info: Redefining \nameref on input line 29.
+LaTeX Info: Redefining \ref on input line 31.
+LaTeX Info: Redefining \pageref on input line 31.
+LaTeX Info: Redefining \nameref on input line 31.
 
 (./slides.out) (./slides.out)
-\@outlinefile=\write3
-\openout3 = `slides.out'.
+\@outlinefile=\write6
+\openout6 = `slides.out'.
 
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
@@ -857,59 +1214,119 @@ e
 ))
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <52> not available
-(Font)              size <35.83> substituted on input line 31.
+(Font)              size <35.83> substituted on input line 33.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <24> not available
-(Font)              size <24.88> substituted on input line 31.
+(Font)              size <24.88> substituted on input line 33.
 
 [1
 
 {/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <44> not available
-(Font)              size <35.83> substituted on input line 33.
+(Font)              size <35.83> substituted on input line 35.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/bx/n' in size <28> not available
-(Font)              size <29.86> substituted on input line 35.
+(Font)              size <29.86> substituted on input line 37.
 
 ! Text line contains an invalid character.
-l.36 ^^@
+l.38 ^^@
         
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 
-Underfull \hbox (badness 5316) in paragraph at lines 35--36
-[]\T2A/cmr/bx/n/29.86 Целью ра-бо-ты \T2A/cmr/m/n/29.86 яв-ля-ет-ся ис-сле-до-в
-а-ние, раз-ра-бот-ка и
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+\T2A/cmr/m/n/29.86 диа-грам-мы де-я-тель-но-сти рас-кра-шен-ной се-тью Пет-ри,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
-[]\T2A/cmr/m/n/29.86 Разработать ме-тод пред-став-ле-ния диа-грам-мы
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+\T2A/cmr/m/n/29.86 поз-во-ля-ю-ще-го вы-явить бло-ки-ров-ки и недо-сти-жи-мые
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
-[]\T2A/cmr/m/n/29.86 Исследовать фак-то-ры, вли-я-ю-щие на по-яв-ле-ние
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+[]\T2A/cmr/m/n/24.88 Классифицировать су-ще-ству-ю-щие ме-то-ды ана-ли-за диа-г
+рамм
+ []
+
+
+! Package inputenc Error: Unicode char \u8:М† not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.43 ...‚Рё РІ РІРёРґРµ СЂР°СЃРєСЂР°С€РµРЅРЅРѕРёМ†
+                                                   СЃРµС‚Рё РџРµС‚СЂРё.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:М† not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.44 ...‚Рё РІ РІРёРґРµ СЂР°СЃРєСЂР°С€РµРЅРЅРѕРёМ†
+                                                   СЃРµС‚Рё РџРµС‚СЂРё.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+[]\T2A/cmr/m/n/24.88 Программно ре-а-ли-зо-вать ме-тод пред-став-ле-ния диа-гра
+м-мы
  []
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 46.
+(Font)              size <20.74> substituted on input line 50.
 
 [2
 
-] [3
+]
 
-] <../tex/include/IDEF0.png, id=85, 840.13875pt x 417.05812pt>
+LaTeX Warning: File `../tex/include/MethodClassification.png' not found on inpu
+t line 53.
+
+
+! Package pdftex.def Error: File `../tex/include/MethodClassification.png' not 
+found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53 ...]{../tex/include/MethodClassification.png}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 53.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
+File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+
+LaTeX Font Warning: Font shape `T2A/cmtt/m/n' in size <28> not available
+(Font)              size <29.86> substituted on input line 53.
+
+[3
+
+] <../tex/include/IDEF0.png, id=97, 840.13875pt x 417.05812pt>
 File: ../tex/include/IDEF0.png Graphic file (type png)
 
 <use ../tex/include/IDEF0.png>
 ! Text line contains an invalid character.
-l.61 ...СЃС‚Р°РІР»РµРЅРёРµ UML РґРёР°РіСЂР°РјРј^^@
+l.62 ...СЃС‚Р°РІР»РµРЅРёРµ UML РґРёР°РіСЂР°РјРј^^@
                                                   }
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
@@ -917,85 +1334,50 @@ Continue, and I'll forget that it ever happened.
 [4
 
  <../tex/include/IDEF0.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
-[]\T2A/cmr/m/n/29.86 Основным стан-дар-том
+Underfull \hbox (badness 2837) in paragraph at lines 65--69
+\T2A/cmr/m/n/29.86 XMI  --- XML Mmetadata
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
-\T2A/cmr/m/n/29.86 для пред-став-ле-ния
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
-\T2A/cmr/m/n/29.86 UML диа-грамм
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
-\T2A/cmr/m/n/29.86 яв-ля-ет-ся XMI (XML
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
-\T2A/cmr/m/n/29.86 metadata interchange)
- []
-
-
-Underfull \hbox (badness 2970) in paragraph at lines 64--65
-\T2A/cmr/m/n/29.86 ^^U стан-дарт OMG для
- []
-
-
-Underfull \hbox (badness 1342) in paragraph at lines 64--65
-\T2A/cmr/m/n/29.86 об-ме-на ме-та-дан-ны-ми с
- []
-
-LaTeX Font Info:    Calculating math sizes for size <28> on input line 65.
+LaTeX Font Info:    Calculating math sizes for size <28> on input line 70.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <19.59991> not available
-(Font)              size <20.74> substituted on input line 65.
+(Font)              size <20.74> substituted on input line 70.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <28> not available
-(Font)              size <24.88> substituted on input line 65.
+(Font)              size <24.88> substituted on input line 70.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <19.59991> not available
-(Font)              size <20.74> substituted on input line 65.
+(Font)              size <20.74> substituted on input line 70.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <28> not available
-(Font)              size <24.88> substituted on input line 65.
+(Font)              size <24.88> substituted on input line 70.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <19.59991> not available
-(Font)              size <20.74> substituted on input line 65.
+(Font)              size <20.74> substituted on input line 70.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <28> not available
-(Font)              size <24.88> substituted on input line 65.
+(Font)              size <24.88> substituted on input line 70.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <19.59991> not available
-(Font)              size <20.74> substituted on input line 65.
+(Font)              size <20.74> substituted on input line 70.
 
-LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 69.
-
-(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
-File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)
 
 LaTeX Font Warning: Font shape `T2A/cmtt/m/n' in size <24> not available
-(Font)              size <24.88> substituted on input line 69.
+(Font)              size <24.88> substituted on input line 74.
 
 
-Overfull \hbox (5.984pt too wide) in paragraph at lines 63--89
+Overfull \hbox (28.77373pt too wide) in paragraph at lines 64--94
 []$[]$  $[]$ 
  []
 
 ! Text line contains an invalid character.
-l.90 ...Р°РіСЂР°РјРјС‹ РґРµСЏС‚РµР»СЊРЅРѕСЃС‚Рё^^@
+l.95 ...Р°РіСЂР°РјРјС‹ РґРµСЏС‚РµР»СЊРЅРѕСЃС‚Рё^^@
                                                   }
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
@@ -1003,15 +1385,6 @@ Continue, and I'll forget that it ever happened.
 [5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
-[]\T2A/cmr/m/n/29.86 Представим диа-грам-му де-я-тель-но-сти в ви-де
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
-\T2A/cmr/m/n/29.86 ори-ен-ти-ро-ван-но-го гра-фа. То-гда для ее отоб-ра-же-ния
- []
-
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -1020,64 +1393,139 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.95 ...ЃСЃРѕС†РёРёСЂРѕРІР°РЅРЅРѕРіРѕ РіСЂР°С„Р°.
+l.102 ...СЃРѕС†РёРёСЂРѕРІР°РЅРЅРѕРіРѕ РіСЂР°С„Р°.
                                                   
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 []\T2A/cmr/m/n/29.86 Топологическая сор-ти-ров-ка вер-шин ис-ход-но-го и
  []
 
 [6
 
-]
+] <../tex/include/RemoveCycles1.png, id=113, 146.04562pt x 163.3603pt>
+File: ../tex/include/RemoveCycles1.png Graphic file (type png)
 
-! Package inputenc Error: Unicode char \u8:М† not set up for use with LaTeX.
+<use ../tex/include/RemoveCycles1.png>
+! Missing $ inserted.
+<inserted text> 
+                $
+l.114 ....png} \\ \tiny Р¦РёРєР» (A,B) \rightarrow
+                                                   (B,C) \rightarrow (C,D) \...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+LaTeX Font Info:    Calculating math sizes for size <20> on input line 114.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <20> not available
+(Font)              size <20.74> substituted on input line 114.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13.99994> not available
+(Font)              size <14.4> substituted on input line 114.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <20> not available
+(Font)              size <20.74> substituted on input line 114.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <13.99994> not available
+(Font)              size <14.4> substituted on input line 114.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <20> not available
+(Font)              size <20.74> substituted on input line 114.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <13.99994> not available
+(Font)              size <14.4> substituted on input line 114.
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <20> not available
+(Font)              size <20.74> substituted on input line 114.
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <13.99994> not available
+(Font)              size <14.4> substituted on input line 114.
+
+! Extra }, or forgotten $.
+l.114 ...D,F) \rightarrow (F,E) \rightarrow (E,A)}
                                                   
-l.107 ...С‚СЊ СЃРїРёСЃРѕРє РІСЃРµС… РіСЂР°РЅРµРёМ†
-                                                   РіСЂР°С„Р°. РџРѕРґ РіСЂР°...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.115 	\end{minipage}
+                     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
+! Missing } inserted.
+<inserted text> 
+                }
+l.115 	\end{minipage}
+                     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-! Package inputenc Error: Unicode char \u8:М† not set up for use with LaTeX.
+<../tex/include/RemoveCycles2.png, id=114, 146.04562pt x 163.3603pt>
+File: ../tex/include/RemoveCycles2.png Graphic file (type png)
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+<use ../tex/include/RemoveCycles2.png>
+! Missing $ inserted.
+<inserted text> 
+                $
+l.118 ....png} \\ \tiny Р¦РёРєР» (A,E) \rightarrow
+                                                   (E,F) \rightarrow (F,D) \...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+l.118 ...D,H) \rightarrow (H,G) \rightarrow (G,A)}
                                                   
-l.107 ...ѓРґРµРј РїРѕРЅРёРјР°С‚СЊ РїСЂРѕСЃС‚РѕРёМ†
-                                                   С†РёРєР» РіСЂР°С„Р°, РЅРµ...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.119 	\end{minipage}
+                     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
+! Missing } inserted.
+<inserted text> 
+                }
+l.119 	\end{minipage}
+                     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-! Package inputenc Error: Unicode char \u8:М† not set up for use with LaTeX.
+<../tex/include/RemoveCycles3.png, id=115, 146.04562pt x 163.3603pt>
+File: ../tex/include/RemoveCycles3.png Graphic file (type png)
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 ...» РіСЂР°С„Р°, РЅРµ СЃРѕРґРµСЂР¶Р°С‰РёРёМ†
-                                                   РІ СЃРµР±Рµ РґСЂСѓРіРёС… ...
+<use ../tex/include/RemoveCycles3.png> [7
 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[7
-
-] <../tex/include/Graph.png, id=107, 417.05812pt x 379.4175pt>
+ <../tex/include/RemoveCycles1.png (PNG copy)> <../tex/include/RemoveCycles2.pn
+g (PNG copy)> <../tex/include/RemoveCycles3.png (PNG copy)>]
+<../tex/include/Graph.png, id=122, 418.56375pt x 382.42876pt>
 File: ../tex/include/Graph.png Graphic file (type png)
 
 <use ../tex/include/Graph.png>
@@ -1088,18 +1536,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.113 	\caption
-               {\begin{small}РСЃС…РѕРґРЅС‹Р№ РіСЂР°С„ Рё Р°СЃСЃРѕС†РёРёСЂРѕ...
+l.130 	\caption
+               {\begin{small}Р“СЂР°С„ G (РєСЂР°СЃРЅС‹Р№) Рё Р°СЃСЃРѕС†РёРёСЂ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (3.09726pt too wide) in paragraph at lines 112--114
+Overfull \hbox (4.4523pt too wide) in paragraph at lines 129--131
  [] 
  []
 
-<../tex/include/PolylineView.png, id=108, 311.66437pt x 230.36063pt>
+<../tex/include/PolylineView.png, id=123, 329.73187pt x 231.11343pt>
 File: ../tex/include/PolylineView.png Graphic file (type png)
 
 <use ../tex/include/PolylineView.png>
@@ -1110,14 +1558,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.118 	\caption
+l.135 	\caption
                {\begin{small}РџРѕР»РёР»РёРЅРµР№РЅРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Text line contains an invalid character.
-l.121 ...РєСЂР°С€РµРЅРЅС‹Рµ СЃРµС‚Рё РџРµС‚СЂРё^^@
+l.138 ...РєСЂР°С€РµРЅРЅС‹Рµ СЃРµС‚Рё РџРµС‚СЂРё^^@
                                                   }
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
@@ -1126,113 +1574,99 @@ Continue, and I'll forget that it ever happened.
 
  <../tex/include/Graph.png (PNG copy)> <../tex/include/PolylineView.png (PNG co
 py)>]
-Underfull \hbox (badness 5008) in paragraph at lines 129--130
-[]\T2A/cmr/m/n/29.86 Каждый пе-ре-ход мо-жет иметь спус-ко-вую функ-цию,
- []
+! Misplaced alignment tab character &.
+l.147 ...orall t \epsilon T : [Type(G(t)) = bool &
+                                                   Type(Var(G(t))) \subseteq...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-
-Underfull \hbox (badness 7869) in paragraph at lines 130--131
-[]\T2A/cmr/m/n/29.86 Для ма-ни-пу-ля-ции цве-том при-ме-ня-ют-ся функ-ции и
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
-\T2A/cmr/m/n/29.86 пе-ре-мен-ные, цвет пе-ре-мен-ной мо-жет ме-нять-ся при
- []
+! Misplaced alignment tab character &.
+l.148 ...\epsilon A : [Type(E(a)) = C(p(a))_{ms} &
+                                                   Type(Var(E(a))) \subseteq...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
 ! Text line contains an invalid character.
-l.133 ...РєСЂР°С€РµРЅРЅРѕР№ СЃРµС‚Рё РџРµС‚СЂРё^^@
+l.151 ...РєСЂР°С€РµРЅРЅРѕР№ СЃРµС‚Рё РџРµС‚СЂРё^^@
                                                   }
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 [9
 
-] <../tex/include/IDEF0ColoredPetri.png, id=117, 712.91344pt x 295.1025pt>
+] <../tex/include/IDEF0ColoredPetri.png, id=132, 712.91344pt x 293.59688pt>
 File: ../tex/include/IDEF0ColoredPetri.png Graphic file (type png)
 
 <use ../tex/include/IDEF0ColoredPetri.png>
 ! Text line contains an invalid character.
-l.139 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
-                                                   РџРµС‚СЂРё}
+l.157 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
+                                                   РџРµС‚СЂРё (1)}
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 [10
 
  <../tex/include/IDEF0ColoredPetri.png (PNG copy)>]
-<../tex/include/ConvertVariables.png, id=122, 177.66376pt x 224.33812pt>
+<../tex/include/ConvertVariables.png, id=137, 173.14688pt x 237.13594pt>
 File: ../tex/include/ConvertVariables.png Graphic file (type png)
 
 <use ../tex/include/ConvertVariables.png>
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
 []\T2A/cmr/m/n/29.86 Выделение спис-ка
  []
 
-
-Underfull \hbox (badness 3861) in paragraph at lines 146--147
-\T2A/cmr/m/n/29.86 пе-ре-мен-ных для каж-дой
- []
-
 ! Text line contains an invalid character.
-l.149 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
-                                                   РџРµС‚СЂРё}
+l.170 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
+                                                   РџРµС‚СЂРё (2)}
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 [11
 
  <../tex/include/ConvertVariables.png (PNG copy)>]
-<../tex/include/ConvertDiagram.png, id=127, 171.64125pt x 308.65312pt>
+<../tex/include/ConvertDiagram.png, id=142, 195.73125pt x 314.67563pt>
 File: ../tex/include/ConvertDiagram.png Graphic file (type png)
 
 <use ../tex/include/ConvertDiagram.png>
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
 []\T2A/cmr/m/n/29.86 Преобразование
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
-\T2A/cmr/m/n/29.86 диа-грам-мы де-я-тель-но-сти
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+\T2A/cmr/m/n/29.86 диа-грам-мы
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
-\T2A/cmr/m/n/29.86 в про-стую сеть Пет-ри
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
+[]\T2A/cmr/m/n/29.86 Формирование
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
-\T2A/cmr/m/n/29.86 и фор-ми-ро-ва-ние
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
 \T2A/cmr/m/n/29.86 мно-же-ства ти-пов
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
-\T2A/cmr/m/n/29.86 для со-от-вет-ству-ю-щих
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+[]\T2A/cmr/m/n/29.86 Предварительное
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
-\T2A/cmr/m/n/29.86 пе-ре-мен-ных.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
-\T2A/cmr/m/n/29.86 Пред-ва-ри-тель-ное
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
+Underfull \hbox (badness 2245) in paragraph at lines 180--181
 \T2A/cmr/m/n/29.86 опре-де-ле-ние мно-же-ства
  []
 
 ! Text line contains an invalid character.
-l.159 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
+l.184 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
                                                    РџРµС‚СЂРё}
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
@@ -1240,89 +1674,114 @@ Continue, and I'll forget that it ever happened.
 [12
 
  <../tex/include/ConvertDiagram.png (PNG copy)>]
-<../tex/include/ConvertColoring.png, id=132, 170.13562pt x 308.65312pt>
+<../tex/include/ConvertColoring.png, id=147, 191.9672pt x 317.68687pt>
 File: ../tex/include/ConvertColoring.png Graphic file (type png)
 
 <use ../tex/include/ConvertColoring.png>
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
 []\T2A/cmr/m/n/29.86 Определение
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
 \T2A/cmr/m/n/29.86 мак-си-маль-ной об-ла-сти
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-\T2A/cmr/m/n/29.86 ви-ди-мо-сти пе-ре-мен-ных
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+[]\T2A/cmr/m/n/29.86 Формирование
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-\T2A/cmr/m/n/29.86 и фор-ми-ро-ва-ние
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
 \T2A/cmr/m/n/29.86 ре-зуль-ти-ру-ю-щей
  []
 
 [13
 
  <../tex/include/ConvertColoring.png (PNG copy)>]
-<../tex/include/BlockedDiagram1.png, id=138, 143.78719pt x 237.13594pt>
+<../tex/include/BlockedDiagram2.png, id=153, 130.98938pt x 200.24812pt>
+File: ../tex/include/BlockedDiagram2.png Graphic file (type png)
+
+<use ../tex/include/BlockedDiagram2.png>
+<../tex/include/BlockedNet2.png, id=154, 153.57375pt x 284.56313pt>
+File: ../tex/include/BlockedNet2.png Graphic file (type png)
+
+<use ../tex/include/BlockedNet2.png>
+<../tex/include/BlockedDiagram1.png, id=155, 143.78719pt x 237.13594pt>
 File: ../tex/include/BlockedDiagram1.png Graphic file (type png)
 
 <use ../tex/include/BlockedDiagram1.png>
-<../tex/include/BlockedNet1.png, id=139, 156.585pt x 280.04625pt>
+<../tex/include/BlockedNet1.png, id=156, 156.585pt x 280.04625pt>
 File: ../tex/include/BlockedNet1.png Graphic file (type png)
 
 <use ../tex/include/BlockedNet1.png> [14
 
- <../tex/include/BlockedDiagram1.png (PNG copy)> <../tex/include/BlockedNet1.pn
-g (PNG copy)>]
-<../tex/include/BlockedDiagram2.png, id=144, 130.98938pt x 200.24812pt>
-File: ../tex/include/BlockedDiagram2.png Graphic file (type png)
-
-<use ../tex/include/BlockedDiagram2.png>
-<../tex/include/BlockedNet2.png, id=145, 153.57375pt x 284.56313pt>
-File: ../tex/include/BlockedNet2.png Graphic file (type png)
-
-<use ../tex/include/BlockedNet2.png> [15
-
  <../tex/include/BlockedDiagram2.png (PNG copy)> <../tex/include/BlockedNet2.pn
-g (PNG copy)>]
-Underfull \hbox (badness 1147) in paragraph at lines 201--202
-\T2A/cmr/m/n/29.86 де-я-тель-но-сти и осу-щств-лен-но их срав-не-ние по на-бо-р
-у
+g (PNG copy)> <../tex/include/BlockedDiagram1.png (PNG copy)> <../tex/include/B
+lockedNet1.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 227--228
+[]\T2A/cmr/m/n/29.86 определять рас-крас-ку
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--204
+Underfull \hbox (badness 10000) in paragraph at lines 227--228
+\T2A/cmr/m/n/29.86 всех эле-мен-тов цик-ла
+ []
+
+<../tex/include/ResearchWithCycle.png, id=161, 186.6975pt x 359.09157pt>
+File: ../tex/include/ResearchWithCycle.png Graphic file (type png)
+
+<use ../tex/include/ResearchWithCycle.png>
+<../tex/include/ResearchWithoutCycle.png, id=162, 181.42781pt x 417.05812pt>
+File: ../tex/include/ResearchWithoutCycle.png Graphic file (type png)
+
+<use ../tex/include/ResearchWithoutCycle.png> [15
+
+ <../tex/include/ResearchWithCycle.png (PNG copy)> <../tex/include/ResearchWith
+outCycle.png (PNG copy)>]
+[16
+
+] [17
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
+[]\T2A/cmr/m/n/29.86 Проведена клас-си-фиц-ка-ция су-ще-ству-ю-щих ме-то-дов
+ []
+
+
+! Package inputenc Error: Unicode char \u8:М† not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.275 ...Рё РІ РІРёРґРµ СЂР°СЃРєСЂР°С€РµРЅРЅРѕРёМ†
+                                                   СЃРµС‚Рё РџРµС‚СЂРё.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
 []\T2A/cmr/m/n/29.86 Разработано про-грамм-ное обес-пе-че-ние, ре-а-ли-зу-ю-щее
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--205
-[]\T2A/cmr/m/n/29.86 Исследованы фак-то-ры, вли-я-ю-щие на точ-ность и
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
+[]\T2A/cmr/m/n/29.86 Исследованы фак-то-ры, вли-я-ю-щие на по-яв-ле-ние
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--205
-\T2A/cmr/m/n/29.86 пра-виль-ность пред-став-ле-ния диа-грам-мы в ви-де
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 207.
-[16
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 281.
+[18
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 207.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 281.
  (./slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 207.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 281.
 Package rerunfilecheck Info: File `slides.out' has not changed.
-(rerunfilecheck)             Checksum: 0E1DDBF8B4F6064A0DE59EA515BBE236;5625.
+(rerunfilecheck)             Checksum: 865D7A67E7883BB86C5CF2D796CBF227;7134.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1330,13 +1789,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 8377 strings out of 493747
- 114435 string characters out of 3143546
- 193530 words of memory out of 3000000
- 11480 multiletter control sequences out of 15000+200000
- 12515 words of font info for 34 fonts, out of 3000000 for 9000
+ 20519 strings out of 493747
+ 406713 string characters out of 3143546
+ 535502 words of memory out of 3000000
+ 23337 multiletter control sequences out of 15000+200000
+ 12828 words of font info for 35 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,11n,45p,858b,343s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 51i,17n,93p,862b,1579s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc
 }</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
 </usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></
@@ -1346,11 +1805,12 @@ sr/local/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx2986.pfb></usr
 ocal/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/loc
 al/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfrm2986.pfb></usr/local
 /texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfrm3583.pfb></usr/local/t
-exlive/2010/texmf-dist/fonts/type1/public/cm-super/sftt2488.pfb>
-Output written on slides.pdf (16 pages, 305739 bytes).
+exlive/2010/texmf-dist/fonts/type1/public/cm-super/sftt2488.pfb></usr/local/tex
+live/2010/texmf-dist/fonts/type1/public/cm-super/sftt2986.pfb>
+Output written on slides.pdf (18 pages, 414202 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 184 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 237 words of extra memory for PDF output out of 10000 (max. 10000000)
 
