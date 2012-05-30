@@ -26,7 +26,9 @@ void PetriNet::convertState(State * state, StateList * states, TransitionList * 
 		NetTransition * t = new NetTransition(name, QString("%1_transition").arg(id));
 
 		DiagramAction * action = dynamic_cast<DiagramAction *>(state);
+
 		p->setVariables(action->variables());
+
 		QString expression = action->expression();
 		QStringList list = expression.split('=');
 		t->setResult(list.first());
@@ -275,13 +277,13 @@ QMap<QString, Type *> PetriNet::variableList(StateList * states)
 	return types;
 }
 
-void dfs(State * state, const QString &variable, QList<State *> &track)
+void PetriNet::setVariablePath(State * state, const QString &variable, QList<State *> &track)
 {
 	foreach (Transition * transition, state->outgoing())
 	{
 		State * target = transition->target();
 		NetPlace * place = dynamic_cast<NetPlace *>(target);
-		if (place != 0 && place->variables().contains(variable) && !track.contains(target))
+		if (place != 0 && place->variables().contains(variable)) // && !track.contains(target))
 		{
 			bool flag = true;
 			for (int i = 0; i < track.count() && flag; ++i)
@@ -303,7 +305,7 @@ void dfs(State * state, const QString &variable, QList<State *> &track)
 		if (!track.contains(target))
 		{
 			track.append(target);
-			dfs(target, variable, track);
+			setVariablePath(target, variable, track);
 			track.removeLast();
 		}
 	}
@@ -316,7 +318,7 @@ void PetriNet::coloring(StateList * netStates, const QMap<QString, Type *> &type
 	{
 		QList<State *> track;
 		track.append(state);
-		dfs(state, variable, track);
+		setVariablePath(state, variable, track);
 	}
 
 	int k = 10;
@@ -339,5 +341,29 @@ void PetriNet::coloring(StateList * netStates, const QMap<QString, Type *> &type
 				int index = variableList.indexOf(set);
 				place->setColor(colorList[10 + index]);
 			}
+	}
+}
+
+void PetriNet::setInitialMarking(StateList * states, StateList * netStates)
+{
+	State * begin = states->find(begin_state).first();
+	State * state = begin->outgoing().first()->target();
+	QList<State *> places = netStates->find(QString("%1_place").arg(state->id()));
+	NetPlace * place = dynamic_cast<NetPlace *>(places.first());
+	place->addMarking(new Marking);
+}
+
+void PetriNet::initVariables(StateList * states, QMap<QString, Type *> types)
+{
+	bool flag = true;
+	QList<State *> places = states->find(place_node);
+	for (int i = 0; i < places.count() && flag; ++i)
+	{
+		NetPlace * place = dynamic_cast<NetPlace *>(places[i]);
+		foreach (QString variable, place->variables())
+			if (types.contains(variable))
+				place->setVariableValue(variable, types.take(variable));
+
+		flag = !types.isEmpty();
 	}
 }

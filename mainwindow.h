@@ -26,7 +26,6 @@ private slots:
 	void openRecentFile();
 	void convertToSimpleNet();
 	void convertToColouredNet();
-	void initialMarking();
 
 private:
 	void initInterface();
@@ -38,18 +37,16 @@ private:
 	void processData(const QString &data);
 
 	PetriNet * net;
-	QMap<QString, Type *> types;
+	QMap<QString, Type *> variables;
 	StateList * states, * netStates;
 	TransitionList * transitions, * netTransitions;
 
 	InputDataDialog * dataDialog;
-	InitialMarkingDialog * markingDialog;
 
 	QTabWidget * tabWidget;
 	TextBrowser * browser;
 	DiagramView * diagramView;
 	NetworkView * networkView;
-	QMenu * netMenu;
 	QMenu * fileMenu;
 	QMenu * recentFileMenu;
 	QAction * actionNewFile;

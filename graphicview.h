@@ -56,7 +56,7 @@ class NetworkView : public View
 
 	 QList<QGraphicsItem *> selected();
 	 void drawDiagram(PlanarDrawer * drawer);
-	 void setNetwork(StateList * states);
+	 void setNetwork(StateList * netStates);
 
 private slots:
 	 void play();

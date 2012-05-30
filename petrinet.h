@@ -48,12 +48,15 @@ public:
 	void convert(StateList * states, StateList * netStates, TransitionList * netTransiitons);
 	QMap<QString, Type *> variableList(StateList * states);
 	void coloring(StateList * netStates, const QMap<QString, Type *> &types);
+	void setInitialMarking(StateList * states, StateList * netStates);
+	void initVariables(StateList * states, QMap<QString, Type *> types);
 
 private:
 	void createType(QMap<QString, Type *> &variables, QStringList &variable);
 	void convertState(State * state, StateList * states, TransitionList * transitions);
 	State * findFreePlace(const QList<State *> &places, TransitionList * netTransitions);
 	State * findFreeTransition(const QList<State *> &transitions, TransitionList * netTransitions);
+	void setVariablePath(State * state, const QString &variable, QList<State *> &track);
 
 };
 

@@ -3,8 +3,7 @@
 #include <QDebug>
 #include <QStack>
 
-PlanarDrawer::PlanarDrawer(StateList * states, QMenu * menu) :
-	states(states), menu(menu) {}
+PlanarDrawer::PlanarDrawer(StateList * states) : states(states) {}
 
 PlanarDrawer::~PlanarDrawer() {}
 
@@ -132,11 +131,6 @@ QGraphicsScene * PlanarDrawer::draw(QList<DiagramItem *> &items,
 		int y = 60 * horizontal[i].y1();
 
 		item->setPos(x, y);
-		if (item->state()->type() == place_node && menu != 0)
-		{
-			DiagramNetPlaceItem * place = dynamic_cast<DiagramNetPlaceItem *>(item);
-			place->setMenu(menu);
-		}
 		items.append(item);
 	}
 

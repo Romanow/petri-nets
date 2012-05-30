@@ -22,14 +22,13 @@ public:
 class PlanarDrawer : public Drawer
 {
 public:
-	PlanarDrawer(StateList * states, QMenu * menu = 0);
+	PlanarDrawer(StateList * states);
 	~PlanarDrawer();
 
 	QGraphicsScene * draw(QList<DiagramItem *> &items,
 						  QList<DiagramTransitionItem *> &transitions);
 
 private:
-	QMenu * menu;
 	StateList * states;
 
 	int ** removeCycles(int ** matrix, int length);

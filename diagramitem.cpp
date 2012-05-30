@@ -242,11 +242,6 @@ DiagramNetPlaceItem::DiagramNetPlaceItem(State * state) : DiagramItem(state)
 	path.addEllipse(- 12, - 12, 24, 24);
 }
 
-void DiagramNetPlaceItem::setMenu(QMenu * menu)
-{
-	m_menu = menu;
-}
-
 QRectF DiagramNetPlaceItem::boundingRect() const
 {
 	return QRectF(- 9, - 9, 18, 18);
@@ -300,13 +295,6 @@ void DiagramNetPlaceItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)
 {
 	QGraphicsItem::mouseMoveEvent(event);
 	scene()->update();
-}
-
-void DiagramNetPlaceItem::contextMenuEvent(QGraphicsSceneContextMenuEvent * event)
-{
-	scene()->clearSelection();
-	setSelected(true);
-	m_menu->exec(event->screenPos());
 }
 
 // Diagram net transition item

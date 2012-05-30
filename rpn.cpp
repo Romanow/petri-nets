@@ -1,7 +1,7 @@
 #include "rpn.h"
 
-#include <QDebug>
 #include <QStack>
+#include <QStringList>
 
 int RPN::priority(const QString &operation)
 {
@@ -76,4 +76,70 @@ QString RPN::convert(const QString &expression)
 		result += stack.pop() + " ";
 
 	return result;
+}
+
+bool RPN::isNumber(const QString &variable)
+{
+	bool flag;
+	variable.toDouble(&flag);
+	return flag;
+}
+
+double RPN::calculate(const QString &expression)
+{
+	QStack<double> stack;
+	foreach (QString str, expression.split(' ', QString::SkipEmptyParts))
+	{
+		if (isNumber(str))
+		{
+			stack.push(str.toDouble());
+		}
+		else
+		{
+			double v2 = stack.pop();
+			double v1 = stack.pop();
+			double result;
+			switch (str[0].toAscii())
+			{
+			case '+':
+				result = v1 + v2;
+				break;
+
+			case '-':
+				result = v1 - v2;
+				break;
+
+			case '*':
+				result = v1 * v2;
+				break;
+
+			case '/':
+				result = v1 / v2;
+				break;
+
+			case '>':
+				if (str.length() > 1 && str[1] == '=')
+					result = v1 >= v2;
+				else
+					result = v1 > v2;
+				break;
+
+			case '<':
+				if (str.length() > 1 && str[1] == '=')
+					result = v1 <= v2;
+				else
+					result = v1 < v2;
+				break;
+
+			case '=':
+				if (str.length() > 1 && str[1] == '=')
+					result = v1 == v2;
+				break;
+			}
+
+			stack.push(result);
+		}
+	}
+
+	return stack.pop();
 }

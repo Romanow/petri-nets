@@ -17,7 +17,6 @@ SOURCES += \
 	diagramitem.cpp \
     drawer.cpp \
     petrinet.cpp \
-    initialmarkingdialog.cpp \
     inputdatadialog.cpp \
     rpn.cpp
 
@@ -32,7 +31,6 @@ HEADERS += \
 	diagramitem.h \
     drawer.h \
     petrinet.h \
-    initialmarkingdialog.h \
     inputdatadialog.h \
     rpn.h
 

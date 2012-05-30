@@ -1,5 +1,6 @@
 #include "graphicview.h"
 #include "translate.h"
+#include "petrinet.h"
 
 #include <QDebug>
 #include <QVBoxLayout>
@@ -159,7 +160,7 @@ void NetworkView::timeout()
 			for (int i = 0; i < transition->incoming().count() && flag; ++i)
 			{
 				NetPlace * place = dynamic_cast<NetPlace *>(transition->incoming()[i]->source());
-				if (place->marking() == 0) // transition.guard == true;
+				if (place->marking() == 0) // && transition.guard()
 					flag = false;
 			}
 
@@ -175,17 +176,18 @@ void NetworkView::timeout()
 		NetTransition * transition = list[number];
 
 		// original place
+		Marking * marking;
 		foreach (Transition * tr, transition->incoming())
 		{
 			NetPlace * pl = dynamic_cast<NetPlace *>(tr->source());
-			pl->decrementMarking();
+			marking = pl->takeMarking();
 		}
 
 		// next place
 		foreach (Transition * tr, transition->outgoing())
 		{
 			NetPlace * pl = dynamic_cast<NetPlace *>(tr->target());
-			pl->incrementMarking();
+			pl->addMarking(marking);
 		}
 	}
 
@@ -206,7 +208,7 @@ void NetworkView::drawDiagram(PlanarDrawer * drawer)
 	scene->update();
 }
 
-void NetworkView::setNetwork(StateList * list)
+void NetworkView::setNetwork(StateList * netStates)
 {
-	states = list;
+	states = netStates;
 }

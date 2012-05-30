@@ -20,7 +20,6 @@ MainWindow::MainWindow() : QMainWindow()
 	netTransitions = new TransitionList;
 	net = new PetriNet;
 
-	markingDialog = new InitialMarkingDialog;
 	dataDialog = new InputDataDialog;
 
 	initInterface();
@@ -41,9 +40,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::initInterface()
 {
-	netMenu = new QMenu;
-	netMenu->addAction(conv("Начальная разметка"), this, SLOT(initialMarking()));
-
 	tabWidget = new QTabWidget(this);
 	browser = new TextBrowser(tabWidget);
 	tabWidget->addTab(browser, conv("XMI"));
@@ -167,26 +163,12 @@ void MainWindow::setCurrentFile(const QString &file)
 	recentFileMenu->setEnabled(enabled);
 }
 
-void MainWindow::initialMarking()
-{
-	QList<QGraphicsItem *> selected = networkView->selected();
-	if (!selected.isEmpty())
-	{
-		DiagramItem * item = dynamic_cast<DiagramItem *>(selected.first());
-		NetPlace * place = dynamic_cast<NetPlace *>(item->state());
-		markingDialog->setMarking(place->marking());
-		if (markingDialog->exec() == QDialog::Accepted)
-		{
-			int marking = markingDialog->getMarking();
-			place->setMarking(marking);
-		}
-	}
-}
-
 void MainWindow::convertToSimpleNet()
 {
 	net->convert(states, netStates, netTransitions);
-	PlanarDrawer netPlanarDrawer(netStates, netMenu);
+	net->setInitialMarking(states, netStates);
+
+	PlanarDrawer netPlanarDrawer(netStates);
 	networkView->drawDiagram(&netPlanarDrawer);
 	networkView->setNetwork(netStates);
 
@@ -196,15 +178,25 @@ void MainWindow::convertToSimpleNet()
 
 void MainWindow::convertToColouredNet()
 {
-	types = net->variableList(states);
+	// Выделение внутренних переменных состояния и построение списка типов
+	variables = net->variableList(states);
+	// Преобразование в простую сеть Петри
 	net->convert(states, netStates, netTransitions);
-	net->coloring(netStates, types);
+	// Основываясь на списке внутренних переменных выстраивается множество раскрасок сети
+	net->coloring(netStates, variables);
 
-	dataDialog->setVariableList(types);
+	// Введение начальных значений переменных
+	dataDialog->setVariableList(variables);
 	if (dataDialog->exec() == QDialog::Accepted)
 	{
-		dataDialog->getVariableList(types);
-		PlanarDrawer netPlanarDrawer(netStates, netMenu);
+		dataDialog->getVariableList(variables);
+		// Задание начальных значений переменных с привязкой к состоянию сети
+		net->initVariables(netStates, variables);
+		// Установка фишки в начальную позицию
+		net->setInitialMarking(states, netStates);
+
+		// Отображение сети
+		PlanarDrawer netPlanarDrawer(netStates);
 		networkView->drawDiagram(&netPlanarDrawer);
 		networkView->setNetwork(netStates);
 

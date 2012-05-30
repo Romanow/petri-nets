@@ -92,7 +92,7 @@ void State::addOutgoingTransition(Transition * transition)
 }
 
 NetPlace::NetPlace(const QString &name, const QString &id) :
-	State(name, id, place_node), m_marking(0), m_color(Qt::black) {}
+	State(name, id, place_node), m_color(Qt::black) {}
 
 DiagramItem * NetPlace::diagramItem()
 {
@@ -153,4 +153,44 @@ DiagramFinal::DiagramFinal(const QString &name, const QString &id) :
 DiagramItem * DiagramFinal::diagramItem()
 {
 	return new DiagramFinalItem(this);
+}
+
+#include "petrinet.h"
+#include <QDebug>
+
+QVariant value(const QMap<QString, Type *> &type, QStringList variable)
+{
+	QVariant result;
+	QString name = variable.takeFirst();
+	if (!variable.isEmpty())
+	{
+		ComplexType * complexType = reinterpret_cast<ComplexType *>(type[name]);
+		result = value(complexType->variables(), variable);
+	}
+	else
+	{
+		SimpleType * simpleType = reinterpret_cast<SimpleType *>(type[name]);
+		result = simpleType->values();
+	}
+
+	return result;
+}
+
+void NetPlace::addMarking(Marking * marking)
+{
+	QMutableMapIterator<QString, Type *> iter(marking->variables);
+	while (iter.hasNext())
+	{
+		iter.next();
+		if (!variables().contains(iter.key()))
+			iter.remove();
+	}
+
+	foreach (QString variable, variables())
+		if (!marking->variables.contains(variable))
+			marking->variables.insert(variable, m_variables[variable]); // copy variable
+
+	m_marking.append(marking);
+
+	qDebug() << marking->variables;
 }

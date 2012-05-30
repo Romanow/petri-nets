@@ -122,16 +122,11 @@ class DiagramNetPlaceItem : public DiagramItem
 public:
 	DiagramNetPlaceItem(State * state = 0);
 
-	void setMenu(QMenu * menu);
 	QRectF boundingRect() const;
 	void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 
 protected:
 	void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
-	void contextMenuEvent(QGraphicsSceneContextMenuEvent * event);
-
-private:
-	QMenu * m_menu;
 };
 
 class DiagramNetTransitionItem : public DiagramItem

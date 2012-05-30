@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Sun May 27 18:34:15 2012
+** Created: Mon May 28 00:42:01 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,7 +36,6 @@ static const uint qt_meta_data_MainWindow[] = {
       33,   11,   11,   11, 0x08,
       50,   11,   11,   11, 0x08,
       71,   11,   11,   11, 0x08,
-      94,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -44,7 +43,7 @@ static const uint qt_meta_data_MainWindow[] = {
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0newFile()\0openFile()\0"
     "openRecentFile()\0convertToSimpleNet()\0"
-    "convertToColouredNet()\0initialMarking()\0"
+    "convertToColouredNet()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -81,10 +80,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 2: openRecentFile(); break;
         case 3: convertToSimpleNet(); break;
         case 4: convertToColouredNet(); break;
-        case 5: initialMarking(); break;
         default: ;
         }
-        _id -= 6;
+        _id -= 5;
     }
     return _id;
 }

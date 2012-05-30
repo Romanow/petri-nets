@@ -17,6 +17,7 @@ typedef enum { unknown_state,
 			   transition_node
 			 } StateType;
 
+class Type;
 class State;
 class Transition;
 
@@ -95,6 +96,12 @@ protected:
 	QList<Transition *> m_outgoing;
 };
 
+class Marking
+{
+public:
+	QMap<QString, Type *> variables;
+};
+
 class NetPlace : public State
 {
 public:
@@ -104,28 +111,34 @@ public:
 	QColor color() { return m_color; }
 	void setColor(const QColor &color) { m_color = color; }
 
-	int marking() { return m_marking; }
-	void incrementMarking() { m_marking++; }
-	void decrementMarking() { m_marking--; }
-	void setMarking(int marking) { m_marking = marking; }
+	int marking() { return m_marking.count(); }
+	Marking * takeMarking() { return m_marking.takeFirst(); }
+	void addMarking(Marking * marking);
 
-	QStringList variables() { return m_variables; }
+	QStringList variables() { return m_variables.keys(); }
 	bool addVariable(const QString &variable)
 	{
 		bool result = m_variables.contains(variable);
 		if (!result)
-			m_variables.append(variable);
+			m_variables.insert(variable, 0);
 
 		return !result;
 	}
-	bool removeVariable(const QString &variable) { return m_variables.removeOne(variable); }
-	void setVariables(const QStringList &variables) { m_variables = variables; }
-
+	bool removeVariable(const QString &variable) { return m_variables.remove(variable); }
+	void setVariables(const QStringList &variables)
+	{
+		foreach (QString variable, variables)
+			m_variables.insert(variable, 0);
+	}
+	void setVariableValue(const QString &variable, Type * value)
+	{
+		m_variables[variable] = value;
+	}
 
 private:
-	int m_marking;
 	QColor m_color;
-	QStringList m_variables;
+	QList<Marking *> m_marking;
+	QMap<QString, Type *> m_variables;
 };
 
 class NetTransition : public State

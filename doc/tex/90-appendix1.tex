@@ -1,12 +1,86 @@
-\chapter{Картинки}
+\chapter{XML-схема}
 \label{cha:appendix1}
 
-\begin{figure}
-\centering
-\caption{Картинка в приложении. Страшная и ужасная.}
-\end{figure}
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified">
+    <xs:element name="activity_diagram">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="states"/>
+                <xs:element ref="transitions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="states">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="state"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="transitions">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="transition"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="state">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="expression"/>
+                <xs:element ref="incoming"/>
+                <xs:element ref="outgoing"/>
+            </xs:choice>
+            <xs:attribute name="id" type="xs:string"/>
+            <xs:attribute name="idref" type="xs:string"/>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="type" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="expression" type="xs:string"/>
+    <xs:element name="incoming">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="transition"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="outgoing">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="transition"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="transition">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="guard"/>
+                <xs:element ref="source"/>
+                <xs:element ref="target"/>
+            </xs:choice>
+            <xs:attribute name="id" type="xs:string"/>
+            <xs:attribute name="idref" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="guard" type="xs:string"/>
+    <xs:element name="source">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="state"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="target">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="state"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "rpz"
-%%% End: 
+\end{verbatim}

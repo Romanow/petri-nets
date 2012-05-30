@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.17)  24 MAY 2012 10:40
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.17)  30 MAY 2012 12:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -20,8 +20,8 @@ Document Class: G7-32 2003/07/01 v1.0 Non Standard LaTeX document class
 (./G2-105.sty
 Package: G2-105 2003/07/07 v1.00 General reqs. GOST 2.105-95
  (./GostBase.clo
-(/usr/local/texlive/2010/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+(/usr/local/texlive/2010/texmf-dist/tex/latex/extsizes/size14.clo
+File: size14.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
 ))
 \c@totalpage=\count79
 \c@totaltable=\count80
@@ -749,28 +749,10 @@ Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 ) (./rpz.aux
 (./12-intro.aux) (./20-analysis.aux) (./30-design.aux
 
-LaTeX Warning: Label `fig:fig1' multiply defined.
-
-
-LaTeX Warning: Label `fig:fig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:fig6' multiply defined.
-
-
 LaTeX Warning: Label `F:F1' multiply defined.
 
-
-LaTeX Warning: Label `fig:fig4' multiply defined.
-
-
-LaTeX Warning: Label `fig:fig5' multiply defined.
-
-) (./40-impl.aux
-
-LaTeX Warning: Label `fig:fig2' multiply defined.
-
-) (./81-biblio.aux))
+) (./40-impl.aux) (./50-research.aux) (./80-conclusion.aux) (./81-biblio.aux)
+(./90-appendix1.aux))
 \openout1 = `rpz.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -821,15 +803,15 @@ Package caption Info: End \AtBeginDocument code.
 * \textheight=731.23584pt
 * \oddsidemargin=13.08827pt
 * \evensidemargin=13.08827pt
-* \topmargin=-27.36449pt
-* \headheight=12.0pt
+* \topmargin=-29.36449pt
+* \headheight=14.0pt
 * \headsep=0.0pt
-* \topskip=12.0pt
+* \topskip=14.0pt
 * \footskip=30.0pt
-* \marginparwidth=35.0pt
+* \marginparwidth=15.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \skip\footins=12.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -906,22 +888,22 @@ LaTeX Font Info:    Try loading font information for OML+cmr on input line 2.
 (/usr/local/texlive/2010/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <14.4> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 2.
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 2.
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <6> not available
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <7> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 2.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 2.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2.
 LaTeX Font Info:    Try loading font information for PD1+cmr on input line 2.
 LaTeX Font Info:    No file PD1cmr.fd. on input line 2.
@@ -954,7 +936,10 @@ LaTeX Font Warning: Font shape `PU/cmr/m/n' undefined
  (./12-intro.tex
 (/usr/local/texlive/2010/texmf-dist/tex/latex/ucs/data/uni-4.def
 File: uni-4.def 2004/10/17 UCS: Unicode data U+0400..U+04FF
-)
+) [3
+
+
+]
 (/usr/local/texlive/2010/texmf-dist/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2004/10/17 UCS: Unicode data U+0300..U+03FF
 )
@@ -965,638 +950,73 @@ See the ucs package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.11 ...»РёС‡РёРµ РѕС‚ РїСЂРѕСЃС‚С‹С… СЃРµС‚РµРёМ†
-                                                   РџРµС‚СЂРё, РІ СЂР°СЃРєСЂ...
-
+l.18 ...‚Рё РІ РІРёРґРµ СЂР°СЃРєСЂР°С€РµРЅРЅРѕРёМ†
+                                                   СЃРµС‚Рё РџРµС‚СЂРё;
 Composed characters can only be rendered correctly, when the option 'combine' i
 s activated
 
-[3
 
+! Package ucs Error: Please activate option 'combine'.
 
-]) [4]
+See the ucs package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 ...‚Рё РІ РІРёРґРµ СЂР°СЃРєСЂР°С€РµРЅРЅРѕРёМ†
+                                                   СЃРµС‚Рё РџРµС‚СЂРё;
+Composed characters can only be rendered correctly, when the option 'combine' i
+s activated
+
+) [4]
 \openout2 = `20-analysis.aux'.
 
  (./20-analysis.tex
+(/usr/local/texlive/2010/texmf-dist/tex/latex/ucs/data/uni-254.def
+File: uni-254.def 2004/10/17 UCS: Unicode data U+FE00..U+FEFF
+)
 (/usr/local/texlive/2010/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
-)
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ...РёСЃРїРѕР»СЊР·СѓРµС‚ СЏР·С‹Рє СЃРµС‚РµРёМ†
-                                                   РџРµС‚СЂРё РґР»СЏ РѕРїРёС...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ...ё РґР»СЏ РѕРїРёСЃР°РЅРёСЏ РјРѕРґРµР»РµРёМ†
-                                                  . РЎРёСЃС‚РµРјР° Р±С‹Р»Р° ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ...јРµСЂС‡РµСЃРєРёС… РѕСЂРіР°РЅРёР·Р°С†РёРёМ†
-                                                   (http://cpntools.org/). C...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ...РµРґР»Р°РіР°РµС‚ РѕС‡РµРЅСЊ РјРѕС‰РЅС‹РёМ†
-                                                   РєР»Р°СЃСЃ СЃРµС‚РµРёМ† Р...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ...ЅСЊ РјРѕС‰РЅС‹РёМ† РєР»Р°СЃСЃ СЃРµС‚РµРёМ†
-                                                   РџРµС‚СЂРё РґР»СЏ РѕРїРёС...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ...ё РґР»СЏ РѕРїРёСЃР°РЅРёСЏ РјРѕРґРµР»РµРёМ†
-                                                  . РЎРѕРіР»Р°СЃРЅРѕ СЃС‚Р°Р...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ... РЎРѕРіР»Р°СЃРЅРѕ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРёМ†
-                                                   РєР»Р°СЃСЃРёС„РёРєР°С†РёР...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ...РѕР±СЂР°Р·РѕРј, РїСЂРѕРёР·РІРѕР»СЊРЅС‹РёМ†
-                                                   РѕР±СЉРµРєС‚ РјРѕР¶РµС‚ Р...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ...‰СЊСЋ СЌС‚РѕРіРѕ РєР»Р°СЃСЃР° СЃРµС‚РµРёМ†
-                                                  .
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.18 РџСЂРѕСЃС‚РµРёМ†
-                     С€Р°СЏ РєРѕРЅС†РµРїС†РёСЏ СЂР°СЃРєСЂР°С€РµРЅРЅРѕРёМ† СЃ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.18 ...ѕРЅС†РµРїС†РёСЏ СЂР°СЃРєСЂР°С€РµРЅРЅРѕРёМ†
-                                                   СЃРµС‚Рё РџРµС‚СЂРё РёСЃР...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.18 ...ѕРЅС†РµРїС†РёСЏ СЂР°СЃРєСЂР°С€РµРЅРЅРѕРёМ†
-                                                   СЃРµС‚Рё РџРµС‚СЂРё CPN T...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-(/usr/local/texlive/2010/texmf-dist/tex/latex/ucs/data/uni-0.def
-File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
 ) [5
 
 
 
 ]
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.20 ...їСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚Рё РґРµРёМ†
-                                                  СЃС‚РІРёРёМ† РІ СЂРµР°Р»СЊ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.20 ...¶РёС‚РµР»СЊРЅРѕСЃС‚Рё РґРµРёМ†СЃС‚РІРёРёМ†
-                                                   РІ СЂРµР°Р»СЊРЅС‹С… РѕР±С...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.20 ...РѕС‚ РєР»Р°СЃСЃРёС‡РµСЃРєРёС… СЃРµС‚РµРёМ†
-                                                   РџРµС‚СЂРё, РіРґРµ СЃСЂР°...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.20 ...РїРµСЂРµС…РѕРґР° РІРѕ РІСЂРµРјРµРЅРЅРѕРёМ†
-                                                   СЃРµС‚Рё СЃРІСЏР·Р°РЅРѕ С...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.20 ...РІСЏР·Р°РЅРѕ СЃ РѕРїСЂРµРґРµР»РµРЅРЅРѕРёМ†
-                                                   РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊР...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.20 ...СЊРЅРѕСЃС‚СЊСЋ РёР»Рё РІСЂРµРјРµРЅРЅРѕРёМ†
-                                                   Р·Р°РґРµСЂР¶РєРѕРёМ†. Р­С...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.20 ... РІСЂРµРјРµРЅРЅРѕРёМ† Р·Р°РґРµСЂР¶РєРѕРёМ†
-                                                  . Р­С‚Рѕ РїРѕР·РІРѕР»СЏРµС...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.22 ...РѕРµРЅРёРµ СЃР»РѕР¶РЅС‹С… РјРѕРґРµР»РµРёМ†
-                                                  . Р’ С‚Р°РєРёС… СЃРµС‚СЏС…...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.22 ...С‚СЊ РїСЂРµРґСЃС‚Р°РІР»РµРЅ РґСЂСѓРіРѕРёМ†
-                                                   СЃРµС‚СЊСЋ. Р’ CPN Tools ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.22 ...°РјРµС‰РµРЅ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРёМ†
-                                                   СЃРµС‚СЊСЋ. РўР°РєРёРј Рѕ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.22 ...‚Рё. РљРѕР»РёС‡РµСЃС‚РІРѕ СѓСЂРѕРІРЅРµРёМ†
-                                                   РёРµСЂР°СЂС…РёРё РЅРµ РёР...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.22 ...ёРїРёР°Р»СЊРЅС‹С… РѕРіСЂР°РЅРёС‡РµРЅРёРёМ†
-                                                  . РћС‚РјРµС‚РёРј, С‡С‚Рѕ, ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.22 ...РёМ†. РћС‚РјРµС‚РёРј, С‡С‚Рѕ, С‚Р°РєРѕРёМ†
-                                                   РїРѕРґС…РѕРґ С€РёСЂРѕРєРѕ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 ...С‚РѕС‡РЅРѕ РїСЂРѕСЃС‚С‹С… РјРѕРґРµР»РµРёМ†
-                                                   РІРѕР·РјРѕР¶РЅР° РіРµРЅРµ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 ...ЂРѕСЃС‚СЂР°РЅСЃС‚РІР° СЃРѕСЃС‚РѕСЏРЅРёРёМ†
-                                                   (РіСЂР°С„Р° РґРѕСЃС‚РёР¶Р...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 ...¶РёРјРѕСЃС‚Рё). Р­С‚Рѕ ~--- Р»СѓС‡С€РёРёМ†
-                                                   СЃРїРѕСЃРѕР± РґР»СЏ РІРµС...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 ...ЂРѕСЃС‚СЂР°РЅСЃС‚РІР° СЃРѕСЃС‚РѕСЏРЅРёРёМ†
-                                                   Рё Р°РІС‚РѕРјР°С‚РёС‡РµСЃ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 ...іРµРЅРµСЂР°С†РёСЋ РїРѕ РЅРµРјСѓ РѕС‚С‡РµМ€
-                                                  С‚Р°, РєРѕС‚РѕСЂС‹РёМ† СЃР...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 ... РЅРµРјСѓ РѕС‚С‡РµМ€С‚Р°, РєРѕС‚РѕСЂС‹РёМ†
-                                                   СЃРѕРґРµСЂР¶РёС‚ РІС‹РІРѕ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 ...ѕРґС‹ Рѕ СЃС‚Р°РЅРґР°СЂС‚РЅС‹С… СЃРІРѕРёМ†
-                                                  СЃС‚РІР°С… СЃРµС‚РµРёМ† Рџ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 ...С‚РЅС‹С… СЃРІРѕРёМ†СЃС‚РІР°С… СЃРµС‚РµРёМ†
-                                                   РџРµС‚СЂРё, С‚Р°РєРёС… Рє...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 ...ґСѓСЃРјРѕС‚СЂРµРЅ СЃРїРµС†РёР°Р»СЊРЅС‹РёМ†
-                                                   СЏР·С‹Рє РЅР° РѕСЃРЅРѕРІР...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.25 РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹С… СЃРІРѕРёМ†
-                                          СЃС‚РІР°С… РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.25 ...ЂРѕСЃС‚СЂР°РЅСЃС‚РІР° СЃРѕСЃС‚РѕСЏРЅРёРёМ†
-                                                  , РєРѕС‚РѕСЂС‹Рµ РІР°Р¶РЅС...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.25 ...СЋ, РґР»СЏ СЃР»РѕР¶РЅС‹С… РјРѕРґРµР»РµРёМ†
-                                                   РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.25 ...ЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ СЃРѕСЃС‚РѕСЏРЅРёРёМ†
-                                                   РјРѕР¶РµС‚ Р±С‹С‚СЊ СЃР»Р...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.27 Р•РґРёРЅСЃС‚РІРµРЅРЅС‹РёМ†
-                                СЃРїРѕСЃРѕР± РґР»СЏ Р°РЅР°Р»РёР·Р° СЃР»РѕР¶Р...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.27 ...Р°Р»РёР·Р° СЃР»РѕР¶РЅС‹С… РјРѕРґРµР»РµРёМ†
-                                                   ~--- СЌС‚Рѕ РёРјРёС‚Р°С†Р...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.27 ...Р±РѕРє РІ СЂР°Р·СЂР°Р±Р°С‚С‹РІР°РµРјРѕРёМ†
-                                                   РјРѕРґРµР»Рё, Р° С‚Р°РєР¶...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.27 ...ѕРІРµРґРµРЅРёСЏ РјРѕРґРµР»Рё. РўР°РєРѕРёМ†
-                                                   РїРѕРґС…РѕРґ РїСЂРёРјРµРЅ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.27 ...ѕРјРјСѓРЅРёРєР°С†РёРѕРЅРЅС‹С… СЃРµС‚РµРёМ†
-                                                  , РЅР°РїСЂРёРјРµСЂ, РїСЂРѕ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.27 ..., РЅР°РїСЂРёРјРµСЂ, РїСЂРѕРїСѓСЃРєРЅРѕРёМ†
-                                                   СЃРїРѕСЃРѕР±РЅРѕСЃС‚Рё Рё...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-[6] [7] [8]
-Underfull \hbox (badness 1424) in paragraph at lines 74--75
-[]\T2A/cmr/m/n/12 Дракон-схема ре^^?а^^?ли^^?зу^^?ет пред^^?став^^?ле^^?ние мар
-ш^^?ру^^?тов ал^^?го^^?рит^^?ма в клас^^?се
+(/usr/local/texlive/2010/texmf-dist/tex/latex/ucs/data/uni-0.def
+File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
+) [6] [7]
+[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
+Underfull \hbox (badness 2495) in paragraph at lines 158--160
+[]\T2A/cmr/m/n/14.4 Отказ от вре^^?ме^^?ни при^^?во^^?дит к то^^?му, что со^^?б
+ы^^?тия в асин^^?
  []
 
-[9] [10] [11] [12]
-Underfull \hbox (badness 1917) in paragraph at lines 132--133
-[]\T2A/cmr/m/n/12 Основным стан^^?дар^^?том опи^^?са^^?ния UML диа^^?грамм яв^^
-?ля^^?ет^^?ся XMI (XML
- []
-
-[13] [14] [15] <include/AutomateNet.png, id=311, 188.95593pt x 157.33781pt>
+[19] <include/AutomateNet.png, id=376, 188.95593pt x 157.33781pt>
 File: include/AutomateNet.png Graphic file (type png)
 
 <use include/AutomateNet.png>
-<include/SyncNet.png, id=312, 181.42781pt x 152.06813pt>
+<include/SyncNet.png, id=377, 181.42781pt x 152.06813pt>
 File: include/SyncNet.png Graphic file (type png)
 
-<use include/SyncNet.png> [16] [17 <./include/AutomateNet.png (PNG copy)> <./in
+<use include/SyncNet.png> [20] [21 <./include/AutomateNet.png (PNG copy)> <./in
 clude/SyncNet.png (PNG copy)>]
-<include/PriorityNet.png, id=338, 328.22626pt x 101.62968pt>
+<include/PriorityNet.png, id=400, 328.22626pt x 101.62968pt>
 File: include/PriorityNet.png Graphic file (type png)
 
 <use include/PriorityNet.png>
-<include/IngibitorNet.png, id=339, 328.22626pt x 101.62968pt>
+<include/IngibitorNet.png, id=401, 328.22626pt x 101.62968pt>
 File: include/IngibitorNet.png Graphic file (type png)
 
-<use include/IngibitorNet.png>
-<include/SelfmodifiedNet1.png, id=344, 328.22626pt x 134.00063pt>
+<use include/IngibitorNet.png> [22 <./include/PriorityNet.png (PNG copy)> <./in
+clude/IngibitorNet.png (PNG copy)>]
+<include/SelfmodifiedNet1.png, id=413, 328.22626pt x 134.00063pt>
 File: include/SelfmodifiedNet1.png Graphic file (type png)
 
 <use include/SelfmodifiedNet1.png>
-<include/SelfmodifiedNet2.png, id=346, 328.22626pt x 123.46124pt>
+<include/SelfmodifiedNet2.png, id=415, 328.22626pt x 123.46124pt>
 File: include/SelfmodifiedNet2.png Graphic file (type png)
 
-<use include/SelfmodifiedNet2.png> [18 <./include/PriorityNet.png (PNG copy)> <
-./include/IngibitorNet.png (PNG copy)>]
+<use include/SelfmodifiedNet2.png> [23 <./include/SelfmodifiedNet1.png (PNG cop
+y)> <./include/SelfmodifiedNet2.png (PNG copy)>]
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \penalty \@M \futurelet \@let@token \LT@@h...
@@ -1643,43 +1063,38 @@ Overfull \hbox (13.23637pt too wide) in alignment at lines 247--248
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--251
-[]|\T2A/cmr/m/n/12 Обыкновенная
+Underfull \hbox (badness 10000) in paragraph at lines 249--249
+[]|\T2A/cmr/m/n/14.4 Автоматная
+ []
+
+
+Overfull \hbox (0.91364pt too wide) in paragraph at lines 251--251
+[]|\T2A/cmr/m/n/14.4 Обыкновенная
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 253--253
-[]|\T2A/cmr/m/n/12 Раскрашенная
+[]|\T2A/cmr/m/n/14.4 Раскрашенная
+ []
+
+
+Underfull \hbox (badness 6825) in paragraph at lines 255--255
+\T2A/cmr/m/n/14.4 се^^?ти, се^^?ти с
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 255--255
-[]|\T2A/cmr/m/n/12 Ингибиторыне
+\T2A/cmr/m/n/14.4 при^^?о^^?ри^^?те^^?та^^?ми
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 255--255
-\T2A/cmr/m/n/12 се^^?ти, се^^?ти с
+\T2A/cmr/m/n/14.4 ци^^?ру^^?ю^^?щи^^?е^^?ся
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--255
-\T2A/cmr/m/n/12 при^^?о^^?ри^^?те^^?та^^?ми
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 255--255
-\T2A/cmr/m/n/12 и са^^?мо^^?мо^^?ди^^?фи^^?
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 255--255
-\T2A/cmr/m/n/12 ци^^?ру^^?ю^^?щи^^?е^^?ся
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--257
-[]|\T2A/cmr/m/n/12 Иерархические
+Overfull \hbox (3.38132pt too wide) in paragraph at lines 257--257
+[]|\T2A/cmr/m/n/14.4 Иерархические
  []
 
 
@@ -1687,23 +1102,21 @@ Overfull \hbox (13.23637pt too wide) in alignment at lines 248--258
 [] [] [] 
  []
 
-[19 <./include/SelfmodifiedNet1.png (PNG copy)> <./include/SelfmodifiedNet2.png
- (PNG copy)>] [20] [21] [22]) [23] [24]
+[24] [25] [26] [27] [28] [29]) [30]
 \openout2 = `30-design.aux'.
 
  (./30-design.tex
-<include/IDEF0.png, id=410, 774.64406pt x 527.72156pt>
+<include/IDEF0.png, id=477, 840.13875pt x 417.05812pt>
 File: include/IDEF0.png Graphic file (type png)
  <use include/IDEF0.png>
-<include/IDEF0ColouredPetri.png, id=412, 774.64406pt x 527.72156pt>
-File: include/IDEF0ColouredPetri.png Graphic file (type png)
+<include/IDEF0ColoredPetri.png, id=479, 712.91344pt x 293.59688pt>
+File: include/IDEF0ColoredPetri.png Graphic file (type png)
 
-<use include/IDEF0ColouredPetri.png> [25
+<use include/IDEF0ColoredPetri.png> [31
 
 
 
  <./include/IDEF0.png (PNG copy)>]
-[26 <./include/IDEF0ColouredPetri.png (PNG copy)>]
 
 LaTeX Warning: Command \cyri invalid in math mode on input line 41.
 
@@ -1712,19 +1125,19 @@ LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 49.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)
-Overfull \hbox (1.59433pt too wide) in paragraph at lines 76--76
-[]            \T2A/cmtt/m/n/12 // Если вершина еще содержится в списке, то удал
-яем ее оттуда,[] 
+) [32]
+Overfull \hbox (85.57489pt too wide) in paragraph at lines 76--76
+[]            \T2A/cmtt/m/n/14.4 // Если вершина еще содержится в списке, то уд
+аляем ее оттуда,[] 
  []
 
-[27]
-Overfull \hbox (1.59433pt too wide) in paragraph at lines 76--76
-[]            \T2A/cmtt/m/n/12 // Удаляем первую дугу цикла из графа, тем самым
- нарушая цикл,[] 
+
+Overfull \hbox (85.57489pt too wide) in paragraph at lines 76--76
+[]            \T2A/cmtt/m/n/14.4 // Удаляем первую дугу цикла из графа, тем сам
+ым нарушая цикл,[] 
  []
 
-<include/RemoveCycles1.png, id=430, 146.04562pt x 163.3603pt>
+[33] <include/RemoveCycles1.png, id=498, 146.04562pt x 163.3603pt>
 File: include/RemoveCycles1.png Graphic file (type png)
 
 <use include/RemoveCycles1.png>
@@ -1778,7 +1191,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-<include/RemoveCycles2.png, id=431, 146.04562pt x 163.3603pt>
+<include/RemoveCycles2.png, id=499, 146.04562pt x 163.3603pt>
 File: include/RemoveCycles2.png Graphic file (type png)
 
 <use include/RemoveCycles2.png>
@@ -1832,321 +1245,388 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-<include/RemoveCycles3.png, id=432, 146.04562pt x 163.3603pt>
+<include/RemoveCycles3.png, id=500, 146.04562pt x 163.3603pt>
 File: include/RemoveCycles3.png Graphic file (type png)
 
 <use include/RemoveCycles3.png>
-<include/EdgeOrientation.png, id=434, 127.22531pt x 168.63pt>
+<include/EdgeOrientation.png, id=502, 127.22531pt x 168.63pt>
 File: include/EdgeOrientation.png Graphic file (type png)
 
 <use include/EdgeOrientation.png>
-<include/VertexOrientation.png, id=435, 79.79813pt x 71.51718pt>
+<include/VertexOrientation.png, id=503, 79.79813pt x 71.51718pt>
 File: include/VertexOrientation.png Graphic file (type png)
 
-<use include/VertexOrientation.png> [28] [29 <./include/RemoveCycles1.png (PNG 
-copy)> <./include/RemoveCycles2.png (PNG copy)> <./include/RemoveCycles3.png (P
-NG copy)>] <include/TopologicalSort1.png, id=446, 264.23718pt x 139.27031pt>
+<use include/VertexOrientation.png>
+<include/TopologicalSort1.png, id=505, 264.23718pt x 139.27031pt>
 File: include/TopologicalSort1.png Graphic file (type png)
 
 <use include/TopologicalSort1.png>
-<include/TopologicalSort2.png, id=447, 259.7203pt x 139.27031pt>
+<include/TopologicalSort2.png, id=506, 259.7203pt x 139.27031pt>
 File: include/TopologicalSort2.png Graphic file (type png)
 
 <use include/TopologicalSort2.png>
-<include/TopologicalSort3.png, id=448, 259.7203pt x 139.27031pt>
+<include/TopologicalSort3.png, id=507, 259.7203pt x 139.27031pt>
 File: include/TopologicalSort3.png Graphic file (type png)
 
 <use include/TopologicalSort3.png>
-<include/TopologicalSort4.png, id=449, 258.9675pt x 139.27031pt>
+<include/TopologicalSort4.png, id=508, 258.9675pt x 139.27031pt>
 File: include/TopologicalSort4.png Graphic file (type png)
 
-<use include/TopologicalSort4.png> [30 <./include/EdgeOrientation.png (PNG copy
-)> <./include/VertexOrientation.png (PNG copy)>] [31 <./include/TopologicalSort
-1.png (PNG copy)> <./include/TopologicalSort2.png (PNG copy)> <./include/Topolo
-gicalSort3.png (PNG copy)> <./include/TopologicalSort4.png (PNG copy)>]
-<include/Graph.png, id=463, 417.05812pt x 379.4175pt>
+<use include/TopologicalSort4.png>
+
+LaTeX Warning: Float too large for page by 4.74466pt on input line 138.
+
+[34] <include/Graph.png, id=517, 418.56375pt x 382.42876pt>
 File: include/Graph.png Graphic file (type png)
- <use include/Graph.png>
-<include/MosaicView.png, id=464, 311.66437pt x 227.34938pt>
+
+<use include/Graph.png>
+<include/MosaicView.png, id=518, 312.41719pt x 228.855pt>
 File: include/MosaicView.png Graphic file (type png)
 
-<use include/MosaicView.png> [32] [33 <./include/Graph.png (PNG copy)> <./inclu
-de/MosaicView.png (PNG copy)>]
+<use include/MosaicView.png> [35]
 
-LaTeX Warning: Command \CYRG invalid in math mode on input line 203.
+LaTeX Warning: Command \CYRG invalid in math mode on input line 205.
 
 Missing character: There is no Г in font cmr12!
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 215.
-(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
-File: koi8-r.def 1999/11/16 v1.0d Input encoding file
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 216.
- [34]
-<include/CompositeActivity.png, id=496, 457.71pt x 174.6525pt>
+<include/PolylineView.png, id=525, 329.73187pt x 231.11343pt>
+File: include/PolylineView.png Graphic file (type png)
+
+<use include/PolylineView.png> [36] [37]
+<include/ConvertVariables.png, id=538, 173.14688pt x 237.13594pt>
+File: include/ConvertVariables.png Graphic file (type png)
+
+<use include/ConvertVariables.png>
+<include/ConvertDiagram.png, id=539, 195.73125pt x 314.67563pt>
+File: include/ConvertDiagram.png Graphic file (type png)
+
+<use include/ConvertDiagram.png>
+<include/ConvertColoring.png, id=540, 191.9672pt x 317.68687pt>
+File: include/ConvertColoring.png Graphic file (type png)
+
+<use include/ConvertColoring.png>
+<include/CompositeActivity.png, id=542, 457.71pt x 174.6525pt>
 File: include/CompositeActivity.png Graphic file (type png)
 
-<use include/CompositeActivity.png> [35 <./include/CompositeActivity.png (PNG c
-opy)>] (/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
-File: koi8-r.def 1999/11/16 v1.0d Input encoding file
-)
-(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
-File: koi8-r.def 1999/11/16 v1.0d Input encoding file
-)
-(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
-File: koi8-r.def 1999/11/16 v1.0d Input encoding file
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 293.
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 293.
- [36]
-<include/Activity.png, id=525, 54.9553pt x 67.75313pt>
+<use include/CompositeActivity.png>
+Underfull \hbox (badness 1087) in paragraph at lines 292--293
+\T2A/cmr/m/n/14.4 смот^^?реть мно^^?же^^?ство пе^^?ре^^?мен^^?ных, опи^^?сы^^?в
+а^^?ю^^?щих ра^^?бо^^?ту диа^^?грам^^?мы.
+ []
+
+[38] [39] <include/Activity.png, id=557, 54.9553pt x 67.75313pt>
 File: include/Activity.png Graphic file (type png)
 
 <use include/Activity.png>
-<include/ActivityPetri.png, id=526, 67.75313pt x 67.75313pt>
+<include/ActivityPetri.png, id=558, 67.75313pt x 67.75313pt>
 File: include/ActivityPetri.png Graphic file (type png)
 
 <use include/ActivityPetri.png>
-Overfull \hbox (24.0pt too wide) in paragraph at lines 312--315
+Overfull \hbox (24.0pt too wide) in paragraph at lines 347--350
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--317
+Underfull \hbox (badness 10000) in paragraph at lines 338--352
 
  []
 
-<include/Condition.png, id=527, 66.2475pt x 66.2475pt>
+<include/Condition.png, id=559, 66.2475pt x 66.2475pt>
 File: include/Condition.png Graphic file (type png)
 
 <use include/Condition.png>
-<include/ConditionPetri.png, id=528, 106.89937pt x 69.25874pt>
+<include/ConditionPetri.png, id=560, 106.89937pt x 69.25874pt>
 File: include/ConditionPetri.png Graphic file (type png)
 
 <use include/ConditionPetri.png>
-Overfull \hbox (24.0pt too wide) in paragraph at lines 327--330
+Overfull \hbox (24.0pt too wide) in paragraph at lines 362--365
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--332
+Underfull \hbox (badness 10000) in paragraph at lines 353--367
 
  []
 
-<include/Fork.png, id=529, 42.91031pt x 57.96657pt>
+<include/Fork.png, id=561, 42.91031pt x 57.96657pt>
 File: include/Fork.png Graphic file (type png)
  <use include/Fork.png>
-<include/ForkPetri.png, id=530, 37.64063pt x 60.225pt>
+<include/ForkPetri.png, id=562, 37.64063pt x 60.225pt>
 File: include/ForkPetri.png Graphic file (type png)
 
 <use include/ForkPetri.png>
-Overfull \hbox (24.0pt too wide) in paragraph at lines 342--345
+Overfull \hbox (24.0pt too wide) in paragraph at lines 377--380
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--347
+Underfull \hbox (badness 10000) in paragraph at lines 368--382
 
  []
 
-<include/Merge.png, id=531, 42.1575pt x 57.96657pt>
+<include/Merge.png, id=563, 42.1575pt x 57.96657pt>
 File: include/Merge.png Graphic file (type png)
  <use include/Merge.png>
-<include/MergePetri.png, id=532, 60.97781pt x 66.2475pt>
+<include/MergePetri.png, id=564, 60.97781pt x 66.2475pt>
 File: include/MergePetri.png Graphic file (type png)
 
 <use include/MergePetri.png>
-Overfull \hbox (24.0pt too wide) in paragraph at lines 356--359
+Overfull \hbox (24.0pt too wide) in paragraph at lines 391--394
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--361
+Underfull \hbox (badness 10000) in paragraph at lines 383--396
 
  []
 
-[37 <./include/Activity.png (PNG copy)> <./include/ActivityPetri.png (PNG copy)
-> <./include/Condition.png (PNG copy)> <./include/ConditionPetri.png (PNG copy)
-> <./include/Fork.png (PNG copy)> <./include/ForkPetri.png (PNG copy)> <./inclu
-de/Merge.png (PNG copy)> <./include/MergePetri.png (PNG copy)>] [38] [39]
+[40] [41] [42] [43]
 
-LaTeX Warning: Command \cyrt invalid in math mode on input line 432.
+LaTeX Warning: Command \cyrt invalid in math mode on input line 467.
 
 
-LaTeX Warning: Command \cyro invalid in math mode on input line 432.
+LaTeX Warning: Command \cyro invalid in math mode on input line 467.
 
 Missing character: There is no т in font cmr12!
 Missing character: There is no о in font cmr12!
 
-LaTeX Warning: Command \cyri invalid in math mode on input line 433.
+LaTeX Warning: Command \cyri invalid in math mode on input line 468.
 
 Missing character: There is no и in font cmr12!
-) [40]
+) [44] [45 <./include/IDEF0ColoredPetri.png (PNG copy)>] [46 <./include/RemoveC
+ycles1.png (PNG copy)> <./include/RemoveCycles2.png (PNG copy)> <./include/Remo
+veCycles3.png (PNG copy)> <./include/EdgeOrientation.png (PNG copy)> <./include
+/VertexOrientation.png (PNG copy)>] [47 <./include/TopologicalSort1.png (PNG co
+py)> <./include/TopologicalSort2.png (PNG copy)> <./include/TopologicalSort3.pn
+g (PNG copy)> <./include/TopologicalSort4.png (PNG copy)>] [48 <./include/Graph
+.png (PNG copy)> <./include/MosaicView.png (PNG copy)>] [49 <./include/Polyline
+View.png (PNG copy)> <./include/ConvertVariables.png (PNG copy)> <./include/Con
+vertDiagram.png (PNG copy)>] [50 <./include/ConvertColoring.png (PNG copy)> <./
+include/CompositeActivity.png (PNG copy)>] [51 <./include/Activity.png (PNG cop
+y)> <./include/ActivityPetri.png (PNG copy)> <./include/Condition.png (PNG copy
+)> <./include/ConditionPetri.png (PNG copy)> <./include/Fork.png (PNG copy)> <.
+/include/ForkPetri.png (PNG copy)> <./include/Merge.png (PNG copy)> <./include/
+MergePetri.png (PNG copy)>]
 \openout2 = `40-impl.aux'.
 
- (./40-impl.tex
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.5 ...С‚СЃСЏ РєСЂРѕСЃСЃРїР»Р°С‚С„РѕСЂРјРµРЅРѕРёМ†
-                                                   Рё РѕР±Р»Р°РґР°РµС‚ РѕРіС...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.5 ...РёМ† Рё РѕР±Р»Р°РґР°РµС‚ РѕРіСЂРѕРјРЅРѕРёМ†
-                                                   Р±РёР±Р»РёРѕС‚РµРєРѕРёМ† ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.5 ...РѕРіСЂРѕРјРЅРѕРёМ† Р±РёР±Р»РёРѕС‚РµРєРѕРёМ†
-                                                   РєР»Р°СЃСЃРѕРІ, С‡С‚Рѕ СЃ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.5 ...ЇР·С‹Рє C++ СЏРІР»СЏРµС‚СЃСЏ РјРѕС‰РЅРµРёМ†
-                                                  С€РёРј РёРЅСЃС‚СЂСѓРјРµРЅС...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.5 ...µС‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ Р±С‹СЃС‚СЂРѕРёМ†
-                                                   СЂР°Р·СЂР°Р±РѕС‚РєРё РїСЂ...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.5 ...СЂР°Р·СЂР°Р±РѕС‚РєРё РїСЂРёР»РѕР¶РµРЅРёРёМ†
-                                                  , РЅРѕ РїСЂРё СЌС‚РѕРј СЃР...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.9 ...СЊРЅСѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ. РљР°Р¶РґС‹РёМ†
-                                                   РјРѕРґСѓР»СЊ РѕС‚РІРµС‡Р°...
-
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-
-! Package ucs Error: Please activate option 'combine'.
-
-See the ucs package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11 ... СЂРµР°Р»РёР·СѓСЋС‰РёРµ РёРЅС‚РµСЂС„РµРёМ†
-                                                  СЃ РїСЂРѕРіСЂР°РјРјС‹;
-Composed characters can only be rendered correctly, when the option 'combine' i
-s activated
-
-[41
-
-
-
-] <include/Type.png, id=563, 243.15843pt x 135.50626pt>
-File: include/Type.png Graphic file (type png)
-
-<use include/Type.png> [42 <./include/Type.png (PNG copy)>]
-(/usr/local/texlive/2010/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-)
-(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
-File: koi8-r.def 1999/11/16 v1.0d Input encoding file
-) [43]
-(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
-File: koi8-r.def 1999/11/16 v1.0d Input encoding file
-)) [44]
-[45]
-\openout2 = `81-biblio.aux'.
-
- (./81-biblio.tex (./rpz.bbl
-Underfull \hbox (badness 7064) in paragraph at lines 12--15
-[]\T2A/cmr/m/it/12 Д., Паронджанов В. \T2A/cmr/m/n/12 Теоретические основы язык
-а ДРАКОН /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--29
-[]\T2A/cmr/m/it/12 Ермаков И. Е., Жигуненко Н. А. \T2A/cmr/m/n/12 Двумерное стр
-уктурное
- []
-
-
-Underfull \hbox (badness 2698) in paragraph at lines 45--48
-[]\T2A/cmr/m/it/12 Дж., Питерсон\T2A/cmr/m/n/12 . Теория сетей Петри и моделиро
-вание систем /
- []
-
-
-Underfull \hbox (badness 4819) in paragraph at lines 57--63
-[]\T2A/cmr/m/it/12 В., Шахов\T2A/cmr/m/n/12 . Моделирование программно-аппаратн
-ых ѕреактивныхї
- []
-
-)) [46
+ (./40-impl.tex [52
 
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 37.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 37.
+<include/ClassDiagram.png, id=634, 623.32875pt x 414.04688pt>
+File: include/ClassDiagram.png Graphic file (type png)
+
+<use include/ClassDiagram.png> [53 <./include/ClassDiagram.png (PNG copy)>]
+<include/Type.png, id=641, 262.73157pt x 135.50626pt>
+File: include/Type.png Graphic file (type png)
+ <use include/Type.png>
+[54 <./include/Type.png (PNG copy)>]
+(/usr/local/texlive/2010/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 59.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
+File: koi8-r.def 1999/11/16 v1.0d Input encoding file
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 61.
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 61.
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <6> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 61.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 61.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 61.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 61.
+ [55]
+(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
+File: koi8-r.def 1999/11/16 v1.0d Input encoding file
+) [56]
+(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/koi8-r.def
+File: koi8-r.def 1999/11/16 v1.0d Input encoding file
+) [57]
+<include/ActivityDiagram.png, id=712, 188.20313pt x 301.8778pt>
+File: include/ActivityDiagram.png Graphic file (type png)
+
+<use include/ActivityDiagram.png> [58 <./include/ActivityDiagram.png (PNG copy)
+>] <include/CPNTools.png, id=720, 552.56438pt x 283.0575pt>
+File: include/CPNTools.png Graphic file (type png)
+
+<use include/CPNTools.png>
+Overfull \hbox (97.31891pt too wide) in paragraph at lines 163--164
+ [] 
+ []
+
+[59 <./include/CPNTools.png (PNG copy)>]
+! You can't use `macro parameter character #' in horizontal mode.
+l.191 РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ #
+                              1(x) РѕР·РЅР°С‡Р°РµС‚ В«РІР·СЏС‚СЊ РїРµСЂРІС‹Р...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+[60] <include/PetriNet.png, id=731, 286.06876pt x 628.3475pt>
+File: include/PetriNet.png Graphic file (type png)
+
+<use include/PetriNet.png>) [61] [62 <./include/PetriNet.png>]
+\openout2 = `50-research.aux'.
+
+
+(./50-research.tex
+<include/BlockedDiagram1.png, id=746, 143.78719pt x 237.13594pt>
+File: include/BlockedDiagram1.png Graphic file (type png)
+
+<use include/BlockedDiagram1.png>
+<include/BlockedNet1.png, id=747, 156.585pt x 280.04625pt>
+File: include/BlockedNet1.png Graphic file (type png)
+
+<use include/BlockedNet1.png>
+<include/BlockedDiagram2.png, id=748, 130.98938pt x 200.24812pt>
+File: include/BlockedDiagram2.png Graphic file (type png)
+
+<use include/BlockedDiagram2.png>
+<include/BlockedNet2.png, id=749, 153.57375pt x 284.56313pt>
+File: include/BlockedNet2.png Graphic file (type png)
+
+<use include/BlockedNet2.png>
+<include/CorrectDiagram.png, id=753, 143.78719pt x 249.93375pt>
+File: include/CorrectDiagram.png Graphic file (type png)
+
+<use include/CorrectDiagram.png>
+<include/CorrectNet.png, id=754, 158.09062pt x 364.36125pt>
+File: include/CorrectNet.png Graphic file (type png)
+
+<use include/CorrectNet.png> [63
+
+
+
+] [64 <./include/BlockedDiagram1.png (PNG copy)> <./include/BlockedNet1.png (PN
+G copy)> <./include/BlockedDiagram2.png (PNG copy)> <./include/BlockedNet2.png 
+(PNG copy)>] [65 <./include/CorrectDiagram.png (PNG copy)> <./include/CorrectNe
+t.png (PNG copy)>] [66]
+<include/ResearchWithCycle.png, id=778, 186.6975pt x 359.09157pt>
+File: include/ResearchWithCycle.png Graphic file (type png)
+
+<use include/ResearchWithCycle.png>
+<include/ResearchWithoutCycle.png, id=779, 181.42781pt x 417.05812pt>
+File: include/ResearchWithoutCycle.png Graphic file (type png)
+
+<use include/ResearchWithoutCycle.png> [67 <./include/ResearchWithCycle.png (PN
+G copy)> <./include/ResearchWithoutCycle.png (PNG copy)>] [68]) [69]
+\openout2 = `80-conclusion.aux'.
+
+
+(./80-conclusion.tex) [70
+
+
+
+]
+\openout2 = `81-biblio.aux'.
+
+ (./81-biblio.tex (./rpz.bbl
+Underfull \hbox (badness 1769) in paragraph at lines 18--29
+\T2A/cmr/m/n/14.4 программирование; класс устремлјнных графов. (Теоретические
+ []
+
+
+Underfull \hbox (badness 7099) in paragraph at lines 18--29
+\T2A/cmr/m/n/14.4 И. Е. // Сборник трудов V Международной конференции
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--29
+\T2A/cmr/m/n/14.4 ѕИнновационные информационно-педагогические технологии в
+ []
+
+
+Underfull \hbox (badness 3302) in paragraph at lines 32--37
+[]\T2A/cmr/m/it/14.4 Тюгашев, А. А. \T2A/cmr/m/n/14.4 Графические языки програм
+мирования
+ []
+
+
+Underfull \hbox (badness 1412) in paragraph at lines 32--37
+\T2A/cmr/m/n/14.4 и их применение в системах управления реального времени /
+ []
+
+
+Underfull \hbox (badness 3343) in paragraph at lines 45--48
+[]\T2A/cmr/m/it/14.4 Дж., Питерсон\T2A/cmr/m/n/14.4 . Теория сетей Петри и моде
+лирование
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--63
+[]\T2A/cmr/m/it/14.4 В., Шахов\T2A/cmr/m/n/14.4 . Моделирование программно-аппа
+ратных
+ []
+
+
+Underfull \hbox (badness 1168) in paragraph at lines 72--77
+[]\T2A/cmr/m/it/14.4 Battista G. Garg A., Li^^?ot^^?ta G. Tamas^^?sia R. Tassi^
+^?nari E.
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 80--85
+[]\T2A/cmr/m/it/14.4 С.В., Коротиков\T2A/cmr/m/n/14.4 . Применение сетей Петри 
+в разработке
+ []
+
+
+Underfull \hbox (badness 1867) in paragraph at lines 80--85
+\T2A/cmr/m/n/14.4 программного обеспечения центров дистанционного контроля и
+ []
+
+)) [71
+
+
+
+]
+\openout2 = `90-appendix1.aux'.
+
+ (./90-appendix1.tex
+Overfull \hbox (5.18288pt too wide) in paragraph at lines 86--86
+[]                \T2A/cmtt/m/n/14.4 <xs:element maxOccurs="unbounded" ref="sta
+te"/>[] 
+ []
+
+
+Overfull \hbox (41.7247pt too wide) in paragraph at lines 86--86
+[]                \T2A/cmtt/m/n/14.4 <xs:element maxOccurs="unbounded" ref="tra
+nsition"/>[] 
+ []
+
+[72
+
+
+
+]
+Overfull \hbox (41.7247pt too wide) in paragraph at lines 86--86
+[]                \T2A/cmtt/m/n/14.4 <xs:element maxOccurs="unbounded" ref="tra
+nsition"/>[] 
+ []
+
+
+Overfull \hbox (41.7247pt too wide) in paragraph at lines 86--86
+[]                \T2A/cmtt/m/n/14.4 <xs:element maxOccurs="unbounded" ref="tra
+nsition"/>[] 
+ []
+
+[73]) [74]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 39.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
  (./rpz.aux (./12-intro.aux) (./20-analysis.aux) (./30-design.aux)
-(./40-impl.aux) (./81-biblio.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 37.
+(./40-impl.aux) (./50-research.aux) (./80-conclusion.aux) (./81-biblio.aux)
+(./90-appendix1.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 39.
 Package rerunfilecheck Info: File `rpz.out' has not changed.
-(rerunfilecheck)             Checksum: E03152A81CFD1F413A7A157561CFB72B;10888.
+(rerunfilecheck)             Checksum: 5E6544D28750FE10FECC113795582635;13492.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2156,36 +1636,34 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 20451 strings out of 493747
- 346693 string characters out of 3143546
- 470396 words of memory out of 3000000
- 22980 multiletter control sequences out of 15000+200000
- 19279 words of font info for 52 fonts, out of 3000000 for 9000
+ 20633 strings out of 493747
+ 341256 string characters out of 3143546
+ 455898 words of memory out of 3000000
+ 23088 multiletter control sequences out of 15000+200000
+ 21733 words of font info for 60 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 51i,12n,75p,1796b,2334s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 51i,12n,75p,1708b,2333s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc
 }</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
 /usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
-usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
 local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
-cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
-/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
-texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
-xlive/2010/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
-l/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/
-texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/te
-xlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texl
-ive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texliv
-e/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/
-2010/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/20
-10/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2010
-/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on rpz.pdf (46 pages, 679306 bytes).
+cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
+al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr
+/local/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbi1440.pfb></usr/l
+ocal/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/loc
+al/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local
+/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/t
+exlive/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/tex
+live/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texli
+ve/2010/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive
+/2010/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb>
+Output written on rpz.pdf (74 pages, 897360 bytes).
 PDF statistics:
- 737 PDF objects out of 1000 (max. 8388607)
- 614 compressed objects within 7 object streams
- 210 named destinations out of 1000 (max. 500000)
- 594 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 926 PDF objects out of 1000 (max. 8388607)
+ 759 compressed objects within 8 object streams
+ 236 named destinations out of 1000 (max. 500000)
+ 746 words of extra memory for PDF output out of 10000 (max. 10000000)
 
