@@ -58,7 +58,11 @@ class NetworkView : public View
 	 ~NetworkView();
 
 	 void drawDiagram(PlanarDrawer * drawer);
-	 void setNetwork(StateList * netStates);
+	 void setNetwork(StateList * states, StateList * netStates);
+
+signals:
+	 void reinitMarking();
+	 void reinitValues();
 
 private slots:
 	 void play();
@@ -68,15 +72,20 @@ private slots:
  private:
 	 void initInterface();
 	 void initConnections();
+	 QMultiMap<NetPlace *, NetTransition *> activeTransitions();
+
+	 void information();
 
 	 bool execution;
 	 StateList * states;
+	 StateList * netStates;
 
 	 QTimer * timer;
 	 QGraphicsScene * scene;
 	 QGraphicsView * view;
 	 QPushButton * btnPlay;
 	 QPushButton * btnStop;
+	 QPushButton * btnRefresh;
 };
 
 #endif // GRAPHICVIEW_H

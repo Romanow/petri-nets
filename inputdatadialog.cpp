@@ -155,6 +155,7 @@ void InputDataDialog::getValues(QMap<QString, Type *> &variables, int &number)
 			SimpleType * simple = reinterpret_cast<SimpleType *>(variables[name]);
 			QString line = lines[number]->text();
 
+			simple->values().clear();
 			QStringList array = line.split(QRegExp("[\\[;\\]]"), QString::SkipEmptyParts);
 			foreach (QString value, array)
 				simple->values().append(serialize(value));

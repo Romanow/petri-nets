@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'graphicview.h'
 **
-** Created: Wed May 30 23:27:42 2012
+** Created: Thu May 31 20:38:24 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -97,23 +97,28 @@ static const uint qt_meta_data_NetworkView[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       2,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      13,   12,   12,   12, 0x05,
+      29,   12,   12,   12, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      13,   12,   12,   12, 0x08,
-      20,   12,   12,   12, 0x08,
-      27,   12,   12,   12, 0x08,
+      44,   12,   12,   12, 0x08,
+      51,   12,   12,   12, 0x08,
+      58,   12,   12,   12, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_NetworkView[] = {
-    "NetworkView\0\0play()\0stop()\0timeout()\0"
+    "NetworkView\0\0reinitMarking()\0"
+    "reinitValues()\0play()\0stop()\0timeout()\0"
 };
 
 const QMetaObject NetworkView::staticMetaObject = {
@@ -145,13 +150,27 @@ int NetworkView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: play(); break;
-        case 1: stop(); break;
-        case 2: timeout(); break;
+        case 0: reinitMarking(); break;
+        case 1: reinitValues(); break;
+        case 2: play(); break;
+        case 3: stop(); break;
+        case 4: timeout(); break;
         default: ;
         }
-        _id -= 3;
+        _id -= 5;
     }
     return _id;
+}
+
+// SIGNAL 0
+void NetworkView::reinitMarking()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
+}
+
+// SIGNAL 1
+void NetworkView::reinitValues()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, 0);
 }
 QT_END_MOC_NAMESPACE

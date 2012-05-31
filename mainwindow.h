@@ -26,6 +26,8 @@ private slots:
 	void openRecentFile();
 	void convertToSimpleNet();
 	void convertToColouredNet();
+	void reinitMarking();
+	void reinitValues();
 
 private:
 	void initInterface();

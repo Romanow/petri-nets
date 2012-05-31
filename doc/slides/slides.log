@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.17)  31 MAY 2012 02:54
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.17)  31 MAY 2012 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1292,36 +1292,13 @@ LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <20> not available
 [2
 
 ]
+<../tex/include/MethodClassification.png, id=92, 683.55376pt x 453.19313pt>
+File: ../tex/include/MethodClassification.png Graphic file (type png)
 
-LaTeX Warning: File `../tex/include/MethodClassification.png' not found on inpu
-t line 53.
+<use ../tex/include/MethodClassification.png> [3
 
-
-! Package pdftex.def Error: File `../tex/include/MethodClassification.png' not 
-found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.53 ...]{../tex/include/MethodClassification.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 53.
-
-(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
-File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)
-
-LaTeX Font Warning: Font shape `T2A/cmtt/m/n' in size <28> not available
-(Font)              size <29.86> substituted on input line 53.
-
-[3
-
-] <../tex/include/IDEF0.png, id=97, 840.13875pt x 417.05812pt>
+ <../tex/include/MethodClassification.png (PNG copy)>]
+<../tex/include/IDEF0.png, id=97, 855.195pt x 477.28313pt>
 File: ../tex/include/IDEF0.png Graphic file (type png)
 
 <use ../tex/include/IDEF0.png>
@@ -1367,6 +1344,11 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <28> not available
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <19.59991> not available
 (Font)              size <20.74> substituted on input line 70.
 
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 74.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
+File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
 
 LaTeX Font Warning: Font shape `T2A/cmtt/m/n' in size <24> not available
 (Font)              size <24.88> substituted on input line 74.
@@ -1393,65 +1375,65 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.102 ...СЃРѕС†РёРёСЂРѕРІР°РЅРЅРѕРіРѕ РіСЂР°С„Р°.
+l.104 ...СЃРѕС†РёРёСЂРѕРІР°РЅРЅРѕРіРѕ РіСЂР°С„Р°.
                                                   
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
 []\T2A/cmr/m/n/29.86 Топологическая сор-ти-ров-ка вер-шин ис-ход-но-го и
  []
 
 [6
 
-] <../tex/include/RemoveCycles1.png, id=113, 146.04562pt x 163.3603pt>
+] <../tex/include/RemoveCycles1.png, id=113, 147.55125pt x 164.11313pt>
 File: ../tex/include/RemoveCycles1.png Graphic file (type png)
 
 <use ../tex/include/RemoveCycles1.png>
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.114 ....png} \\ \tiny Р¦РёРєР» (A,B) \rightarrow
+l.116 ....png} \\ \tiny Р¦РёРєР» (A,B) \rightarrow
                                                    (B,C) \rightarrow (C,D) \...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-LaTeX Font Info:    Calculating math sizes for size <20> on input line 114.
+LaTeX Font Info:    Calculating math sizes for size <20> on input line 116.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 114.
+(Font)              size <20.74> substituted on input line 116.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13.99994> not available
-(Font)              size <14.4> substituted on input line 114.
+(Font)              size <14.4> substituted on input line 116.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <20> not available
-(Font)              size <20.74> substituted on input line 114.
+(Font)              size <20.74> substituted on input line 116.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <13.99994> not available
-(Font)              size <14.4> substituted on input line 114.
+(Font)              size <14.4> substituted on input line 116.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 114.
+(Font)              size <20.74> substituted on input line 116.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <13.99994> not available
-(Font)              size <14.4> substituted on input line 114.
+(Font)              size <14.4> substituted on input line 116.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 114.
+(Font)              size <20.74> substituted on input line 116.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <13.99994> not available
-(Font)              size <14.4> substituted on input line 114.
+(Font)              size <14.4> substituted on input line 116.
 
 ! Extra }, or forgotten $.
-l.114 ...D,F) \rightarrow (F,E) \rightarrow (E,A)}
+l.116 ...D,F) \rightarrow (F,E) \rightarrow (E,A)}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1462,7 +1444,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.115 	\end{minipage}
+l.117 	\end{minipage}
                      
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1470,7 +1452,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.115 	\end{minipage}
+l.117 	\end{minipage}
                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1478,20 +1460,20 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-<../tex/include/RemoveCycles2.png, id=114, 146.04562pt x 163.3603pt>
+<../tex/include/RemoveCycles2.png, id=114, 147.55125pt x 164.11313pt>
 File: ../tex/include/RemoveCycles2.png Graphic file (type png)
 
 <use ../tex/include/RemoveCycles2.png>
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.118 ....png} \\ \tiny Р¦РёРєР» (A,E) \rightarrow
+l.120 ....png} \\ \tiny Р¦РёРєР» (A,E) \rightarrow
                                                    (E,F) \rightarrow (F,D) \...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.118 ...D,H) \rightarrow (H,G) \rightarrow (G,A)}
+l.120 ...D,H) \rightarrow (H,G) \rightarrow (G,A)}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1502,7 +1484,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.119 	\end{minipage}
+l.121 	\end{minipage}
                      
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1510,7 +1492,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.119 	\end{minipage}
+l.121 	\end{minipage}
                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1518,7 +1500,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-<../tex/include/RemoveCycles3.png, id=115, 146.04562pt x 163.3603pt>
+<../tex/include/RemoveCycles3.png, id=115, 147.55125pt x 164.11313pt>
 File: ../tex/include/RemoveCycles3.png Graphic file (type png)
 
 <use ../tex/include/RemoveCycles3.png> [7
@@ -1536,14 +1518,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.130 	\caption
+l.132 	\caption
                {\begin{small}Р“СЂР°С„ G (РєСЂР°СЃРЅС‹Р№) Рё Р°СЃСЃРѕС†РёРёСЂ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (4.4523pt too wide) in paragraph at lines 129--131
+Overfull \hbox (4.4523pt too wide) in paragraph at lines 131--133
  [] 
  []
 
@@ -1558,14 +1540,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.135 	\caption
+l.137 	\caption
                {\begin{small}РџРѕР»РёР»РёРЅРµР№РЅРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Text line contains an invalid character.
-l.138 ...РєСЂР°С€РµРЅРЅС‹Рµ СЃРµС‚Рё РџРµС‚СЂРё^^@
+l.140 ...РєСЂР°С€РµРЅРЅС‹Рµ СЃРµС‚Рё РџРµС‚СЂРё^^@
                                                   }
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
@@ -1575,7 +1557,7 @@ Continue, and I'll forget that it ever happened.
  <../tex/include/Graph.png (PNG copy)> <../tex/include/PolylineView.png (PNG co
 py)>]
 ! Misplaced alignment tab character &.
-l.147 ...orall t \epsilon T : [Type(G(t)) = bool &
+l.149 ...orall t \epsilon T : [Type(G(t)) = bool &
                                                    Type(Var(G(t))) \subseteq...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1585,7 +1567,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.148 ...\epsilon A : [Type(E(a)) = C(p(a))_{ms} &
+l.150 ...\epsilon A : [Type(E(a)) = C(p(a))_{ms} &
                                                    Type(Var(E(a))) \subseteq...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1595,19 +1577,19 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Text line contains an invalid character.
-l.151 ...РєСЂР°С€РµРЅРЅРѕР№ СЃРµС‚Рё РџРµС‚СЂРё^^@
+l.153 ...РєСЂР°С€РµРЅРЅРѕР№ СЃРµС‚Рё РџРµС‚СЂРё^^@
                                                   }
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 [9
 
-] <../tex/include/IDEF0ColoredPetri.png, id=132, 712.91344pt x 293.59688pt>
+] <../tex/include/IDEF0ColoredPetri.png, id=132, 764.10469pt x 304.88907pt>
 File: ../tex/include/IDEF0ColoredPetri.png Graphic file (type png)
 
 <use ../tex/include/IDEF0ColoredPetri.png>
 ! Text line contains an invalid character.
-l.157 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
+l.159 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
                                                    РџРµС‚СЂРё (1)}
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
@@ -1615,16 +1597,16 @@ Continue, and I'll forget that it ever happened.
 [10
 
  <../tex/include/IDEF0ColoredPetri.png (PNG copy)>]
-<../tex/include/ConvertVariables.png, id=137, 173.14688pt x 237.13594pt>
+<../tex/include/ConvertVariables.png, id=137, 185.94469pt x 280.79906pt>
 File: ../tex/include/ConvertVariables.png Graphic file (type png)
 
 <use ../tex/include/ConvertVariables.png>
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 []\T2A/cmr/m/n/29.86 Выделение спис-ка
  []
 
 ! Text line contains an invalid character.
-l.170 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
+l.172 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
                                                    РџРµС‚СЂРё (2)}
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
@@ -1632,100 +1614,100 @@ Continue, and I'll forget that it ever happened.
 [11
 
  <../tex/include/ConvertVariables.png (PNG copy)>]
-<../tex/include/ConvertDiagram.png, id=142, 195.73125pt x 314.67563pt>
+<../tex/include/ConvertDiagram.png, id=142, 195.73125pt x 315.42844pt>
 File: ../tex/include/ConvertDiagram.png Graphic file (type png)
 
 <use ../tex/include/ConvertDiagram.png>
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
 []\T2A/cmr/m/n/29.86 Преобразование
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
 \T2A/cmr/m/n/29.86 диа-грам-мы
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 []\T2A/cmr/m/n/29.86 Формирование
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 \T2A/cmr/m/n/29.86 мно-же-ства ти-пов
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 []\T2A/cmr/m/n/29.86 Предварительное
  []
 
 
-Underfull \hbox (badness 2245) in paragraph at lines 180--181
+Underfull \hbox (badness 2245) in paragraph at lines 182--183
 \T2A/cmr/m/n/29.86 опре-де-ле-ние мно-же-ства
  []
 
 ! Text line contains an invalid character.
-l.184 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
-                                                   РџРµС‚СЂРё}
+l.186 ...ё РІ СЂР°СЃРєСЂР°С€РµРЅРЅСѓСЋ СЃРµС‚СЊ^^@
+                                                   РџРµС‚СЂРё (3)}
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 [12
 
  <../tex/include/ConvertDiagram.png (PNG copy)>]
-<../tex/include/ConvertColoring.png, id=147, 191.9672pt x 317.68687pt>
+<../tex/include/ConvertColoring.png, id=147, 191.9672pt x 318.43968pt>
 File: ../tex/include/ConvertColoring.png Graphic file (type png)
 
 <use ../tex/include/ConvertColoring.png>
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 []\T2A/cmr/m/n/29.86 Определение
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 \T2A/cmr/m/n/29.86 мак-си-маль-ной об-ла-сти
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 []\T2A/cmr/m/n/29.86 Формирование
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 \T2A/cmr/m/n/29.86 ре-зуль-ти-ру-ю-щей
  []
 
 [13
 
  <../tex/include/ConvertColoring.png (PNG copy)>]
-<../tex/include/BlockedDiagram2.png, id=153, 130.98938pt x 200.24812pt>
-File: ../tex/include/BlockedDiagram2.png Graphic file (type png)
-
-<use ../tex/include/BlockedDiagram2.png>
-<../tex/include/BlockedNet2.png, id=154, 153.57375pt x 284.56313pt>
-File: ../tex/include/BlockedNet2.png Graphic file (type png)
-
-<use ../tex/include/BlockedNet2.png>
-<../tex/include/BlockedDiagram1.png, id=155, 143.78719pt x 237.13594pt>
+<../tex/include/BlockedDiagram1.png, id=153, 144.54pt x 237.88875pt>
 File: ../tex/include/BlockedDiagram1.png Graphic file (type png)
 
 <use ../tex/include/BlockedDiagram1.png>
-<../tex/include/BlockedNet1.png, id=156, 156.585pt x 280.04625pt>
+<../tex/include/BlockedNet1.png, id=154, 157.33781pt x 280.79906pt>
 File: ../tex/include/BlockedNet1.png Graphic file (type png)
 
-<use ../tex/include/BlockedNet1.png> [14
+<use ../tex/include/BlockedNet1.png>
+<../tex/include/BlockedDiagram2.png, id=155, 132.495pt x 201.00093pt>
+File: ../tex/include/BlockedDiagram2.png Graphic file (type png)
 
- <../tex/include/BlockedDiagram2.png (PNG copy)> <../tex/include/BlockedNet2.pn
-g (PNG copy)> <../tex/include/BlockedDiagram1.png (PNG copy)> <../tex/include/B
-lockedNet1.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+<use ../tex/include/BlockedDiagram2.png>
+<../tex/include/BlockedNet2.png, id=156, 159.59625pt x 286.06876pt>
+File: ../tex/include/BlockedNet2.png Graphic file (type png)
+
+<use ../tex/include/BlockedNet2.png> [14
+
+ <../tex/include/BlockedDiagram1.png (PNG copy)> <../tex/include/BlockedNet1.pn
+g (PNG copy)> <../tex/include/BlockedDiagram2.png (PNG copy)> <../tex/include/B
+lockedNet2.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
 []\T2A/cmr/m/n/29.86 определять рас-крас-ку
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
 \T2A/cmr/m/n/29.86 всех эле-мен-тов цик-ла
  []
 
@@ -1733,7 +1715,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 227--228
 File: ../tex/include/ResearchWithCycle.png Graphic file (type png)
 
 <use ../tex/include/ResearchWithCycle.png>
-<../tex/include/ResearchWithoutCycle.png, id=162, 181.42781pt x 417.05812pt>
+<../tex/include/ResearchWithoutCycle.png, id=162, 181.42781pt x 427.5975pt>
 File: ../tex/include/ResearchWithoutCycle.png Graphic file (type png)
 
 <use ../tex/include/ResearchWithoutCycle.png> [15
@@ -1745,7 +1727,7 @@ outCycle.png (PNG copy)>]
 ] [17
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 274--275
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 []\T2A/cmr/m/n/29.86 Проведена клас-си-фиц-ка-ция су-ще-ству-ю-щих ме-то-дов
  []
 
@@ -1756,32 +1738,32 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.275 ...Рё РІ РІРёРґРµ СЂР°СЃРєСЂР°С€РµРЅРЅРѕРёМ†
+l.283 ...Рё РІ РІРёРґРµ СЂР°СЃРєСЂР°С€РµРЅРЅРѕРёМ†
                                                    СЃРµС‚Рё РџРµС‚СЂРё.
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--277
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
 []\T2A/cmr/m/n/29.86 Разработано про-грамм-ное обес-пе-че-ние, ре-а-ли-зу-ю-щее
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--278
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
 []\T2A/cmr/m/n/29.86 Исследованы фак-то-ры, вли-я-ю-щие на по-яв-ле-ние
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 281.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 289.
 [18
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 281.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 289.
  (./slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 281.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 289.
 Package rerunfilecheck Info: File `slides.out' has not changed.
-(rerunfilecheck)             Checksum: 865D7A67E7883BB86C5CF2D796CBF227;7134.
+(rerunfilecheck)             Checksum: 3657C60E86D168C9E4DB0BA10F114A3B;7294.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1789,13 +1771,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 20519 strings out of 493747
- 406713 string characters out of 3143546
- 535502 words of memory out of 3000000
- 23337 multiletter control sequences out of 15000+200000
- 12828 words of font info for 35 fonts, out of 3000000 for 9000
+ 20520 strings out of 493747
+ 406851 string characters out of 3143546
+ 535503 words of memory out of 3000000
+ 23339 multiletter control sequences out of 15000+200000
+ 12515 words of font info for 34 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 51i,17n,93p,862b,1579s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 51i,17n,93p,1031b,1577s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc
 }</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
 </usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></
@@ -1805,12 +1787,11 @@ sr/local/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx2986.pfb></usr
 ocal/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/loc
 al/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfrm2986.pfb></usr/local
 /texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfrm3583.pfb></usr/local/t
-exlive/2010/texmf-dist/fonts/type1/public/cm-super/sftt2488.pfb></usr/local/tex
-live/2010/texmf-dist/fonts/type1/public/cm-super/sftt2986.pfb>
-Output written on slides.pdf (18 pages, 414202 bytes).
+exlive/2010/texmf-dist/fonts/type1/public/cm-super/sftt2488.pfb>
+Output written on slides.pdf (18 pages, 459447 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
+ 220 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
  36 named destinations out of 1000 (max. 500000)
- 237 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 242 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -3,7 +3,6 @@
 #include "translate.h"
 
 #include <QSettings>
-#include <QSplitter>
 #include <QMenuBar>
 #include <QFileInfo>
 #include <QFileDialog>
@@ -88,6 +87,8 @@ void MainWindow::initConnections()
 	connect(actionExit, SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
 	connect(diagramView, SIGNAL(convertToSimpleNet()), SLOT(convertToSimpleNet()));
 	connect(diagramView, SIGNAL(convertToColouredNet()), SLOT(convertToColouredNet()));
+	connect(networkView, SIGNAL(reinitMarking()), SLOT(reinitMarking()));
+	connect(networkView, SIGNAL(reinitValues()), SLOT(reinitValues()));
 }
 
 void MainWindow::setDesktopCenter()
@@ -116,7 +117,7 @@ bool MainWindow::updateRecentFileList(QMenu * recentFileMenu)
 
 void MainWindow::newFile()
 {
-	browser->clear();
+	 clear();
 }
 
 void MainWindow::openFile()
@@ -211,10 +212,29 @@ void MainWindow::convertToSimpleNet()
 
 	PlanarDrawer netPlanarDrawer(netStates);
 	networkView->drawDiagram(&netPlanarDrawer);
-	networkView->setNetwork(netStates);
+	networkView->setNetwork(states, netStates);
 
 	tabWidget->setTabEnabled(2, true);
 	tabWidget->setCurrentIndex(2);
+}
+
+void MainWindow::reinitMarking()
+{
+	net->initVariables(netStates, variables);
+	net->setInitialMarking(states, netStates);
+	networkView->update();
+}
+
+void MainWindow::reinitValues()
+{
+	dataDialog->setVariableList(variables);
+	if (dataDialog->exec() == QDialog::Accepted)
+	{
+		dataDialog->getVariableList(variables);
+		net->initVariables(netStates, variables);
+		net->setInitialMarking(states, netStates);
+		networkView->update();
+	}
 }
 
 void MainWindow::convertToColouredNet()
@@ -222,7 +242,7 @@ void MainWindow::convertToColouredNet()
 	clearNetStates();
 
 	// Выделение внутренних переменных состояния и построение списка типов
-	variables = net->variableList(states);
+	variables = net->variableList(states, transitions);
 	// Преобразование в простую сеть Петри
 	net->convert(states, netStates, netTransitions, true);
 	if (!variables.isEmpty())
@@ -244,7 +264,7 @@ void MainWindow::convertToColouredNet()
 	// Отображение сети
 	PlanarDrawer netPlanarDrawer(netStates);
 	networkView->drawDiagram(&netPlanarDrawer);
-	networkView->setNetwork(netStates);
+	networkView->setNetwork(states, netStates);
 
 	tabWidget->setTabEnabled(2, true);
 	tabWidget->setCurrentIndex(2);

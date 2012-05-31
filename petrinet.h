@@ -58,7 +58,7 @@ class PetriNet
 {
 public:
 	void convert(StateList * states, StateList * netStates, TransitionList * netTransiitons, bool colored = false);
-	QMap<QString, Type *> variableList(StateList * states);
+	QMap<QString, Type *> variableList(StateList * states, TransitionList * transitions);
 	void coloring(StateList * netStates, const QMap<QString, Type *> &types);
 	void setInitialMarking(StateList * states, StateList * netStates);
 	void initVariables(StateList * states, QMap<QString, Type *> types);

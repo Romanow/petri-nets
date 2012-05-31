@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.17)  31 MAY 2012 00:23
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.17)  31 MAY 2012 11:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -865,8 +865,11 @@ Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 
 LaTeX Warning: Label `F:F1' multiply defined.
 
-) (./40-impl.aux) (./50-research.aux) (./80-conclusion.aux) (./81-biblio.aux)
-(./90-appendix1.aux))
+) (./40-impl.aux) (./50-research.aux
+
+LaTeX Warning: Label `fig:fig30' multiply defined.
+
+) (./80-conclusion.aux) (./81-biblio.aux) (./90-appendix1.aux))
 \openout1 = `rpz.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1748,15 +1751,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
 (./40-impl.aux) (./50-research.aux) (./80-conclusion.aux) (./81-biblio.aux)
 (./90-appendix1.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 39.
+Package rerunfilecheck Info: File `rpz.out' has not changed.
+(rerunfilecheck)             Checksum: 5C9AA329FDBCD8D52A0DBEA1D8032FCC;13492.
 
-
-Package rerunfilecheck Warning: File `rpz.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `rpz.out':
-(rerunfilecheck)             Before: 839442FEDDB1A8474578EAAB62CC19C1;13492
-(rerunfilecheck)             After:  5C9AA329FDBCD8D52A0DBEA1D8032FCC;13492.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1765,37 +1762,34 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26479 strings out of 493747
- 514869 string characters out of 3143546
- 647555 words of memory out of 3000000
+ 26478 strings out of 493747
+ 514858 string characters out of 3143546
+ 647563 words of memory out of 3000000
  28823 multiletter control sequences out of 15000+200000
  21733 words of font info for 60 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  55i,19n,95p,1708b,2333s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{section*.34} has been referenced but does not exi
-st, replaced by a fixed one
-
-{/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}<
-/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
-usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
-r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
-local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
-l/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
-/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/l
-ocal/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbi1440.pfb></usr/loc
-al/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local
-/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/t
-exlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/tex
-live/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texli
-ve/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive
-/2010/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2
-010/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb>
-Output written on rpz.pdf (74 pages, 902043 bytes).
+{/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc
+}</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
+cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
+al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr
+/local/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbi1440.pfb></usr/l
+ocal/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/loc
+al/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local
+/texlive/2010/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/t
+exlive/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/tex
+live/2010/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texli
+ve/2010/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive
+/2010/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb>
+Output written on rpz.pdf (74 pages, 902057 bytes).
 PDF statistics:
- 930 PDF objects out of 1000 (max. 8388607)
- 763 compressed objects within 8 object streams
- 239 named destinations out of 1000 (max. 500000)
+ 929 PDF objects out of 1000 (max. 8388607)
+ 762 compressed objects within 8 object streams
+ 238 named destinations out of 1000 (max. 500000)
  746 words of extra memory for PDF output out of 10000 (max. 10000000)
 

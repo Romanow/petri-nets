@@ -2,8 +2,6 @@
 #include "state.h"
 #include "rpn.h"
 
-#include <QDebug>
-
 bool isNumber(const QString &variable)
 {
 	bool flag;
@@ -15,6 +13,7 @@ void PetriNet::convertState(State * state, StateList * states, TransitionList * 
 {
 	QString id = state->id();
 	QString name = state->name();
+	QStringList varibales = state->variables();
 	switch (state->type())
 	{
 	case begin_state:
@@ -31,10 +30,9 @@ void PetriNet::convertState(State * state, StateList * states, TransitionList * 
 			QString expression = action->expression();
 			QStringList list = expression.split('=');
 
+			p->addVariables(varibales);
 			t->setResult(list.first().simplified());
 			t->setExpression(RPN::convert(list.last()));
-			foreach (QString variable, action->variables())
-				p->addVariable(variable);
 		}
 
 		Transition * transition = new Transition(id);
@@ -50,6 +48,7 @@ void PetriNet::convertState(State * state, StateList * states, TransitionList * 
 	case condition_state:
 	{
 		NetPlace * p = new NetPlace(name, QString("%1_place").arg(id));
+		p->addVariables(varibales);
 		states->append(p);
 
 		for (int i = 0; i < state->outgoing().count(); ++i)
@@ -70,6 +69,7 @@ void PetriNet::convertState(State * state, StateList * states, TransitionList * 
 	{
 		NetPlace * p = new NetPlace(name, QString("%1_place").arg(id));
 		NetTransition * t = new NetTransition(name, QString("%1_transition").arg(id));
+		p->addVariables(varibales);
 
 		Transition * transition = new Transition(id);
 		p->addOutgoingTransition(transition);
@@ -87,6 +87,7 @@ void PetriNet::convertState(State * state, StateList * states, TransitionList * 
 		for (int i = 0; i < state->incoming().count(); ++i)
 		{
 			NetPlace * p = new NetPlace(name, QString("%1_place%2").arg(id).arg(i));
+			p->addVariables(varibales);
 
 			Transition * transition = new Transition(QString("%1%2").arg(id).arg(i));
 			p->addOutgoingTransition(transition);
@@ -102,6 +103,7 @@ void PetriNet::convertState(State * state, StateList * states, TransitionList * 
 	case final_state:
 	{
 		NetPlace * p = new NetPlace(name, QString("%1_place").arg(id));
+		p->addVariables(varibales);
 		states->append(p);
 	}
 	break;
@@ -170,20 +172,6 @@ void PetriNet::convert(StateList * states, StateList * netStates, TransitionList
 				{
 					Transition * tr = list[i];
 					QString guard = transition->guard();
-
-					QList<State *> places = netStates->find(QString("%1_place").arg(state->id()));
-					QStringList variables = guard.split(QRegExp("[^\\w.]+"), QString::SkipEmptyParts);
-					foreach (State * state, places)
-					{
-						NetPlace * place = dynamic_cast<NetPlace *>(state);
-						foreach (QString var, variables)
-						{
-							QString variable = var.split('.').first();
-							if (!place->variables().contains(variable) && !isNumber(variable))
-								place->addVariable(variable);
-						}
-					}
-
 					tr->setGuard(RPN::convert(guard));
 				}
 			}
@@ -239,8 +227,11 @@ void PetriNet::createType(QMap<QString, Type *> &variables, QStringList &variabl
 		}
 		else // simple type
 		{
-			SimpleType * simpleType = new SimpleType(name);
-			variables.insert(name, simpleType);
+			if (!isNumber(name))
+			{
+				SimpleType * simpleType = new SimpleType(name);
+				variables.insert(name, simpleType);
+			}
 		}
 	}
 	else
@@ -253,7 +244,7 @@ void PetriNet::createType(QMap<QString, Type *> &variables, QStringList &variabl
 	}
 }
 
-QMap<QString, Type *> PetriNet::variableList(StateList * states)
+QMap<QString, Type *> PetriNet::variableList(StateList * states, TransitionList *transitions)
 {
 	QMap<QString, Type *> types;
 	QList<State *> actions = states->find(action_state);
@@ -274,6 +265,28 @@ QMap<QString, Type *> PetriNet::variableList(StateList * states)
 			createType(types, vars);
 		}
 		action->setVariables(variables);
+	}
+
+	for (TransitionList::const_iterator iter = transitions->begin(); iter != transitions->end(); iter++)
+	{
+		QString guard = (* iter)->guard();
+		if (!guard.isEmpty())
+		{
+			QStringList variables;
+			QStringList list = guard.split(QRegExp("[^\\w.]+"), QString::SkipEmptyParts);
+			foreach (QString expr, list)
+			{
+				QStringList vars = expr.split('.');
+				QString variable = vars.first();
+				if (!variables.contains(variable) && !isNumber(variable))
+					variables.append(variable);
+
+				createType(types, vars);
+			}
+
+			State * state = (* iter)->source();
+			state->setVariables(variables);
+		}
 	}
 
 	return types;
@@ -356,16 +369,15 @@ void PetriNet::setInitialMarking(StateList * states, StateList * netStates)
 }
 
 void PetriNet::initVariables(StateList * states, QMap<QString, Type *> types)
-{
-	bool flag = true;
+{	
 	QList<State *> places = states->find(place_node);
-	for (int i = 0; i < places.count() && flag; ++i)
+	foreach (State * state, places)
 	{
-		NetPlace * place = dynamic_cast<NetPlace *>(places[i]);
+		NetPlace * place = dynamic_cast<NetPlace *>(state);
+		place->reinitPlace();
+
 		foreach (QString variable, place->variables())
 			if (types.contains(variable))
 				place->addVariableValue(variable, types.take(variable));
-
-		flag = !types.isEmpty();
 	}
 }

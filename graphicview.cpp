@@ -3,9 +3,9 @@
 #include "petrinet.h"
 #include "rpn.h"
 
-#include <QDebug>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QMessageBox>
 
 View::View(QWidget * parent) : QWidget(parent) {}
 
@@ -106,10 +106,18 @@ void NetworkView::initInterface()
 	btnStop->setToolTip(conv("Сброс результатов моделирования"));
 	btnStop->setIconSize(QSize(48, 48));
 	btnStop->setFixedSize(48, 48);
+
+	btnRefresh = new QPushButton(this);
+	btnRefresh->setIcon(QIcon(":Refresh"));
+	btnRefresh->setToolTip(conv("Задание новой разметки сети"));
+	btnRefresh->setIconSize(QSize(48, 48));
+	btnRefresh->setFixedSize(48, 48);
 	hLayout->addStretch();
 	hLayout->addWidget(btnPlay);
 	hLayout->addWidget(btnStop);
 	hLayout->addStretch();
+	hLayout->addWidget(btnRefresh);
+
 
 	vLayout->addWidget(view);
 	vLayout->addLayout(hLayout);
@@ -120,6 +128,8 @@ void NetworkView::initConnections()
 {
 	connect(btnPlay, SIGNAL(clicked()), SLOT(play()));
 	connect(btnStop, SIGNAL(clicked()), SLOT(stop()));
+	connect(btnStop, SIGNAL(clicked()), SIGNAL(reinitMarking()));
+	connect(btnRefresh, SIGNAL(clicked()), SIGNAL(reinitValues()));
 	connect(timer, SIGNAL(timeout()), SLOT(timeout()));
 }
 
@@ -142,13 +152,19 @@ void NetworkView::play()
 
 void NetworkView::stop()
 {
+	btnPlay->setIcon(QIcon(":Play"));
+	btnPlay->setToolTip(conv("Моделирование работы сети"));
+	execution = false;
+
+	scene->update();
 	timer->stop();
 }
+
 
 void NetworkView::timeout()
 {
 	QList<NetPlace *> activePlaces;
-	QList<State *> places = states->find(place_node);
+	QList<State *> places = netStates->find(place_node);
 	QMultiMap<NetPlace *, NetTransition *> activeTransitions;
 
 	foreach (State * state, places)
@@ -174,8 +190,6 @@ void NetworkView::timeout()
 					if (!expression.isEmpty())
 					{
 						flag = RPN::calculate(expression);
-
-						qDebug() << place->id() << "Transition" << expression << RPN::calculate(expression);
 					}
 				}
 				else
@@ -216,9 +230,33 @@ void NetworkView::timeout()
 		}
 	}
 
-	scene->update();
-	if (activeTransitions.count() == 0)
+	if (activeTransitions.isEmpty())
+	{
 		stop();
+
+		State * final = states->find(final_state).first();
+		State * state = netStates->find(QString("%1_place").arg(final->id())).first();
+		NetPlace * place = dynamic_cast<NetPlace *>(state);
+		if (place->marking() == 0)
+		{
+			QString placeList;
+			foreach (State * state, netStates->find(place_node))
+			{
+				NetPlace * place = dynamic_cast<NetPlace *>(state);
+				if (place->marking() > 0)
+					placeList += place->id() + ", ";
+			}
+
+			QMessageBox::information(this, conv("Результат моделирования"),
+									 conv("Сеть не завершила работу,\nв позициях (%1) находятся фишки").arg(placeList.left(placeList.length() - 2)));
+		}
+		else
+		{
+			QMessageBox::information(this, conv("Результат моделирования"), conv("В процессе моделирования сеть пришла в конечное состояние"));
+		}
+	}
+
+	scene->update();
 }
 
 void NetworkView::drawDiagram(PlanarDrawer * drawer)
@@ -228,7 +266,8 @@ void NetworkView::drawDiagram(PlanarDrawer * drawer)
 	scene->update();
 }
 
-void NetworkView::setNetwork(StateList * netStates)
+void NetworkView::setNetwork(StateList * states, StateList * netStates)
 {
-	states = netStates;
+	this->states = states;
+	this->netStates = netStates;
 }

@@ -90,11 +90,15 @@ public:
 	QList<Transition *> &outgoing() { return m_outgoing; }
 	void addOutgoingTransition(Transition * transition);
 
+	QStringList variables() { return m_variables; }
+	void setVariables(const QStringList &variables) { m_variables = variables; }
+
 protected:
 	State(const QString &name, const QString &id, StateType type);
 
 	StateType m_type;
 	QString m_name, m_id;
+	QStringList m_variables;
 
 	QList<Transition *> m_incoming;
 	QList<Transition *> m_outgoing;
@@ -153,8 +157,22 @@ public:
 
 		return result;
 	}
+	bool addVariables(QStringList &variables)
+	{
+		bool result;
+		foreach (QString variable, variables)
+			result &= addVariable(variable);
+		return result;
+	}
 	bool removeVariable(const QString &variable) { return m_variables.removeOne(variable); }
 	void addVariableValue(const QString &variable, Type * type);
+	void reinitPlace()
+	{
+		m_values.clear();
+		m_types.clear();
+		qDeleteAll(m_marking.begin(), m_marking.end());
+		m_marking.clear();
+	}
 
 	// Substitute the values
 	QString substituteValues(const QString &expression);
@@ -200,12 +218,9 @@ public:
 
 	QString expression() { return m_expression; }
 	void setExpression(const QString &expression) { m_expression = expression; }
-	QStringList variables() { return m_variables; }
-	void setVariables(const QStringList &variables) { m_variables = variables; }
 
 private:
 	QString m_expression;
-	QStringList m_variables;
 };
 
 class DiagramCondition: public State

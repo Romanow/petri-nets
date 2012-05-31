@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Wed May 30 23:27:38 2012
+** Created: Thu May 31 20:56:02 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -37,6 +37,8 @@ static const uint qt_meta_data_MainWindow[] = {
       41,   11,   11,   11, 0x08,
       58,   11,   11,   11, 0x08,
       79,   11,   11,   11, 0x08,
+     102,   11,   11,   11, 0x08,
+     118,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -44,7 +46,8 @@ static const uint qt_meta_data_MainWindow[] = {
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0clear()\0newFile()\0openFile()\0"
     "openRecentFile()\0convertToSimpleNet()\0"
-    "convertToColouredNet()\0"
+    "convertToColouredNet()\0reinitMarking()\0"
+    "reinitValues()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -82,9 +85,11 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 3: openRecentFile(); break;
         case 4: convertToSimpleNet(); break;
         case 5: convertToColouredNet(); break;
+        case 6: reinitMarking(); break;
+        case 7: reinitValues(); break;
         default: ;
         }
-        _id -= 6;
+        _id -= 8;
     }
     return _id;
 }
